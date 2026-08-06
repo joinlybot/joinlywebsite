@@ -2698,3 +2698,12 @@ footer{
 
 
 }
+
+.channels a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.channels a:hover {
+    text-decoration: underline;
+}
