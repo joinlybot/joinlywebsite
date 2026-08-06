@@ -3,6 +3,16 @@
         {
             "service": "Website",
             "status": "Maintenance",
+            "date": "6 August 2026",
+            "description": "Quick maintenance to boost speeds.",
+            "startTime": 1786022676973,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        },
+        {
+            "service": "Website",
+            "status": "Maintenance",
             "date": "1 August 2026",
             "description": "The Joinly website is currently undergoing maintenance as we improve the card layouts and refine the overall design to provide a better user experience.",
             "startTime": 1785620094956,
