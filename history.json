@@ -6,9 +6,9 @@
             "date": "6 August 2026",
             "description": "Quick maintenance to boost speeds.",
             "startTime": 1786022676973,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1786022768083,
+            "duration": "1 minutes",
+            "resolved": true
         },
         {
             "service": "Website",
