@@ -1,3 +1,14 @@
 [
-
+    {
+        "title": "Website Upgrade",
+        "date": "August 6, 2026",
+        "type": "Website",
+        "content": [
+            "<strong>Joinly has moved to Netlify!</strong>",
+            "",
+            "We are now using Netlify instead of GitHub Pages to provide improved performance, better uptime, and extended deployment capabilities.",
+            "",
+            "This change allows Joinly to benefit from more advanced features, improved reliability, and a smoother experience for everyone."
+        ]
+    }
 ]
