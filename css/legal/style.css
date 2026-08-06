@@ -1,0 +1,1188 @@
+/* ===========================================
+   Joinly Legal Pages
+   Shared Website Theme
+=========================================== */
+
+:root{
+
+    --background:#0b0f16;
+    --background-light:#131a24;
+
+    --card:#171f2b;
+    --card-hover:#1d2736;
+
+    --primary:#5865F2;
+    --primary-hover:#6a75ff;
+
+    --text:#ffffff;
+    --muted:#9ca3af;
+
+    --border:rgba(255,255,255,.08);
+
+    --radius:18px;
+
+    --transition:.25s ease;
+
+    --shadow:
+        0 20px 45px rgba(0,0,0,.35);
+
+}
+
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+body{
+
+    background:
+        radial-gradient(circle at top,#1b2844 0%,#0b0f16 45%);
+
+    color:var(--text);
+
+    font-family:'Inter',sans-serif;
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+
+}
+
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:82px;
+
+    padding:0 80px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(11,15,22,.65);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    z-index:999;
+
+}
+
+
+
+.nav-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+
+
+/* LOGO */
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:21px;
+
+}
+
+
+
+.logo img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    transition:.25s ease;
+
+}
+
+
+
+.logo:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* ==============================
+   DROPDOWN
+============================== */
+
+
+.dropdown{
+
+    position:relative;
+
+}
+
+
+
+.dropdown-btn{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-family:inherit;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:10px 0;
+
+}
+
+
+
+.dropdown-btn svg{
+
+    transition:.25s;
+
+}
+
+
+
+.dropdown.active svg{
+
+    transform:rotate(180deg);
+
+}
+
+
+
+.dropdown-menu{
+
+    position:absolute;
+
+    top:55px;
+
+    left:0;
+
+    width:340px;
+
+    background:#161d28;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:12px;
+
+    display:none;
+
+    box-shadow:var(--shadow);
+
+    animation:dropdown .25s ease;
+
+}
+
+
+
+.dropdown.active .dropdown-menu{
+
+    display:block;
+
+}
+
+
+
+.dropdown-menu a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    transition:.2s;
+
+}
+
+
+
+.dropdown-menu a:hover{
+
+    background:#202a3b;
+
+}
+
+
+
+.dropdown-menu h4{
+
+    font-size:15px;
+
+}
+
+
+
+.dropdown-menu p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:3px;
+
+}
+
+
+
+@keyframes dropdown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* ==============================
+   BUTTONS
+============================== */
+
+
+.invite-btn,
+.primary-btn{
+
+    background:var(--primary);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 26px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+
+
+.invite-btn:hover,
+.primary-btn:hover{
+
+    background:var(--primary-hover);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(88,101,242,.35);
+
+}
+
+
+
+.premium-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 26px;
+
+    border-radius:14px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    background:linear-gradient(
+        135deg,
+        #ff424d,
+        #ff7b54
+    );
+
+    transition:.25s ease;
+
+}
+
+
+
+.premium-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(255,66,77,.35);
+
+}
+/* ==============================
+   HEADERS
+============================== */
+
+
+.badge{
+
+    display:inline-block;
+
+    background:rgba(88,101,242,.15);
+
+    color:#8ea3ff;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    margin-bottom:24px;
+
+    font-weight:600;
+
+}
+
+
+
+.page-header,
+.legal-page-header,
+.privacy-page-header{
+
+    padding-top:170px;
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+
+.page-header h1,
+.legal-page-header h1,
+.privacy-page-header h1{
+
+    font-size:56px;
+
+    line-height:1.1;
+
+    margin:18px 0;
+
+}
+
+
+
+.page-header p,
+.legal-page-header p,
+.privacy-page-header p{
+
+    color:var(--muted);
+
+    font-size:18px;
+
+}
+
+
+
+
+
+/* ==============================
+   CONTENT LAYOUT
+============================== */
+
+
+.legal-home-layout,
+.tos-layout,
+.privacy-layout{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:70px 40px;
+
+}
+
+
+
+/* ==============================
+   LEGAL HOME CONTENT
+   Matches index.html
+============================== */
+
+
+.legal-home-layout{
+
+    max-width:1100px;
+
+    padding:20px 40px 100px;
+
+}
+
+
+
+.legal-home-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+
+
+
+/* ==============================
+   LEGAL CARDS
+============================== */
+
+
+.legal-home-card,
+.tos-card,
+.privacy-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    margin-bottom:25px;
+
+    transition:
+
+        transform .3s cubic-bezier(.4,0,.2,1),
+
+        border-color .3s ease,
+
+        box-shadow .3s ease,
+
+        background .3s ease;
+
+}
+
+
+
+
+
+/* Clickable cards only */
+
+.legal-home-link:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    background:var(--card-hover);
+
+    border-color:#5865F2;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.5),
+
+        0 0 25px rgba(88,101,242,.15);
+
+}
+
+
+
+
+
+.legal-home-link{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==============================
+   CARD HEADERS
+============================== */
+
+
+.legal-home-header,
+.tos-card-header,
+.privacy-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:18px;
+
+}
+
+
+
+.legal-home-header span,
+.tos-card-header span,
+.privacy-card-header span{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+
+
+
+
+.tos-card h2,
+.privacy-card h2,
+.legal-home-card h2{
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+}
+
+
+
+
+
+.legal-home-header h2{
+
+    font-size:26px;
+
+}
+
+
+
+
+
+.tos-card p,
+.privacy-card p,
+.legal-home-card p,
+li{
+
+    color:var(--muted);
+
+}
+
+
+
+
+
+/* ==============================
+   LEGAL HOME BOX
+============================== */
+
+
+.tos-data-box,
+.privacy-box,
+.legal-home-box{
+
+    margin-top:20px;
+
+    margin-bottom:25px;
+
+    padding:22px;
+
+    background:#111823;
+
+    border-radius:16px;
+
+    border:1px solid var(--border);
+
+}
+
+
+
+
+
+.legal-home-box{
+
+    margin-top:25px;
+
+    background:#10151d;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+}
+
+
+
+
+
+.legal-home-box p{
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+.tos-data-box h3,
+.privacy-box h3{
+
+    margin-bottom:14px;
+
+    font-size:18px;
+
+}
+
+
+
+
+
+ul{
+
+    padding-left:25px;
+
+}
+
+
+
+li{
+
+    margin-bottom:10px;
+
+}
+/* ==============================
+   CODE STYLE
+============================== */
+
+
+code{
+
+    background:rgba(255,255,255,.08);
+
+    padding:4px 8px;
+
+    border-radius:6px;
+
+    font-family:Consolas,monospace;
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==============================
+   LEGAL LISTS
+============================== */
+
+
+.tos-list,
+.privacy-list{
+
+    background:#111823;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:22px 22px 22px 45px;
+
+    margin:20px 0;
+
+}
+
+
+
+.tos-list li,
+.privacy-list li{
+
+    margin-bottom:12px;
+
+}
+
+
+
+.tos-list li:last-child,
+.privacy-list li:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+
+footer{
+
+    margin-top:120px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    padding:50px 80px;
+
+}
+
+
+
+.footer-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.footer-links{
+
+    display:flex;
+
+    gap:28px;
+
+}
+
+
+
+.footer-links a{
+
+    color:var(--muted);
+
+    text-decoration:none;
+
+    transition:.25s ease;
+
+}
+
+
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==============================
+   MOBILE RESPONSIVE
+============================== */
+
+
+@media(max-width:1000px){
+
+
+    .navbar{
+
+        padding:0 25px;
+
+    }
+
+
+
+    .nav-right{
+
+        gap:10px;
+
+    }
+
+
+
+.invite-btn{
+
+    display:none;
+
+}
+
+.premium-btn{
+
+    display:flex;
+
+}
+
+
+
+    .dropdown-menu{
+
+        width:300px;
+
+    }
+
+
+
+    .footer-content{
+
+        flex-direction:column;
+
+        gap:30px;
+
+    }
+
+
+
+    .page-header,
+    .legal-page-header,
+    .privacy-page-header{
+
+        padding-left:25px;
+
+        padding-right:25px;
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:700px){
+
+
+    .legal-home-layout,
+    .tos-layout,
+    .privacy-layout{
+
+        padding-left:25px;
+
+        padding-right:25px;
+
+    }
+
+
+
+    .page-header,
+    .legal-page-header,
+    .privacy-page-header{
+
+        padding-top:130px;
+
+        padding-left:25px;
+
+        padding-right:25px;
+
+    }
+
+
+
+    .page-header h1,
+    .legal-page-header h1,
+    .privacy-page-header h1{
+
+        font-size:40px;
+
+    }
+
+
+
+    .legal-home-header,
+    .tos-card-header,
+    .privacy-card-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+
+
+    .legal-home-card,
+    .tos-card,
+    .privacy-card{
+
+        padding:25px;
+
+    }
+
+
+
+
+
+    /* ==============================
+       MOBILE NAVBAR
+    ============================== */
+
+
+    .navbar{
+
+        padding:0 14px;
+
+        background:rgba(11,15,22,.85);
+
+    }
+
+
+
+    .nav-left{
+
+        width:auto;
+
+        justify-content:flex-start;
+
+        gap:14px;
+
+    }
+
+
+
+    .nav-right{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:8px;
+
+    }
+
+
+
+    .invite-btn{
+
+        display:none;
+
+    }
+
+
+
+    .premium-btn{
+
+    display:flex;
+
+    padding:8px 12px;
+
+    font-size:13px;
+
+}
+
+
+
+    .dropdown{
+
+        margin-left:0;
+
+    }
+
+
+
+    .dropdown-btn{
+
+        font-size:15px;
+
+    }
+
+
+
+    .dropdown-menu{
+
+        position:fixed;
+
+        top:72px;
+
+        left:14px;
+
+        right:14px;
+
+        width:auto;
+
+        max-width:none;
+
+        max-height:70vh;
+
+        overflow-y:auto;
+
+    }
+
+
+
+    .logo img{
+
+        width:36px;
+
+        height:36px;
+
+    }
+
+
+
+    .logo{
+
+        font-size:18px;
+
+    }
+
+
+
+
+
+    /* ==============================
+       FOOTER MOBILE
+    ============================== */
+
+
+    footer{
+
+        padding:45px 25px;
+
+    }
+
+
+
+    .footer-content{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        gap:30px;
+
+    }
+
+
+
+    .footer-links{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:12px;
+
+        width:100%;
+
+    }
+
+
+
+    .footer-links a{
+
+        display:block;
+
+        width:100%;
+
+    }
+
+
+}
