@@ -1,0 +1,28 @@
+{
+    "services": [
+        {
+            "name": "Bot API",
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
+        },
+        {
+            "name": "Website",
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
+        },
+        {
+            "name": "Database",
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
+        },
+        {
+            "name": "Discord Gateway",
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
+        }
+    ]
+}

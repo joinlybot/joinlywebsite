@@ -1,0 +1,24 @@
+{
+    "incidents": [
+        {
+            "service": "Website",
+            "status": "Maintenance",
+            "date": "1 August 2026",
+            "description": "The Joinly website is currently undergoing maintenance as we improve the card layouts and refine the overall design to provide a better user experience.",
+            "startTime": 1785620094956,
+            "endTime": 1785620981613,
+            "duration": "14 minutes",
+            "resolved": true
+        },
+        {
+            "service": "Website",
+            "status": "Offline",
+            "date": "27 July 2026",
+            "description": "The Joinly website will remain offline until we fix an issue with the status page.",
+            "startTime": 1785130261987,
+            "endTime": 1785130412252,
+            "duration": "2 minutes",
+            "resolved": true
+        }
+    ]
+}
