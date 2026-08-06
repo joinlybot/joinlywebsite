@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Joinly • Variables</title>
+
+<link rel="icon"
+href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+
+<link rel="stylesheet" href="../../css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="nav-left">
+
+<a href="/" class="logo">
+
+<img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+
+<span>Joinly</span>
+
+</a>
+
+
+<div class="dropdown">
+
+<button class="dropdown-btn">
+
+Help
+
+<svg width="14" height="14" viewBox="0 0 24 24">
+<path fill="currentColor" d="M7 10l5 5 5-5z"/>
+</svg>
+
+</button>
+
+
+<div class="dropdown-menu">
+
+<a href="https://discord.gg/PTrU8DQacj" target="_blank">
+<div>
+<h4>Support Server</h4>
+<p>Need Help? Join Our Discord.</p>
+</div>
+</a>
+
+<a href="/status">
+<div>
+<h4>Status</h4>
+<p>Joinly Service Status.</p>
+</div>
+</a>
+
+<a href="/updates">
+<div>
+<h4>Updates</h4>
+<p>Latest Joinly Changes.</p>
+</div>
+</a>
+
+<a href="/features">
+<div>
+<h4>Features</h4>
+<p>Joinly Features & Commands.</p>
+</div>
+</a>
+
+<a href="/faq">
+<div>
+<h4>FAQ</h4>
+<p>Frequently Asked Questions.</p>
+</div>
+</a>
+
+<a href="/legal">
+<div>
+<h4>Legal</h4>
+<p>Joinly Legal Information.</p>
+</div>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="nav-right">
+
+<a class="premium-btn"
+href="https://www.patreon.com/cw/Joinly"
+target="_blank">
+
+⭐ Joinly Premium
+
+</a>
+
+
+<a class="invite-btn"
+href="https://discord.com/oauth2/authorize?client_id=1528785988237922304"
+target="_blank">
+
+Invite Joinly
+
+</a>
+
+</div>
+
+</nav>
+
+<section class="page-header">
+
+<span class="badge">
+
+Documentation
+
+</span>
+
+<h1>
+
+Variables
+
+</h1>
+
+<p>
+
+Browse every variable supported by Joinly.
+
+</p>
+
+</section>
+
+<section class="docs-container">
+
+    <div class="search-box">
+
+        <input type="text" id="variableSearch" placeholder="Search variables by name or tag...">
+
+    </div>
+
+    <section class="variable-section">
+
+        <div class="section-title">
+
+            <h2>Free Variables</h2>
+
+            <span>7 Variables</span>
+
+        </div>
+
+<div class="variable-grid">
+
+    <div class="variable-card">
+        <h3>Username</h3>
+        <p>Displays the member's account name.</p>
+        <code>{username}</code>
+    </div>
+
+    <div class="variable-card">
+        <h3>Mention</h3>
+        <p>Mentions the user.</p>
+        <code>{mention}</code>
+    </div>
+
+	<div class="variable-card">
+        <h3>User</h3>
+        <p>Mentions the user.</p>
+        <code>{user}</code>
+    </div>
+
+    <div class="variable-card">
+        <h3>Avatar</h3>
+        <p>Displays the user's avatar.</p>
+        <code>{avatar}</code>
+    </div>
+
+    <div class="variable-card">
+        <h3>Server Name</h3>
+        <p>Displays the server's name.</p>
+        <code>{server}</code>
+    </div>
+
+    <div class="variable-card">
+        <h3>Member Count</h3>
+        <p>Displays the server's current member count.</p>
+        <code>{membercount}</code>
+    </div>
+
+    <div class="variable-card">
+        <h3>Member Count (Ordinal)</h3>
+        <p>Displays the server's member count as an ordinal number.</p>
+        <code>{membercountordinal}</code>
+    </div>
+
+    <div class="variable-card">
+        <h3>Account Created</h3>
+        <p>Displays when the user's Discord account was created.</p>
+        <code>{created}</code>
+    </div>
+
+</div>
+
+    </section>
+
+    <section class="variable-section premium-section">
+
+        <div class="section-title">
+
+            <h2>⭐ Premium Variables</h2>
+
+            <span>9 Premium Variables</span>
+
+        </div>
+
+        <div class="variable-grid">
+
+    <div class="variable-card premium">
+        <h3>User ID</h3>
+        <p>Displays the user's Discord ID.</p>
+        <code>{userid}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>Server ID</h3>
+        <p>Displays the server's Discord ID.</p>
+        <code>{serverid}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>Joined Server</h3>
+        <p>Displays when the user joined the server.</p>
+        <code>{joined}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>Bot</h3>
+        <p>Displays whether the user is a bot.</p>
+        <code>{bot}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>User Roles</h3>
+        <p>Displays the user's roles.</p>
+        <code>{roles}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>Role Count</h3>
+        <p>Displays the number of roles the user has.</p>
+        <code>{rolecount}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>Highest Role</h3>
+        <p>Displays the user's highest role.</p>
+        <code>{highestrole}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>Boosting Status</h3>
+        <p>Displays whether the user is boosting the server.</p>
+        <code>{boosting}</code>
+    </div>
+
+    <div class="variable-card premium">
+        <h3>Boost Date</h3>
+        <p>Displays when the user began boosting the server.</p>
+        <code>{boosted}</code>
+    </div>
+
+</div>
+
+    </section>
+
+</section>
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<h3>Joinly</h3>
+
+<p>Powering Discord communities.</p>
+
+</div>
+
+<div class="footer-links">
+
+
+
+
+    <a href="https://top.gg/bot/1528785988237922304/vote">Vote</a>
+
+	<a href="/legal">Legal</a>
+
+	<a href="/status">Status</a>
+
+
+
+
+<a href="https://discord.gg/PTrU8DQacj" target="_blank">
+
+Support
+
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="../../js/main.js"></script>
+
+<script>
+
+const search = document.getElementById("variableSearch");
+
+search.addEventListener("keyup",()=>{
+
+const value = search.value.toLowerCase();
+
+document.querySelectorAll(".variable-card").forEach(card=>{
+
+card.style.display =
+card.innerText.toLowerCase().includes(value)
+? "block"
+: "none";
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
