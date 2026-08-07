@@ -1,5 +1,19 @@
 [
     {
+        "title": "Permission Requirements",
+        "date": "August 7, 2026",
+        "type": "Permissions",
+        "content": [
+            "<strong>Permission Changes</strong>",
+            "",
+            "Joinly now requires you to have the <strong><code>MANAGE_SERVER</code></strong> (<code>MANAGE_GUILD</code>) permission in your server to use <strong>setup commands</strong>.",
+            "",
+            "This change was made because you&#39;re managing your server&#39;s settings with Joinly, and it makes permissions more consistent across all setup commands.",
+            "",
+            "Thank you for your understanding. 💙"
+        ]
+    },
+    {
         "title": "Website Upgrade",
         "date": "August 6, 2026",
         "type": "Website",
