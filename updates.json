@@ -1,5 +1,17 @@
 [
     {
+        "title": "Domain Change",
+        "date": "August 7, 2026",
+        "type": "Website",
+        "content": [
+            "<strong>Joinly has officially moved from Netlify to Vercel! 🚀</strong>",
+            "",
+            "This decision wasn&#39;t an easy one, but it will help keep costs lower for the developers in the long run. Since Joinly is a passion project and isn&#39;t generating any income, reducing unnecessary expenses is important.",
+            "",
+            "Everything you know stays the same. Same website, same features, just a new domain."
+        ]
+    },
+    {
         "title": "Permission Requirements",
         "date": "August 7, 2026",
         "type": "Permissions",
