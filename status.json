@@ -20,9 +20,9 @@
         },
         {
             "name": "Discord Gateway",
-            "status": "Degraded",
-            "state": "degraded",
-            "description": "Discord are aware of an issue preventing users and bots from sending messages, we're working on fully restoring service. This issue has expanded and is now affecting all Discord interactions. They are continuing to work towards mitigating the issue."
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
         }
     ]
 }
