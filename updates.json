@@ -10,19 +10,5 @@
             "",
             "Everything you know stays the same. Same website, same features, just a new domain."
         ]
-    },
-    {
-        "title": "Permission Requirements",
-        "date": "August 7, 2026",
-        "type": "Permissions",
-        "content": [
-            "<strong>Permission Changes</strong>",
-            "",
-            "Joinly now requires you to have the <strong>MANAGE_SERVER</strong> permission in your server to use <strong>setup commands</strong>.",
-            "",
-            "This change was made because you&#39;re managing your server&#39;s settings with Joinly, and it makes permissions more consistent across all setup commands.",
-            "",
-            "Thank you for your understanding. 💙"
-        ]
     }
 ]
