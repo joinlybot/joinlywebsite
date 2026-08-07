@@ -1,5 +1,14 @@
 {
     "incidents": [
-        
+        {
+            "service": "Discord Gateway",
+            "status": "Degraded",
+            "date": "7 August 2026",
+            "description": "Discord are aware of an issue preventing users and bots from sending messages, we're working on fully restoring service. This issue has expanded and is now affecting all Discord interactions. We're continuing to work towards mitigating the issue.",
+            "startTime": 1786142207307,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        }
     ]
 }
