@@ -1,5 +1,34 @@
 [
     {
+        "title": "Member Tracking",
+        "date": "August 9, 2026",
+        "type": "Feature",
+        "content": [
+            "<strong>NEW: Join &amp; Leave Logs</strong>",
+            "",
+            "Joinly now lets you automatically log members joining and leaving your server.",
+            "",
+            "<strong>Completely FREE — no Premium required.</strong>",
+            "",
+            "Configure your logging channel with <code>/join-logs</code> and Joinly will automatically send detailed member activity logs, including:",
+            "",
+            "• Member information",
+            "• User ID",
+            "• Account creation date",
+            "• Account age",
+            "• Server member count",
+            "• Join/leave timestamps",
+            "• Time spent in the server",
+            "",
+            "<strong>How to enable:</strong>",
+            "<code>/join-logs channel:#member-logs</code>",
+            "",
+            "You can also enable, disable, or view your current configuration at any time.",
+            "",
+            "<strong>Available now for all Joinly servers.</strong>"
+        ]
+    },
+    {
         "title": "Domain Change",
         "date": "August 7, 2026",
         "type": "Website",
