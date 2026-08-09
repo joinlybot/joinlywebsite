@@ -160,3 +160,60 @@ window.addEventListener("load", ()=>{
     document.body.classList.add("loaded");
 
 });
+
+/* ===========================
+Join Log Example Popout
+=========================== */
+
+const joinLogExample = document.querySelector(".join-log-reference");
+const joinLogModal = document.querySelector("#join-log-modal");
+const closeJoinLogButtons = document.querySelectorAll("[data-close-join-log]");
+
+if (joinLogExample && joinLogModal) {
+
+    const openJoinLog = () => {
+
+        joinLogModal.classList.add("active");
+        joinLogModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+
+    };
+
+    const closeJoinLog = () => {
+
+        joinLogModal.classList.remove("active");
+        joinLogModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+
+    };
+
+    joinLogExample.addEventListener("click", openJoinLog);
+
+    joinLogExample.addEventListener("keydown", (e) => {
+
+        if (e.key === "Enter" || e.key === " ") {
+
+            e.preventDefault();
+            openJoinLog();
+
+        }
+
+    });
+
+    closeJoinLogButtons.forEach(button => {
+
+        button.addEventListener("click", closeJoinLog);
+
+    });
+
+    document.addEventListener("keydown", (e) => {
+
+        if (e.key === "Escape") {
+
+            closeJoinLog();
+
+        }
+
+    });
+
+}
