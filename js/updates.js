@@ -19,9 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /*
-        Dropdown handling
-    */
 
     if(dropdown && button && menu){
 
@@ -57,10 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /*
-        Load updates
-    */
-
     fetch("updates.json")
 
         .then(response => response.json())
@@ -72,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            // Newest updates first
 
             updates.sort((a, b) => {
 
@@ -121,10 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-    /*
-        Create dropdown categories
-    */
 
     function createFilters(){
 
@@ -231,11 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-    /*
-        Update dropdown button text
-    */
-
     function updateButton(text){
 
 
@@ -262,10 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-    /*
-        Render updates
-    */
 
     function renderUpdates(){
 
@@ -300,8 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const card = document.createElement("div");
 
-
-            // KEEP ORIGINAL CSS CLASSES
 
             card.className = "variable-card update-card";
 
