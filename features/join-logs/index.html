@@ -1,241 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Join & Leave Logs — Joinly</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/style.css">
+<title>Joinly • Join & Leave Logs </title>
+
+<link rel="icon"
+href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+
+<link rel="stylesheet" href="../../css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
 </head>
 
 <body>
 
-    <header class="navbar">
+<nav class="navbar">
 
-        <div class="navbar-left">
+<div class="nav-left">
 
-            <a href="/" class="logo">
-                Joinly
-            </a>
+<a href="/" class="logo">
 
-            <div class="dropdown">
+<img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
 
-                <button class="dropdown-button">
-                    Help
-                </button>
+<span>Joinly</span>
 
-                <div class="dropdown-content">
+</a>
 
-                    <a href="/status">
-                        Status
-                    </a>
+<div class="dropdown">
 
-                    <a
-                        href="https://discord.gg/PTrU8DQacj"
-                        target="_blank"
-                    >
-                        Support Server
-                    </a>
+<button class="dropdown-btn">
 
-                    <a href="/faq">
-                        FAQ
-                    </a>
+Help
 
-                    <a href="/variables">
-                        Variables
-                    </a>
+<svg width="14" height="14" viewBox="0 0 24 24">
+<path fill="currentColor" d="M7 10l5 5 5-5z"/>
+</svg>
 
-                </div>
+</button>
 
-            </div>
+<div class="dropdown-menu">
 
-        </div>
+<a href="https://discord.gg/PTrU8DQacj" target="_blank">
+<div>
+<h4>Support Server</h4>
+<p>Need Help? Join Our Discord.</p>
+</div>
+</a>
 
+<a href="/status">
+<div>
+<h4>Status</h4>
+<p>Joinly Service Status.</p>
+</div>
+</a>
 
-        <div class="navbar-right">
+<a href="/updates">
+<div>
+<h4>Updates</h4>
+<p>Latest Joinly Changes.</p>
+</div>
+</a>
 
-            <a
-                href="https://www.patreon.com/cw/Joinly/"
-                class="premium-button"
-                target="_blank"
-            >
-                ⭐ Joinly Premium
-            </a>
+<a href="/features">
+<div>
+<h4>Features</h4>
+<p>Joinly Features & Commands.</p>
+</div>
+</a>
 
-            <a
-                href="https://discord.com/oauth2/authorize?client_id=1528785988237922304&permissions=2147485696&scope=bot%20applications.commands"
-                class="invite-button"
-                target="_blank"
-            >
-                Invite Joinly
-            </a>
+<a href="/faq">
+<div>
+<h4>FAQ</h4>
+<p>Frequently Asked Questions.</p>
+</div>
+</a>
 
-        </div>
+<a href="/legal">
+<div>
+<h4>Legal</h4>
+<p>Joinly Legal Information.</p>
+</div>
+</a>
 
-    </header>
+</div>
 
+</div>
 
-    <main class="feature-page">
+</div>
 
-        <section class="feature-header">
+<div class="nav-right">
 
-            <span class="feature-badge free">
-                Free Feature
-            </span>
+<a class="premium-btn"
+href="https://www.patreon.com/cw/Joinly"
+target="_blank">
 
-            <h1>
-                Join & Leave Logs
-            </h1>
+⭐ Joinly Premium
 
-            <p>
-                Automatically track members joining and leaving
-                your community with detailed activity logs.
-            </p>
+</a>
 
-            <span class="command-count">
-                1 Command
-            </span>
+<a class="invite-btn"
+href="https://discord.com/oauth2/authorize?client_id=1528785988237922304"
+target="_blank">
 
-        </section>
+Invite Joinly
 
+</a>
 
-        <section class="feature-content">
+</div>
 
-            <div class="feature-card">
+</nav>
 
-                <h2>
-                    Member Activity
-                </h2>
+<section class="page-header">
 
-                <p>
-                    Keep track of every member joining and leaving
-                    your server with clean, detailed Discord embeds.
-                </p>
+<span class="badge">
 
-            </div>
+Free Feature
 
+</span>
 
-            <div class="feature-card">
+<h1>
 
-                <h2>
-                    Join Logs
-                </h2>
+Join & Leave Logs
 
-                <p>
-                    See important information whenever a member
-                    joins, including their username, user ID,
-                    account creation date, account age, join time,
-                    and current server member count.
-                </p>
+</h1>
 
-            </div>
+<p>
 
+Automatically track members joining and leaving your community with detailed activity logs.
 
-            <div class="feature-card">
+</p>
 
-                <h2>
-                    Leave Logs
-                </h2>
+</section>
 
-                <p>
-                    See when members leave and how long they were
-                    part of your community, alongside their account
-                    and membership information.
-                </p>
+<section class="docs-container">
 
-            </div>
+<section class="variable-section">
 
+<div class="section-title">
 
-            <div class="feature-card">
+<h2>Join & Leave Logs Documentation</h2>
 
-                <h2>
-                    Simple Configuration
-                </h2>
+<span>1 Command</span>
 
-                <p>
-                    Configure everything with a single command.
-                    Choose your logging channel and Joinly handles
-                    the rest automatically.
-                </p>
+</div>
 
-                <div class="command-box">
-                    /join-logs channel:#member-logs
-                </div>
+<div class="variable-grid">
 
-            </div>
+<div class="variable-card">
 
+<h3>Member Activity</h3>
 
-            <div class="feature-card">
+<p>Keep track of every member joining and leaving your server with clean, detailed Discord embeds.</p>
 
-                <h2>
-                    Completely Free
-                </h2>
+</div>
 
-                <p>
-                    Join & Leave Logs are available to every Joinly
-                    server. No Premium subscription is required.
-                </p>
+<div class="variable-card">
 
-            </div>
+<h3>Join Logs</h3>
 
-        </section>
+<p>See important information whenever a member joins, including their username, user ID, account creation date, account age, join time, and current server member count.</p>
 
-    </main>
+</div>
 
+<div class="variable-card">
 
-    <footer class="footer">
+<h3>Leave Logs</h3>
 
-        <div class="footer-content">
+<p>See when members leave and how long they were part of your community, alongside their account and membership information.</p>
 
-            <div class="footer-brand">
+</div>
 
-                <h2>
-                    Joinly
-                </h2>
+<div class="variable-card">
 
-                <p>
-                    Powerful tools for your Discord community.
-                </p>
+<h3>Simple Configuration</h3>
 
-            </div>
+<p>Configure everything with a single command. Choose your logging channel and Joinly handles the rest automatically.</p>
 
+<h3><code><span class="slash-command">/join-logs channel:#member-logs</span></code></h3>
 
-            <div class="footer-links">
+</div>
 
-                <a href="https://top.gg/bot/1528785988237922304/vote">
-                    Vote
-                </a>
+<div class="variable-card">
 
-                <a href="/legal">
-                    Legal
-                </a>
+<h3>Completely Free</h3>
 
-                <a href="/status">
-                    Status
-                </a>
+<p>Join & Leave Logs are available to every Joinly server. No Premium subscription is required.</p>
 
-            </div>
+</div>
 
+</div>
 
-            <div class="footer-support">
+</section>
 
-                <h3>
-                    Support
-                </h3>
+</section>
 
-                <a
-                    href="https://discord.gg/PTrU8DQacj"
-                    target="_blank"
-                >
-                    Join Support Server
-                </a>
+<footer>
 
-            </div>
+<div class="footer-content">
 
-        </div>
+<div>
 
-    </footer>
+<h3>Joinly</h3>
+
+<p>Powering Discord communities.</p>
+
+</div>
+
+<div class="footer-links">
+
+<a href="https://top.gg/bot/1528785988237922304/vote">Vote</a>
+
+<a href="/legal">Legal</a>
+
+<a href="/status">Status</a>
+
+<a href="https://discord.gg/PTrU8DQacj" target="_blank">
+
+Support
+
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="../../js/main.js"></script>
 
 </body>
 </html>
