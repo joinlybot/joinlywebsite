@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+
         /*
             FEATURES SUBMENU
 
@@ -41,10 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
             submenu to the right.
         */
 
-        const featuresItem = document.querySelector(".features-dropdown");
-        const featuresMenu = document.querySelector(".features-menu");
+        const featuresItems =
+            document.querySelectorAll(".features-dropdown");
 
-        if (featuresItem && featuresMenu) {
+        featuresItems.forEach(featuresItem => {
+
+            const featuresMenu =
+                featuresItem.querySelector(".features-menu");
+
+            if (!featuresMenu) return;
 
             featuresItem.addEventListener("mouseenter", () => {
 
@@ -58,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
 
-        }
+        });
 
     }
 
@@ -76,7 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (window.scrollY > 15) {
 
                 navbar.style.background = "rgba(11,15,22,.90)";
-                navbar.style.boxShadow = "0 10px 35px rgba(0,0,0,.35)";
+                navbar.style.boxShadow =
+                    "0 10px 35px rgba(0,0,0,.35)";
 
             } else {
 
@@ -156,13 +163,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Escape") {
 
             if (dropdown) {
+
                 dropdown.classList.remove("active");
+
             }
 
             document
                 .querySelectorAll(".features-dropdown")
                 .forEach(item => {
+
                     item.classList.remove("active");
+
                 });
 
         }
@@ -174,7 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ACTIVE DROPDOWN LINK
     */
 
-    const current = window.location.pathname.replace(/\/$/, "");
+    const current =
+        window.location.pathname.replace(/\/$/, "");
+
 
     document.querySelectorAll(".dropdown-menu a").forEach(link => {
 
@@ -182,7 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!href) return;
 
-        const normalizedHref = href.replace(/\/$/, "");
+        const normalizedHref =
+            href.replace(/\/$/, "");
 
         if (normalizedHref === current) {
 
