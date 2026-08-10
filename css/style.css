@@ -2557,137 +2557,19 @@ footer{
     text-decoration: underline;
 }
 
-/* Features submenu */
+/* =========================================
+   FEATURES / LEGAL / STATUS SUBMENUS
+========================================= */
 
-/* Features submenu */
-
-.features-dropdown {
-    position: relative;
-}
-
-.features-dropdown > a {
-    display: block;
-}
-
-.features-menu {
-    position: absolute;
-
-    top: -12px;
-    left: calc(100% + 14px);
-
-    width: 280px;
-
-    background: #161d28;
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 12px;
-
-    box-shadow: var(--shadow);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateX(-8px);
-
-    transition:
-        opacity .2s ease,
-        transform .2s ease,
-        visibility .2s ease;
-
-    z-index: 1000;
-}
-
-/* Invisible bridge between the menus */
-
-.features-menu::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -14px;
-
-    width: 14px;
-    height: 100%;
-}
-
-.features-dropdown:hover .features-menu {
-    opacity: 1;
-
-    visibility: visible;
-
-    transform: translateX(0);
-}
-
-.features-menu a {
-    display: block;
-
-    text-decoration: none;
-
-    color: white;
-
-    padding: 14px;
-
-    border-radius: 14px;
-
-    transition: .2s;
-}
-
-.features-menu a:hover {
-    background: #202a3b;
-}
-
-.features-menu a::after {
-    display: none;
-}
-
- /* Legal & Status dropdown items */
-
-.dropdown-menu > a {
-    display: block;
-
-    text-decoration: none;
-
-    color: white;
-
-    padding: 14px;
-
-    border-radius: 14px;
-
-    transition: .2s;
-}
-
-.dropdown-menu > a:hover {
-    background: #202a3b;
-}
-
-.dropdown-menu > a div {
-    display: block;
-}
-
-.dropdown-menu > a h4 {
-    font-size: 15px;
-
-    margin: 0;
-}
-
-.dropdown-menu > a p {
-    color: var(--muted);
-
-    font-size: 13px;
-
-    margin-top: 3px;
-}
-
-/* Legal & Status submenus */
-
+.features-dropdown,
 .dropdown-submenu {
     position: relative;
 }
 
+
+/* Main dropdown items */
+
+.features-dropdown > a,
 .dropdown-submenu > a {
     display: block;
 
@@ -2702,10 +2584,18 @@ footer{
     transition: .2s;
 }
 
+
+.features-dropdown > a:hover,
 .dropdown-submenu > a:hover {
     background: #202a3b;
 }
 
+
+/* =========================================
+   FEATURES SUBMENU
+========================================= */
+
+.features-menu,
 .dropdown-submenu-menu {
     position: absolute;
 
@@ -2737,8 +2627,12 @@ footer{
     z-index: 1000;
 }
 
-/* Invisible hover bridge */
 
+/* =========================================
+   INVISIBLE HOVER BRIDGE
+========================================= */
+
+.features-menu::before,
 .dropdown-submenu-menu::before {
     content: "";
 
@@ -2751,6 +2645,12 @@ footer{
     height: 100%;
 }
 
+
+/* =========================================
+   OPEN SUBMENUS
+========================================= */
+
+.features-dropdown:hover .features-menu,
 .dropdown-submenu:hover .dropdown-submenu-menu {
     opacity: 1;
 
@@ -2759,6 +2659,12 @@ footer{
     transform: translateX(0);
 }
 
+
+/* =========================================
+   SUBMENU LINKS
+========================================= */
+
+.features-menu a,
 .dropdown-submenu-menu a {
     display: block;
 
@@ -2773,10 +2679,91 @@ footer{
     transition: .2s;
 }
 
+
+.features-menu a:hover,
 .dropdown-submenu-menu a:hover {
     background: #202a3b;
 }
 
+
+/* Remove unwanted arrow styling */
+
+.features-menu a::after,
 .dropdown-submenu-menu a::after {
     display: none;
+}
+
+
+/* =========================================
+   SUBMENU HEADINGS
+========================================= */
+
+.features-menu h4,
+.dropdown-submenu-menu h4 {
+    font-size: 15px;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   SUBMENU DESCRIPTIONS
+========================================= */
+
+.features-menu p,
+.dropdown-submenu-menu p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 3px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   MAIN DROPDOWN ITEMS
+========================================= */
+
+.dropdown-menu > a {
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    transition: .2s;
+}
+
+
+.dropdown-menu > a:hover {
+    background: #202a3b;
+}
+
+
+.dropdown-menu > a div {
+    display: block;
+}
+
+
+.dropdown-menu > a h4 {
+    font-size: 15px;
+
+    margin: 0;
+}
+
+
+.dropdown-menu > a p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 3px;
+
+    line-height: 1.5;
 }
