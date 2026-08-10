@@ -23,12 +23,14 @@
 }
 
 
+/* =========================
+   RESET
+========================= */
+
 *{
 
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
 
 }
@@ -44,7 +46,11 @@ html{
 body{
 
     background:
-        radial-gradient(circle at top,#1b2844 0%,#0b0f16 45%);
+        radial-gradient(
+            circle at top,
+            #1b2844 0%,
+            #0b0f16 45%
+        );
 
     color:var(--text);
 
@@ -57,6 +63,9 @@ body{
 }
 
 
+/* =========================
+   SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar{
 
@@ -81,13 +90,15 @@ body{
 }
 
 
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
 
     position:fixed;
 
     top:0;
-
     left:0;
 
     width:100%;
@@ -113,8 +124,8 @@ body{
 }
 
 
-
-.nav-left{
+.nav-left,
+.navbar-left{
 
     display:flex;
 
@@ -125,6 +136,21 @@ body{
 }
 
 
+.nav-right,
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+
+/* =========================
+   LOGO
+========================= */
 
 .logo{
 
@@ -145,7 +171,6 @@ body{
 }
 
 
-
 .logo img{
 
     width:42px;
@@ -157,13 +182,15 @@ body{
 }
 
 
+/* =========================
+   HELP DROPDOWN
+========================= */
 
 .dropdown{
 
     position:relative;
 
 }
-
 
 
 .dropdown-btn{
@@ -198,7 +225,7 @@ body{
 }
 
 
-.dropdown.active svg{
+.dropdown.active .dropdown-btn svg{
 
     transform:rotate(180deg);
 
@@ -281,6 +308,149 @@ body{
 }
 
 
+/* =========================
+   FEATURES SUBMENU
+========================= */
+
+.features-dropdown{
+
+    position:relative;
+
+}
+
+
+/*
+    The Features link itself
+    stays inside the main dropdown.
+*/
+
+.features-dropdown > a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+/*
+    Small arrow indicating
+    another menu exists.
+*/
+
+.features-dropdown > a::after{
+
+    content:"›";
+
+    font-size:20px;
+
+    line-height:1;
+
+    color:var(--muted);
+
+    transition:.2s ease;
+
+}
+
+
+.features-dropdown:hover > a::after{
+
+    color:white;
+
+    transform:translateX(3px);
+
+}
+
+
+/*
+    Submenu that pops out
+    to the right.
+*/
+
+.features-menu{
+
+    position:absolute;
+
+    top:-12px;
+
+    left:calc(100% + 10px);
+
+    width:270px;
+
+    background:#161d28;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:12px;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transform:translateX(-8px);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+
+    z-index:1000;
+
+}
+
+
+/*
+    Hovering Features opens
+    the submenu.
+*/
+
+.features-dropdown:hover .features-menu,
+.features-dropdown.active .features-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    transform:translateX(0);
+
+}
+
+
+/*
+    Keep submenu links
+    visually consistent.
+*/
+
+.features-menu a{
+
+    display:block;
+
+    padding:13px 14px;
+
+}
+
+
+.features-menu a:hover{
+
+    background:#202a3b;
+
+}
+
+
+/* =========================
+   DROPDOWN ANIMATION
+========================= */
+
 @keyframes dropdown{
 
     from{
@@ -300,6 +470,12 @@ body{
     }
 
 }
+
+
+/* =========================
+   BUTTONS
+========================= */
+
 .invite-btn,
 .primary-btn{
 
@@ -354,7 +530,52 @@ body{
 }
 
 
+/* =========================
+   PREMIUM
+========================= */
 
+.premium-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 26px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #ff424d,
+        #ff7b54
+    );
+
+    transition:.25s;
+
+}
+
+
+.premium-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(255,66,77,.35);
+
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
 
@@ -373,7 +594,6 @@ body{
     gap:90px;
 
 }
-
 
 
 .badge{
@@ -395,7 +615,6 @@ body{
 }
 
 
-
 .hero h1{
 
     font-size:64px;
@@ -405,7 +624,6 @@ body{
     margin-bottom:22px;
 
 }
-
 
 
 .hero p{
@@ -419,7 +637,6 @@ body{
 }
 
 
-
 .hero-buttons{
 
     margin-top:38px;
@@ -431,8 +648,9 @@ body{
 }
 
 
-
-
+/* =========================
+   DISCORD CARD
+========================= */
 
 .discord-card{
 
@@ -449,8 +667,8 @@ body{
 }
 
 
-
-.card-header{
+.card-header,
+.discord-card-header{
 
     display:flex;
 
@@ -463,8 +681,8 @@ body{
 }
 
 
-
-.card-header img{
+.card-header img,
+.discord-card-header img{
 
     width:55px;
 
@@ -475,8 +693,8 @@ body{
 }
 
 
-
-.card-header span{
+.card-header span,
+.discord-card-header span{
 
     display:block;
 
@@ -488,6 +706,52 @@ body{
 
 }
 
+
+.card-header > div,
+.discord-card-header > div{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.card-header strong,
+.discord-card-header strong{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    white-space:nowrap;
+
+}
+
+
+.app-badge{
+
+    background:#5865f2;
+
+    color:white;
+
+    font-size:11px;
+
+    padding:2px 5px;
+
+    border-radius:4px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+}
 
 
 .card-body p{
@@ -503,8 +767,96 @@ body{
 }
 
 
+.discord-mention{
+
+    color:#5865f2;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
 
 
+.embed-preview{
+
+    background:#242429;
+
+    border-left:4px solid #00a884;
+
+    padding:16px;
+
+    border-radius:6px;
+
+}
+
+
+.embed-preview h4{
+
+    margin:0 0 12px;
+
+    font-size:16px;
+
+}
+
+
+.embed-preview p{
+
+    color:#dbdee1;
+
+    margin:10px 0;
+
+}
+
+
+.embed-preview strong{
+
+    color:white;
+
+}
+
+
+.embed-preview .channels span{
+
+    background:#313338;
+
+    color:#5865f2;
+
+    padding:2px 5px;
+
+    border-radius:3px;
+
+}
+
+
+.embed-preview small{
+
+    color:#b5bac1;
+
+    font-weight:600;
+
+}
+
+
+.channels a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+.channels a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================
+   FEATURES
+========================= */
 
 .features{
 
@@ -515,7 +867,6 @@ body{
     padding:120px 80px;
 
 }
-
 
 
 .features h2{
@@ -529,7 +880,6 @@ body{
 }
 
 
-
 .feature-grid{
 
     display:grid;
@@ -539,7 +889,6 @@ body{
     gap:28px;
 
 }
-
 
 
 .feature-card{
@@ -557,13 +906,11 @@ body{
 }
 
 
-
 .feature-card h3{
 
     margin-bottom:14px;
 
 }
-
 
 
 .feature-card p{
@@ -573,8 +920,9 @@ body{
 }
 
 
-
-
+/* =========================
+   FOOTER
+========================= */
 
 footer{
 
@@ -585,7 +933,6 @@ footer{
     padding:50px 80px;
 
 }
-
 
 
 .footer-content{
@@ -599,7 +946,6 @@ footer{
 }
 
 
-
 .footer-links{
 
     display:flex;
@@ -607,7 +953,6 @@ footer{
     gap:28px;
 
 }
-
 
 
 .footer-links a{
@@ -619,104 +964,16 @@ footer{
 }
 
 
-
 .footer-links a:hover{
 
     color:white;
 
 }
-@media(max-width:1000px){
 
 
-.hero{
-
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-}
-
-
-
-.hero-buttons{
-
-    justify-content:center;
-
-}
-
-
-
-.discord-card{
-
-    margin:auto;
-
-}
-
-
-
-.feature-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.footer-content{
-
-    flex-direction:column;
-
-    gap:30px;
-
-}
-
-
-
-.navbar{
-
-    padding:0 25px;
-
-}
-
-
-
-.hero{
-
-    padding:150px 25px 70px;
-
-}
-
-
-
-.features{
-
-    padding:70px 25px;
-
-}
-
-
-
-.hero h1{
-
-    font-size:44px;
-
-}
-
-
-
-.dropdown-menu{
-
-    width:300px;
-
-}
-
-
-
-}
-
-
-
-
+/* =========================
+   GENERAL PAGES
+========================= */
 
 .page-header{
 
@@ -727,7 +984,6 @@ footer{
 }
 
 
-
 .page-header h1{
 
     font-size:56px;
@@ -735,7 +991,6 @@ footer{
     margin:18px 0;
 
 }
-
 
 
 .page-header p{
@@ -751,9 +1006,6 @@ footer{
 }
 
 
-
-
-
 .docs-container{
 
     max-width:1200px;
@@ -765,8 +1017,9 @@ footer{
 }
 
 
-
-
+/* =========================
+   FAQ
+========================= */
 
 .faq-section{
 
@@ -777,7 +1030,6 @@ footer{
     padding:20px 30px 100px;
 
 }
-
 
 
 .faq-container{
@@ -791,7 +1043,6 @@ footer{
 }
 
 
-
 .faq-card{
 
     background:var(--card);
@@ -803,7 +1054,6 @@ footer{
     overflow:hidden;
 
 }
-
 
 
 .faq-question{
@@ -835,7 +1085,6 @@ footer{
 }
 
 
-
 .faq-question span{
 
     font-size:28px;
@@ -843,7 +1092,6 @@ footer{
     transition:.3s;
 
 }
-
 
 
 .faq-answer{
@@ -857,7 +1105,6 @@ footer{
 }
 
 
-
 .faq-answer p{
 
     padding:0 28px 28px;
@@ -867,13 +1114,11 @@ footer{
 }
 
 
-
 .faq-card.open .faq-answer{
 
     max-height:300px;
 
 }
-
 
 
 .faq-card.open .faq-question span{
@@ -883,8 +1128,9 @@ footer{
 }
 
 
-
-
+/* =========================
+   STATUS
+========================= */
 
 .status-container{
 
@@ -895,7 +1141,6 @@ footer{
     padding:20px 40px 100px;
 
 }
-
 
 
 .overall-status{
@@ -954,9 +1199,6 @@ footer{
 }
 
 
-
-
-
 .status-dot{
 
     width:12px;
@@ -972,9 +1214,6 @@ footer{
 }
 
 
-
-
-
 .status-dot.operational{
 
     background:#2ecc71;
@@ -982,9 +1221,6 @@ footer{
     box-shadow:0 0 14px #2ecc71;
 
 }
-
-
-
 
 
 .status-dot.maintenance{
@@ -996,9 +1232,6 @@ footer{
 }
 
 
-
-
-
 .status-dot.degraded{
 
     background:#f39c12;
@@ -1006,9 +1239,6 @@ footer{
     box-shadow:0 0 14px #f39c12;
 
 }
-
-
-
 
 
 .status-dot.offline{
@@ -1020,11 +1250,7 @@ footer{
 }
 
 
-
-
-
 @keyframes statusPulse{
-
 
     0%{
 
@@ -1034,7 +1260,6 @@ footer{
 
     }
 
-
     50%{
 
         transform:scale(1.35);
@@ -1042,7 +1267,6 @@ footer{
         opacity:.55;
 
     }
-
 
     100%{
 
@@ -1052,11 +1276,7 @@ footer{
 
     }
 
-
 }
-
-
-
 
 
 .status-grid{
@@ -1068,9 +1288,6 @@ footer{
     gap:25px;
 
 }
-
-
-
 
 
 .status-card{
@@ -1086,8 +1303,6 @@ footer{
     transition:.25s;
 
 }
-
-
 
 
 .status-title{
@@ -1109,9 +1324,6 @@ footer{
 }
 
 
-
-
-
 .status-card p{
 
     color:var(--muted);
@@ -1119,26 +1331,15 @@ footer{
 }
 
 
+/* =========================
+   SEARCH / VARIABLES
+========================= */
 
-
-
-@media(max-width:900px){
-
-
-    .status-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-}
 .search-box{
 
     margin-bottom:40px;
 
 }
-
 
 
 .search-box input{
@@ -1166,7 +1367,6 @@ footer{
 }
 
 
-
 .search-box input:focus{
 
     border-color:var(--primary);
@@ -1174,17 +1374,16 @@ footer{
 }
 
 
-
 .variable-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
 
     gap:25px;
 
 }
-
 
 
 .variable-card{
@@ -1202,7 +1401,6 @@ footer{
 }
 
 
-
 .variable-card h3{
 
     margin-bottom:12px;
@@ -1212,7 +1410,6 @@ footer{
 }
 
 
-
 .variable-card p{
 
     margin-bottom:18px;
@@ -1220,7 +1417,6 @@ footer{
     color:var(--muted);
 
 }
-
 
 
 .variable-card code{
@@ -1237,7 +1433,7 @@ footer{
 
     color:#8ea3ff;
 
-    font-family:Consolas, monospace;
+    font-family:Consolas,monospace;
 
     overflow-x:auto;
 
@@ -1246,15 +1442,18 @@ footer{
 }
 
 
-
-
-
 .variable-section{
 
     margin-top:70px;
 
 }
 
+
+.variable-section > .variable-card + .variable-card{
+
+    margin-top:25px;
+
+}
 
 
 .section-title{
@@ -1274,7 +1473,6 @@ footer{
 }
 
 
-
 .section-title h2{
 
     font-size:34px;
@@ -1282,7 +1480,6 @@ footer{
     font-weight:700;
 
 }
-
 
 
 .section-title span{
@@ -1294,13 +1491,22 @@ footer{
 }
 
 
+.section-title a{
+
+    text-decoration:none;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+}
+
 
 .premium-section{
 
     margin-top:100px;
 
 }
-
 
 
 .variable-card.premium{
@@ -1316,7 +1522,6 @@ footer{
 }
 
 
-
 .variable-card.premium code{
 
     color:#FFD54A;
@@ -1324,15 +1529,15 @@ footer{
 }
 
 
-
-
+/* =========================
+   UPDATES FILTER
+========================= */
 
 .updates-filter-dropdown{
 
     position:relative;
 
 }
-
 
 
 .updates-filter-btn{
@@ -1364,13 +1569,11 @@ footer{
 }
 
 
-
 .updates-filter-btn:hover{
 
     background:#202a3c;
 
 }
-
 
 
 .updates-filter-btn svg{
@@ -1380,14 +1583,12 @@ footer{
 }
 
 
-
-.updates-filter-dropdown.active 
+.updates-filter-dropdown.active
 .updates-filter-btn svg{
 
     transform:rotate(180deg);
 
 }
-
 
 
 .updates-filter-menu{
@@ -1419,14 +1620,12 @@ footer{
 }
 
 
-
-.updates-filter-dropdown.active 
+.updates-filter-dropdown.active
 .updates-filter-menu{
 
     display:block;
 
 }
-
 
 
 .updates-filter-menu a{
@@ -1448,13 +1647,11 @@ footer{
 }
 
 
-
 .updates-filter-menu a:hover{
 
     background:#202a3b;
 
 }
-
 
 
 .updates-filter-menu h4{
@@ -1466,7 +1663,6 @@ footer{
 }
 
 
-
 .updates-filter-menu p{
 
     color:var(--muted);
@@ -1476,63 +1672,15 @@ footer{
     margin-top:3px;
 
 }
-.nav-right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-}
 
 
-
-.premium-btn{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:14px 26px;
-
-    border-radius:14px;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    color:#fff;
-
-    background:linear-gradient(
-        135deg,
-        #ff424d,
-        #ff7b54
-    );
-
-    transition:.25s;
-
-}
-
-
-
-.premium-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 12px 28px rgba(255,66,77,.35);
-
-}
-
-
-
-
+/* =========================
+   CODE
+========================= */
 
 code{
 
-    background:rgba(255,255,255,0.08);
+    background:rgba(255,255,255,.08);
 
     padding:4px 8px;
 
@@ -1543,9 +1691,6 @@ code{
     color:white;
 
 }
-
-
-
 
 
 .slash-command{
@@ -1563,154 +1708,9 @@ code{
 }
 
 
-
-
-
-.card-header > div{
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
-
-
-
-
-.card-header strong{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
-
-    white-space:nowrap;
-
-}
-
-
-
-
-
-.app-badge{
-
-    background:#5865f2;
-
-    color:white;
-
-    font-size:11px;
-
-    padding:2px 5px;
-
-    border-radius:4px;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    line-height:1;
-
-    white-space:nowrap;
-
-}
-
-
-
-
-
-.discord-mention{
-
-    color:#5865f2;
-
-    font-weight:600;
-
-    margin-bottom:8px;
-
-}
-
-
-
-
-
-.embed-preview{
-
-    background:#242429;
-
-    border-left:4px solid #00a884;
-
-    padding:16px;
-
-    border-radius:6px;
-
-}
-
-
-
-
-
-.embed-preview h4{
-
-    margin:0 0 12px;
-
-    font-size:16px;
-
-}
-
-
-
-
-
-.embed-preview p{
-
-    color:#dbdee1;
-
-    margin:10px 0;
-
-}
-
-
-
-
-
-.embed-preview strong{
-
-    color:white;
-
-}
-
-
-
-
-
-.embed-preview .channels span{
-
-    background:#313338;
-
-    color:#5865f2;
-
-    padding:2px 5px;
-
-    border-radius:3px;
-
-}
-
-
-
-
-
-.embed-preview small{
-
-    color:#b5bac1;
-
-    font-weight:600;
-
-}
-
-
-
-
+/* =========================
+   UPDATES
+========================= */
 
 .update-card{
 
@@ -1719,17 +1719,11 @@ code{
 }
 
 
-
-
-
 .update-card:last-child{
 
     margin-bottom:0;
 
 }
-
-
-
 
 
 .update-header{
@@ -1745,17 +1739,11 @@ code{
 }
 
 
-
-
-
 .update-header h3{
 
     margin-bottom:6px;
 
 }
-
-
-
 
 
 .update-header span{
@@ -1767,212 +1755,9 @@ code{
 }
 
 
-
-
-
-@media(max-width:600px){
-
-
-.navbar{
-
-    padding:0 14px;
-
-}
-
-
-
-.nav-left{
-
-    width:auto;
-
-    justify-content:flex-start;
-
-    gap:14px;
-
-}
-
-
-
-.nav-right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-}
-
-
-
-.invite-btn{
-
-    display:none;
-
-}
-
-
-
-.premium-btn{
-
-    padding:8px 12px;
-
-    font-size:13px;
-
-}
-
-
-
-.dropdown{
-
-    margin-left:0;
-
-}
-
-
-
-.dropdown-btn{
-
-    font-size:15px;
-
-}
-
-
-
-.dropdown-menu{
-
-    position:fixed;
-
-    top:72px;
-
-    left:14px;
-
-    right:14px;
-
-    width:auto;
-
-    max-width:none;
-
-    margin:0;
-
-    max-height:70vh;
-
-    overflow-y:auto;
-
-}
-
-
-
-.logo img{
-
-    width:36px;
-
-    height:36px;
-
-}
-
-
-
-.logo{
-
-    font-size:18px;
-
-}
-
-
-
-.navbar{
-
-    background:rgba(11,15,22,.85);
-
-}
-
-
-
-
-
-.section-title{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:20px;
-
-}
-
-
-
-.updates-filter-menu{
-
-    position:fixed;
-
-    top:72px;
-
-    left:14px;
-
-    right:14px;
-
-    width:auto;
-
-    max-width:none;
-
-    max-height:70vh;
-
-    overflow-y:auto;
-
-}
-
-
-
-footer{
-
-    padding:45px 25px;
-
-}
-
-
-
-.footer-content{
-
-    flex-direction:column;
-
-    align-items:center;
-
-    text-align:center;
-
-    gap:30px;
-
-}
-
-
-
-.footer-links{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:12px;
-
-    width:100%;
-
-}
-
-
-
-.footer-links a{
-
-    display:block;
-
-    width:100%;
-
-}
-
-
-}
+/* =========================
+   INCIDENTS
+========================= */
 
 .incident-card{
 
@@ -2000,8 +1785,9 @@ footer{
 }
 
 
-
-
+/* =========================
+   STATUS MODAL
+========================= */
 
 #status-modal{
 
@@ -2010,17 +1796,11 @@ footer{
 }
 
 
-
-
-
 #status-modal.active{
 
     display:block;
 
 }
-
-
-
 
 
 .status-overlay{
@@ -2046,9 +1826,6 @@ footer{
 }
 
 
-
-
-
 .status-popup{
 
     position:relative;
@@ -2072,9 +1849,6 @@ footer{
 }
 
 
-
-
-
 .status-popup h2{
 
     margin-bottom:12px;
@@ -2082,9 +1856,6 @@ footer{
     font-size:28px;
 
 }
-
-
-
 
 
 .popup-status{
@@ -2098,9 +1869,6 @@ footer{
 }
 
 
-
-
-
 .popup-description{
 
     color:var(--text);
@@ -2110,9 +1878,6 @@ footer{
     white-space:pre-wrap;
 
 }
-
-
-
 
 
 .status-close{
@@ -2140,9 +1905,6 @@ footer{
 }
 
 
-
-
-
 .status-close:hover{
 
     opacity:1;
@@ -2150,11 +1912,7 @@ footer{
 }
 
 
-
-
-
 @keyframes statusPopup{
-
 
     from{
 
@@ -2164,7 +1922,6 @@ footer{
 
     }
 
-
     to{
 
         opacity:1;
@@ -2173,8 +1930,12 @@ footer{
 
     }
 
-
 }
+
+
+/* =========================
+   STATUS HISTORY
+========================= */
 
 #history-container{
 
@@ -2185,9 +1946,6 @@ footer{
     gap:25px;
 
 }
-
-
-
 
 
 .status-history-card{
@@ -2205,9 +1963,6 @@ footer{
 }
 
 
-
-
-
 .history-header{
 
     display:flex;
@@ -2223,9 +1978,6 @@ footer{
 }
 
 
-
-
-
 .history-header h3{
 
     font-size:22px;
@@ -2235,9 +1987,6 @@ footer{
 }
 
 
-
-
-
 .history-header span{
 
     color:var(--muted);
@@ -2245,9 +1994,6 @@ footer{
     font-size:14px;
 
 }
-
-
-
 
 
 .history-status{
@@ -2263,9 +2009,6 @@ footer{
 }
 
 
-
-
-
 .history-status.offline{
 
     background:rgba(239,68,68,.15);
@@ -2273,9 +2016,6 @@ footer{
     color:#ef4444;
 
 }
-
-
-
 
 
 .history-status.maintenance{
@@ -2287,9 +2027,6 @@ footer{
 }
 
 
-
-
-
 .history-status.degraded{
 
     background:rgba(243,156,18,.15);
@@ -2297,9 +2034,6 @@ footer{
     color:#f39c12;
 
 }
-
-
-
 
 
 .history-description{
@@ -2311,9 +2045,6 @@ footer{
     margin-bottom:22px;
 
 }
-
-
-
 
 
 .history-footer{
@@ -2331,48 +2062,9 @@ footer{
 }
 
 
-
-
-
-@media(max-width:700px){
-
-
-    .history-header{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-    }
-
-
-    .history-footer{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:10px;
-
-    }
-
-
-}
-
-.section-title a{
-
-    text-decoration:none;
-
-    color:var(--muted);
-
-    font-size:15px;
-
-}
-
-
-.variable-section > .variable-card + .variable-card {
-    margin-top:25px;
-}
+/* =========================
+   FEATURES HOME
+========================= */
 
 .features-home-layout{
 
@@ -2384,25 +2076,6 @@ footer{
 
 }
 
-.features-home-link:hover{
-
-    transform:
-        translateY(-8px)
-        scale(1.015);
-
-    background:var(--card-hover);
-
-    border-color:#5865F2;
-
-    box-shadow:
-
-        0 25px 60px rgba(0,0,0,.5),
-
-        0 0 25px rgba(88,101,242,.15);
-
-}
-
-
 
 .features-home-content{
 
@@ -2413,9 +2086,6 @@ footer{
     gap:25px;
 
 }
-
-
-
 
 
 .features-home-card{
@@ -2443,6 +2113,25 @@ footer{
 }
 
 
+.features-home-card:hover,
+.features-home-link:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    background:var(--card-hover);
+
+    border-color:#5865F2;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.5),
+
+        0 0 25px rgba(88,101,242,.15);
+
+}
+
 
 .features-home-header{
 
@@ -2459,17 +2148,11 @@ footer{
 }
 
 
-
-
-
 .features-home-header h2{
 
     font-size:26px;
 
 }
-
-
-
 
 
 .features-home-header span{
@@ -2481,9 +2164,6 @@ footer{
 }
 
 
-
-
-
 .features-home-card p{
 
     color:var(--muted);
@@ -2491,9 +2171,6 @@ footer{
     line-height:1.7;
 
 }
-
-
-
 
 
 .features-home-box{
@@ -2511,9 +2188,6 @@ footer{
 }
 
 
-
-
-
 .features-home-box p{
 
     color:white;
@@ -2523,10 +2197,331 @@ footer{
 }
 
 
+/* =========================
+   RESPONSIVE
+========================= */
 
+@media(max-width:1000px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+
+    .discord-card{
+
+        margin:auto;
+
+    }
+
+
+    .feature-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .footer-content{
+
+        flex-direction:column;
+
+        gap:30px;
+
+    }
+
+
+    .navbar{
+
+        padding:0 25px;
+
+    }
+
+
+    .hero{
+
+        padding:150px 25px 70px;
+
+    }
+
+
+    .features{
+
+        padding:70px 25px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:44px;
+
+    }
+
+
+    .dropdown-menu{
+
+        width:300px;
+
+    }
+
+
+    /*
+        On smaller screens the submenu
+        becomes a normal nested menu.
+    */
+
+    .features-menu{
+
+        position:static;
+
+        width:auto;
+
+        margin:5px 0 5px 10px;
+
+        padding:5px;
+
+        display:none;
+
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+
+        transform:none;
+
+        border-radius:12px;
+
+        box-shadow:none;
+
+        background:#10151d;
+
+    }
+
+
+    .features-dropdown:hover .features-menu,
+    .features-dropdown.active .features-menu{
+
+        display:block;
+
+    }
+
+
+    .features-menu a{
+
+        padding:11px 14px;
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .status-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
 
 
 @media(max-width:700px){
+
+    .navbar{
+
+        padding:0 14px;
+
+    }
+
+
+    .nav-left,
+    .navbar-left{
+
+        width:auto;
+
+        justify-content:flex-start;
+
+        gap:14px;
+
+    }
+
+
+    .nav-right,
+    .navbar-right{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:8px;
+
+    }
+
+
+    .invite-btn{
+
+        display:none;
+
+    }
+
+
+    .premium-btn{
+
+        padding:8px 12px;
+
+        font-size:13px;
+
+    }
+
+
+    .dropdown{
+
+        margin-left:0;
+
+    }
+
+
+    .dropdown-btn{
+
+        font-size:15px;
+
+    }
+
+
+    .dropdown-menu{
+
+        position:fixed;
+
+        top:72px;
+
+        left:14px;
+
+        right:14px;
+
+        width:auto;
+
+        max-width:none;
+
+        margin:0;
+
+        max-height:70vh;
+
+        overflow-y:auto;
+
+    }
+
+
+    .logo img{
+
+        width:36px;
+
+        height:36px;
+
+    }
+
+
+    .logo{
+
+        font-size:18px;
+
+    }
+
+
+    .navbar{
+
+        background:rgba(11,15,22,.85);
+
+    }
+
+
+    .section-title{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+
+    .updates-filter-menu{
+
+        position:fixed;
+
+        top:72px;
+
+        left:14px;
+
+        right:14px;
+
+        width:auto;
+
+        max-width:none;
+
+        max-height:70vh;
+
+        overflow-y:auto;
+
+    }
+
+
+    footer{
+
+        padding:45px 25px;
+
+    }
+
+
+    .footer-content{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        gap:30px;
+
+    }
+
+
+    .footer-links{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:12px;
+
+        width:100%;
+
+    }
+
+
+    .footer-links a{
+
+        display:block;
+
+        width:100%;
+
+    }
 
 
     .features-home-layout{
@@ -2534,7 +2529,6 @@ footer{
         padding:20px 25px 70px;
 
     }
-
 
 
     .features-home-header{
@@ -2545,14 +2539,28 @@ footer{
 
     }
 
-
 }
 
-.channels a {
-    color: inherit;
-    text-decoration: none;
-}
 
-.channels a:hover {
-    text-decoration: underline;
+@media(max-width:600px){
+
+    .history-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+
+    .history-footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
 }
