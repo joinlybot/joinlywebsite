@@ -1102,77 +1102,6 @@ footer{
 }
 
 /* =========================================
-   FEATURES / LEGAL / STATUS SUBMENUS
-========================================= */
-
-.features-dropdown,
-.dropdown-submenu {
-    position: relative;
-}
-
-
-/* Main dropdown items */
-
-.features-dropdown > a,
-.dropdown-submenu > a {
-    display: block;
-
-    text-decoration: none;
-
-    color: white;
-
-    padding: 14px;
-
-    border-radius: 14px;
-
-    transition: .2s;
-}
-
-
-.features-dropdown > a:hover,
-.dropdown-submenu > a:hover {
-    background: #202a3b;
-}
-
-
-/* =========================================
-   FEATURES SUBMENU
-========================================= */
-
-.features-menu,
-.dropdown-submenu-menu {
-    position: absolute;
-
-    top: -12px;
-    left: calc(100% + 14px);
-
-    width: 280px;
-
-    background: #161d28;
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 12px;
-
-    box-shadow: var(--shadow);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateX(-8px);
-
-    transition:
-        opacity .2s ease,
-        transform .2s ease,
-        visibility .2s ease;
-
-    z-index: 1000;
-}
-
-
-/* =========================================
    INVISIBLE HOVER BRIDGE
 ========================================= */
 
@@ -1310,4 +1239,33 @@ footer{
     margin-top: 3px;
 
     line-height: 1.5;
+}
+@media(max-width:600px){
+
+    /* Disable desktop submenu popouts on mobile */
+    .features-menu,
+    .dropdown-submenu-menu{
+
+        display:none !important;
+
+    }
+
+    /* Make the main Legal / Status / Features links clickable normally */
+    .features-dropdown > a,
+    .dropdown-submenu > a{
+
+        display:block;
+
+    }
+
+    /* Prevent hover from opening anything */
+    .features-dropdown:hover .features-menu,
+    .dropdown-submenu:hover .dropdown-submenu-menu{
+
+        display:none !important;
+        opacity:0 !important;
+        visibility:hidden !important;
+
+    }
+
 }
