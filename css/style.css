@@ -2643,3 +2643,140 @@ footer{
 .features-menu a::after {
     display: none;
 }
+
+ /* Legal & Status dropdown items */
+
+.dropdown-menu > a {
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    transition: .2s;
+}
+
+.dropdown-menu > a:hover {
+    background: #202a3b;
+}
+
+.dropdown-menu > a div {
+    display: block;
+}
+
+.dropdown-menu > a h4 {
+    font-size: 15px;
+
+    margin: 0;
+}
+
+.dropdown-menu > a p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 3px;
+}
+
+/* Legal & Status submenus */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > a {
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    transition: .2s;
+}
+
+.dropdown-submenu > a:hover {
+    background: #202a3b;
+}
+
+.dropdown-submenu-menu {
+    position: absolute;
+
+    top: -12px;
+    left: calc(100% + 14px);
+
+    width: 280px;
+
+    background: #161d28;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 12px;
+
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(-8px);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+
+    z-index: 1000;
+}
+
+/* Invisible hover bridge */
+
+.dropdown-submenu-menu::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -14px;
+
+    width: 14px;
+    height: 100%;
+}
+
+.dropdown-submenu:hover .dropdown-submenu-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(0);
+}
+
+.dropdown-submenu-menu a {
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    transition: .2s;
+}
+
+.dropdown-submenu-menu a:hover {
+    background: #202a3b;
+}
+
+.dropdown-submenu-menu a::after {
+    display: none;
+}
