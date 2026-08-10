@@ -2556,3 +2556,74 @@ footer{
 .channels a:hover {
     text-decoration: underline;
 }
+
+/* Features submenu */
+
+.features-dropdown {
+    position: relative;
+}
+
+.features-dropdown > a {
+    display: block;
+}
+
+.features-menu {
+    position: absolute;
+
+    top: -12px;
+    left: calc(100% + 10px);
+
+    width: 280px;
+
+    background: #161d28;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 12px;
+
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(-8px);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+
+    z-index: 1000;
+}
+
+.features-dropdown:hover .features-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(0);
+}
+
+.features-menu a {
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    transition: .2s;
+}
+
+.features-menu a:hover {
+    background: #202a3b;
+}
+
+.features-menu a::after {
+    display: none;
+}
