@@ -2557,9 +2557,7 @@ footer{
     text-decoration: underline;
 }
 
-/* =========================================
-   FEATURES / LEGAL / STATUS SUBMENUS
-   ========================================= */
+/* Features submenu */
 
 /* Features submenu */
 
@@ -2573,14 +2571,18 @@ footer{
 
 .features-menu {
     position: absolute;
+
     top: -12px;
     left: calc(100% + 14px);
 
     width: 280px;
 
     background: #161d28;
+
     border: 1px solid var(--border);
+
     border-radius: 18px;
+
     padding: 12px;
 
     box-shadow: var(--shadow);
@@ -2598,6 +2600,8 @@ footer{
     z-index: 1000;
 }
 
+/* Invisible bridge between the menus */
+
 .features-menu::before {
     content: "";
 
@@ -2612,7 +2616,9 @@ footer{
 
 .features-dropdown:hover .features-menu {
     opacity: 1;
+
     visibility: visible;
+
     transform: translateX(0);
 }
 
@@ -2620,6 +2626,7 @@ footer{
     display: block;
 
     text-decoration: none;
+
     color: white;
 
     padding: 14px;
@@ -2637,11 +2644,66 @@ footer{
     display: none;
 }
 
+ /* Legal & Status dropdown items */
 
-/* Legal & Status submenu */
+.dropdown-menu > a {
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    transition: .2s;
+}
+
+.dropdown-menu > a:hover {
+    background: #202a3b;
+}
+
+.dropdown-menu > a div {
+    display: block;
+}
+
+.dropdown-menu > a h4 {
+    font-size: 15px;
+
+    margin: 0;
+}
+
+.dropdown-menu > a p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 3px;
+}
+
+/* Legal & Status submenus */
 
 .dropdown-submenu {
     position: relative;
+}
+
+.dropdown-submenu > a {
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    transition: .2s;
+}
+
+.dropdown-submenu > a:hover {
+    background: #202a3b;
 }
 
 .dropdown-submenu-menu {
@@ -2653,8 +2715,11 @@ footer{
     width: 280px;
 
     background: #161d28;
+
     border: 1px solid var(--border);
+
     border-radius: 18px;
+
     padding: 12px;
 
     box-shadow: var(--shadow);
@@ -2672,6 +2737,8 @@ footer{
     z-index: 1000;
 }
 
+/* Invisible hover bridge */
+
 .dropdown-submenu-menu::before {
     content: "";
 
@@ -2686,7 +2753,9 @@ footer{
 
 .dropdown-submenu:hover .dropdown-submenu-menu {
     opacity: 1;
+
     visibility: visible;
+
     transform: translateX(0);
 }
 
@@ -2694,6 +2763,7 @@ footer{
     display: block;
 
     text-decoration: none;
+
     color: white;
 
     padding: 14px;
