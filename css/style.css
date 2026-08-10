@@ -2767,3 +2767,32 @@ footer{
 
     line-height: 1.5;
 }
+@media(max-width:600px){
+
+    /* Disable desktop submenu popouts on mobile */
+    .features-menu,
+    .dropdown-submenu-menu{
+
+        display:none !important;
+
+    }
+
+    /* Make the main Legal / Status / Features links clickable normally */
+    .features-dropdown > a,
+    .dropdown-submenu > a{
+
+        display:block;
+
+    }
+
+    /* Prevent hover from opening anything */
+    .features-dropdown:hover .features-menu,
+    .dropdown-submenu:hover .dropdown-submenu-menu{
+
+        display:none !important;
+        opacity:0 !important;
+        visibility:hidden !important;
+
+    }
+
+}
