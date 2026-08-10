@@ -2559,6 +2559,8 @@ footer{
 
 /* Features submenu */
 
+/* Features submenu */
+
 .features-dropdown {
     position: relative;
 }
@@ -2571,7 +2573,7 @@ footer{
     position: absolute;
 
     top: -12px;
-    left: calc(100% + 10px);
+    left: calc(100% + 14px);
 
     width: 280px;
 
@@ -2596,6 +2598,20 @@ footer{
         visibility .2s ease;
 
     z-index: 1000;
+}
+
+/* Invisible bridge between the menus */
+
+.features-menu::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -14px;
+
+    width: 14px;
+    height: 100%;
 }
 
 .features-dropdown:hover .features-menu {
