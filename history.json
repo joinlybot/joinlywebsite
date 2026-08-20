@@ -6,9 +6,9 @@
             "date": "20 August 2026",
             "description": "Joinly will be offline while we migrate to Components V2. This update will improve handling, embeds and so forth. Expected downtime is 1-2 hours.",
             "startTime": 1787241760923,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1787245235731,
+            "duration": "57 minutes",
+            "resolved": true
         },
         {
             "service": "Discord Gateway",
