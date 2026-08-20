@@ -2,9 +2,9 @@
     "services": [
         {
             "name": "Bot API",
-            "status": "Offline",
-            "state": "offline",
-            "description": "Joinly will be offline while we migrate to Components V2. This update will improve handling, embeds and so forth. Expected downtime is 1-2 hours."
+            "status": "Maintenance",
+            "state": "maintenance",
+            "description": "Joinly is undergoing a migration to ComponentsV2 and as such, may not function as expected."
         },
         {
             "name": "Website",
