@@ -6,9 +6,9 @@
             "date": "20 August 2026",
             "description": "The Website is under maintenance while we upgrade to Components V2.",
             "startTime": 1787247302007,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1787247364101,
+            "duration": "1 minutes",
+            "resolved": true
         },
         {
             "service": "Bot API",
