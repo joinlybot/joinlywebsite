@@ -6,9 +6,9 @@
             "date": "20 August 2026",
             "description": "Joinly is undergoing maintenance while we migrate to Components V2.",
             "startTime": 1787247163239,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1787249246054,
+            "duration": "34 minutes",
+            "resolved": true
         }
     ]
 }
