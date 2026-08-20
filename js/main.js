@@ -6,6 +6,7 @@ if (navbarContainer) {
     const response = await fetch("/components/navbar.html");
 
     navbarContainer.innerHTML = await response.text();
+        navbarContainer.classList.add("loaded");
 
 }
 
