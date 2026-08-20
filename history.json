@@ -1,16 +1,6 @@
 {
     "incidents": [
         {
-            "service": "Website",
-            "status": "Maintenance",
-            "date": "20 August 2026",
-            "description": "The Website is under maintenance while we upgrade to Components V2.",
-            "startTime": 1787247302007,
-            "endTime": 1787247364101,
-            "duration": "1 minutes",
-            "resolved": true
-        },
-        {
             "service": "Bot API",
             "status": "Maintenance",
             "date": "20 August 2026",
@@ -20,25 +10,4 @@
             "duration": null,
             "resolved": false
         },
-        {
-            "service": "Bot API",
-            "status": "Offline",
-            "date": "20 August 2026",
-            "description": "Joinly will be offline while we migrate to Components V2. This update will improve handling, embeds and so forth. Expected downtime is 1-2 hours.",
-            "startTime": 1787241760923,
-            "endTime": 1787245235731,
-            "duration": "57 minutes",
-            "resolved": true
-        },
-        {
-            "service": "Discord Gateway",
-            "status": "Degraded",
-            "date": "7 August 2026",
-            "description": "Discord are aware of an issue preventing users and bots from sending messages, we're working on fully restoring service. This issue has expanded and is now affecting all Discord interactions. They are continuing to work towards mitigating the issue.",
-            "startTime": 1786142207307,
-            "endTime": 1786142835241,
-            "duration": "10 minutes",
-            "resolved": true
-        }
-    ]
 }
