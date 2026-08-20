@@ -1,5 +1,13 @@
 [
     {
+        "title": "Test Update",
+        "date": "August 20, 2026",
+        "type": "Website",
+        "content": [
+            "Test <strong>test</strong> <em>test</em>"
+        ]
+    },
+    {
         "title": "Navigation Upgrades",
         "date": "August 10, 2026",
         "type": "Website",
