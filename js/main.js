@@ -1,4 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+        const navbarContainer = document.getElementById("navbar");
+
+if (navbarContainer) {
+
+    const response = await fetch("/components/navbar.html");
+
+    navbarContainer.innerHTML = await response.text();
+
+}
 
     /*
         MAIN NAVBAR DROPDOWN
@@ -310,9 +319,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
-
-fetch("/components/navbar.html")
-    .then(response => response.text())
-    .then(html => {
-        document.getElementById("navbar").innerHTML = html;
-    });
