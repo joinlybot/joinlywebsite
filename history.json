@@ -1,6 +1,16 @@
 {
     "incidents": [
         {
+            "service": "Website",
+            "status": "Maintenance",
+            "date": "20 August 2026",
+            "description": "The Website is under maintenance while we upgrade to Components V2.",
+            "startTime": 1787247302007,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        },
+        {
             "service": "Bot API",
             "status": "Maintenance",
             "date": "20 August 2026",
