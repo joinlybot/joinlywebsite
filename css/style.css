@@ -2796,12 +2796,3 @@ footer{
     }
 
 }
-
-#navbar {
-    min-height: 82px;
-    visibility: hidden;
-}
-
-#navbar.navbar-loaded {
-    visibility: visible;
-}
