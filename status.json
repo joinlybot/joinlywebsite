@@ -8,9 +8,9 @@
         },
         {
             "name": "Website",
-            "status": "Maintenance",
-            "state": "maintenance",
-            "description": "Quick maintenance to improve stability."
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
         },
         {
             "name": "Database",
