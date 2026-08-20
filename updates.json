@@ -1,5 +1,28 @@
 [
     {
+        "title": "Components V2 Migration",
+        "date": "August 20, 2026",
+        "type": "Bot",
+        "content": [
+            "<strong>The Joinly Components V2 migration is now complete! 🎉</strong>",
+            "Thank you for your patience while we worked through the migration. We&#39;ve made a number of updates and improvements across Joinly.",
+            "",
+            "<strong>What&#39;s changed?</strong>",
+            "<strong>Components V2</strong> — Joinly&#39;s messages have been fully migrated to the new system.",
+            "<strong>Thumbnail removed</strong> — The Thumbnail option has been removed from Welcome/Goodbye messages, and any existing thumbnail configurations have been automatically deleted.",
+            "<strong>GIF support</strong> — You can now upload GIFs directly from your device in the Welcome/Goodbye editor.",
+            "<strong>Improved messages</strong> — Welcome, goodbye, logs, polls, status updates and other messages have received various layout and reliability improvements.",
+            "<strong>Bug fixes</strong> — Several smaller issues and permission/error handling problems have also been addressed.",
+            "",
+            "⚠️ <strong>Found an issue?</strong>",
+            "If you notice any errors or something isn&#39;t working as expected, please let us know in our <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://discord.gg/PTrU8DQacj\">Support Server</a>",
+            "",
+            "Please include a screenshot or details about what happened where possible.",
+            "",
+            "<strong>Thank you again for your patience and for using Joinly!</strong> 💜"
+        ]
+    },
+    {
         "title": "Navigation Upgrades",
         "date": "August 10, 2026",
         "type": "Website",
