@@ -2798,9 +2798,10 @@ footer{
 }
 
 #navbar {
-    min-height: 70px;
+    min-height: 82px;
+    visibility: hidden;
 }
 
-#navbar:not(.loaded) {
-    visibility: hidden;
+#navbar.navbar-loaded {
+    visibility: visible;
 }
