@@ -150,14 +150,6 @@ body{
 
 
 
-.logo:hover img{
-
-    transform:scale(1.05);
-
-}
-
-
-
 .dropdown{
 
     position:relative;
@@ -1339,4 +1331,8 @@ footer{
 
     }
 
+}
+
+.tos-card p {
+    margin-bottom: 20px;
 }
