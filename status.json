@@ -2,9 +2,9 @@
     "services": [
         {
             "name": "Bot API",
-            "status": "Maintenance",
-            "state": "maintenance",
-            "description": "Joinly is undergoing a migration to ComponentsV2 and as such, may not function as expected."
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
         },
         {
             "name": "Website",
