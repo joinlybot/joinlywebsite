@@ -2,6 +2,16 @@
     "incidents": [
         {
             "service": "Bot API",
+            "status": "Maintenance",
+            "date": "20 August 2026",
+            "description": "Joinly is undergoing maintenance while we migrate to Components V2.",
+            "startTime": 1787247163239,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        },
+        {
+            "service": "Bot API",
             "status": "Offline",
             "date": "20 August 2026",
             "description": "Joinly will be offline while we migrate to Components V2. This update will improve handling, embeds and so forth. Expected downtime is 1-2 hours.",
