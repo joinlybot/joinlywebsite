@@ -1,6 +1,16 @@
 {
     "incidents": [
         {
+            "service": "Website",
+            "status": "Maintenance",
+            "date": "20 August 2026",
+            "description": "Quick maintenance to improve stability.",
+            "startTime": 1787260365755,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        },
+        {
             "service": "Bot API",
             "status": "Maintenance",
             "date": "20 August 2026",
