@@ -23,22 +23,6 @@
         ]
     },
     {
-        "title": "Navigation Upgrades",
-        "date": "August 10, 2026",
-        "type": "Website",
-        "content": [
-            "<strong>Navigation Update</strong>",
-            "",
-            "We have made several improvements to the <strong>Joinly website navigation</strong> to make it cleaner, more organised, and easier to use.",
-            "",
-            "The <strong>Features, Legal, and Status</strong> sections now include dedicated <em>submenus on desktop</em>, allowing you to quickly access related pages without leaving the main navigation. This provides easier access to pages such as <strong>Variables, Backups, Analytics, Member Logs, Terms of Service, Privacy Policy, and Status History</strong>.",
-            "",
-            "These submenu improvements <strong>do not apply on mobile devices</strong>. On mobile, clicking <strong>Features, Legal, or Status</strong> will take you directly to the relevant landing page instead of opening a submenu. This keeps the mobile navigation <em>simple and uncluttered</em> while making it easier to navigate on smaller screens.",
-            "",
-            "Overall, this update provides a <strong>cleaner and more efficient navigation experience</strong> while keeping the website consistent and easy to use across both desktop and mobile devices."
-        ]
-    },
-    {
         "title": "Member Tracking",
         "date": "August 9, 2026",
         "type": "Feature",
