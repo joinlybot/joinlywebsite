@@ -1,14 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
-        const navbarContainer = document.getElementById("navbar");
-
-if (navbarContainer) {
-
-    const response = await fetch("/components/navbar.html");
-
-    navbarContainer.innerHTML = await response.text();
-        navbarContainer.style.visibility = "visible";
-
-}
+document.addEventListener("DOMContentLoaded", () => {
 
     /*
         MAIN NAVBAR DROPDOWN
