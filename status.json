@@ -8,9 +8,9 @@
         },
         {
             "name": "Website",
-            "status": "Maintenance",
-            "state": "maintenance",
-            "description": "The Website is under maintenance while we upgrade to Components V2."
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
         },
         {
             "name": "Database",
