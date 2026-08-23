@@ -1,6 +1,16 @@
 {
     "incidents": [
         {
+            "service": "Bot API",
+            "status": "Maintenance",
+            "date": "23 August 2026",
+            "description": "Joinly will be offline during this maintenance. We are implementing vote tracking.",
+            "startTime": 1787501782952,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        },
+        {
             "service": "Website",
             "status": "Maintenance",
             "date": "20 August 2026",
