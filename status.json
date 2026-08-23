@@ -2,9 +2,9 @@
     "services": [
         {
             "name": "Bot API",
-            "status": "Maintenance",
-            "state": "maintenance",
-            "description": "Joinly will be offline during this maintenance. We are implementing vote tracking."
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
         },
         {
             "name": "Website",
