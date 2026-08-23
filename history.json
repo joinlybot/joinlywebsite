@@ -6,9 +6,9 @@
             "date": "23 August 2026",
             "description": "Joinly will be offline during this maintenance. We are implementing vote tracking.",
             "startTime": 1787501782952,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1787502652337,
+            "duration": "14 minutes",
+            "resolved": true
         },
         {
             "service": "Website",
