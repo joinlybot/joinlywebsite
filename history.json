@@ -4,7 +4,7 @@
             "service": "Bot API",
             "status": "Maintenance",
             "date": "23 August 2026",
-            "description": "Joinly will be offline during this maintenance. We are implementing vote tracking.",
+            "description": "Joinly will be offline during this maintenance.",
             "startTime": 1787501782952,
             "endTime": 1787502652337,
             "duration": "14 minutes",
