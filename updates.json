@@ -1,13 +1,5 @@
 [
     {
-        "title": "Soon...",
-        "date": "August 21, 2026",
-        "type": "Feature",
-        "content": [
-            "Watch this space... Custom Instances will be arriving soon!"
-        ]
-    },
-    {
         "title": "Components V2 Migration",
         "date": "August 20, 2026",
         "type": "Bot",
