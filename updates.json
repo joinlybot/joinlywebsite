@@ -1,5 +1,13 @@
 [
     {
+        "title": "Dashboard Update",
+        "date": "September 9, 2026",
+        "type": "Dashboard",
+        "content": [
+            "We have temporarily removed the <strong>Configure</strong> option from the <strong>My Servers</strong> page while we investigate an issue preventing users from switching between servers."
+        ]
+    },
+    {
         "title": "Components V2 Migration",
         "date": "August 20, 2026",
         "type": "Bot",
