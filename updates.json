@@ -10,16 +10,12 @@
             "",
             "<strong>What&#39;s included?</strong>",
             "<ul>",
-            "<li><strong>Daily questions:</strong> A new question every day at 13:00 GMT.</li>",
-            "<li><strong>Role pings:</strong> Mention a role when a question is posted.</li>",
-            "<li><strong>Discussion threads:</strong> Each question creates a <strong>QOTD Discussion</strong> thread.</li>",
-            "<li><strong>Easy setup:</strong> Use <strong>/qotd</strong> to choose your channel, role and enable QOTD.</li>",
+            "<strong>Daily questions:</strong> A new question every day at 13:00 GMT.",
+            "<strong>Role pings:</strong> Mention a role when a question is posted.",
+            "<strong>Discussion threads:</strong> Each question creates a <strong>QOTD Discussion</strong> thread.",
+            "<strong>Easy setup:</strong> Use <strong>/qotd</strong> to choose your channel, role and enable QOTD.",
             "</ul>",
-            "When first enabled, a question is sent immediately. Questions will then be posted daily at 13:00 GMT.",
-            "",
-            "Need help? Join our <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://discord.gg/PTrU8DQacj\"><strong>Support Server</strong></a>.",
-            "",
-            "<strong>Thanks for using Joinly!</strong> 💙"
+            "When first enabled, a question is sent immediately. Questions will then be posted daily at 13:00 GMT."
         ]
     },
     {
