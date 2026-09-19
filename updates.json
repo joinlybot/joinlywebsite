@@ -1,5 +1,28 @@
 [
     {
+        "title": "New Feature: QOTD",
+        "date": "September 19, 2026",
+        "type": "Feature",
+        "content": [
+            "<strong>Question of the Day is now available on Joinly!</strong> 🎉",
+            "",
+            "Give your members something new to discuss every day with automated questions, discussion threads and optional role pings.",
+            "",
+            "<strong>What&#39;s included?</strong>",
+            "<ul>",
+            "<li><strong>Daily questions:</strong> A new question every day at 13:00 GMT.</li>",
+            "<li><strong>Role pings:</strong> Mention a role when a question is posted.</li>",
+            "<li><strong>Discussion threads:</strong> Each question creates a <strong>QOTD Discussion</strong> thread.</li>",
+            "<li><strong>Easy setup:</strong> Use <strong>/qotd</strong> to choose your channel, role and enable QOTD.</li>",
+            "</ul>",
+            "When first enabled, a question is sent immediately. Questions will then be posted daily at 13:00 GMT.",
+            "",
+            "Need help? Join our <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://discord.gg/PTrU8DQacj\"><strong>Support Server</strong></a>.",
+            "",
+            "<strong>Thanks for using Joinly!</strong> 💙"
+        ]
+    },
+    {
         "title": "Dashboard Update",
         "date": "September 9, 2026",
         "type": "Dashboard",
