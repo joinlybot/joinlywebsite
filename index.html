@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Joinly</title>
+<title>Joinly — Discord, made simpler.</title>
 
 <link rel="icon"
 href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
@@ -24,280 +24,228 @@ rel="stylesheet">
 
 <nav class="navbar">
 
+    <div class="nav-left">
 
-<div class="nav-left">
+        <a href="/" class="logo">
+            <img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+            <span>Joinly</span>
+        </a>
 
+        <div class="dropdown">
 
-<a href="/" class="logo">
+            <button class="dropdown-btn">
+                Help
+                <svg width="14" height="14" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+                </svg>
+            </button>
 
-<img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+            <div class="dropdown-menu">
 
-<span>Joinly</span>
+                <a href="/status">
+                    <div>
+                        <h4>Status</h4>
+                        <p>Joinly service status.</p>
+                    </div>
+                </a>
 
-</a>
+                <a href="/updates">
+                    <div>
+                        <h4>Updates</h4>
+                        <p>Latest Joinly changes.</p>
+                    </div>
+                </a>
 
+                <a href="/features">
+                    <div>
+                        <h4>Features</h4>
+                        <p>Explore what Joinly can do.</p>
+                    </div>
+                </a>
 
+                <a href="/faq">
+                    <div>
+                        <h4>FAQ</h4>
+                        <p>Frequently asked questions.</p>
+                    </div>
+                </a>
 
+                <a href="/legal">
+                    <div>
+                        <h4>Legal</h4>
+                        <p>Terms and privacy information.</p>
+                    </div>
+                </a>
 
-<div class="dropdown">
+                <a href="https://discord.gg/PTrU8DQacj" target="_blank">
+                    <div>
+                        <h4>Support Server</h4>
+                        <p>Get help from the Joinly team.</p>
+                    </div>
+                </a>
 
-<button class="dropdown-btn">
+            </div>
 
-Help
+        </div>
 
-<svg width="14" height="14" viewBox="0 0 24 24">
-<path fill="currentColor" d="M7 10l5 5 5-5z"/>
-</svg>
+    </div>
 
-</button>
+    <div class="nav-right">
 
+        <a class="premium-btn"
+           href="https://www.patreon.com/cw/Joinly"
+           target="_blank">
+            Joinly Premium
+        </a>
 
-<div class="dropdown-menu">
+        <a class="invite-btn"
+           href="https://joinly-dashboard.vercel.app/login"
+           target="_blank">
+            Dashboard
+        </a>
 
-<a href="https://discord.gg/PTrU8DQacj" target="_blank">
-<div>
-<h4>Support Server</h4>
-<p>Need Help? Join Our Discord.</p>
-</div>
-</a>
-
-<a href="/status">
-<div>
-<h4>Status</h4>
-<p>Joinly Service Status.</p>
-</div>
-</a>
-
-<a href="/updates">
-<div>
-<h4>Updates</h4>
-<p>Latest Joinly Changes.</p>
-</div>
-</a>
-
-<a href="/features">
-<div>
-<h4>Features</h4>
-<p>Joinly Features & Commands.</p>
-</div>
-</a>
-
-<a href="/faq">
-<div>
-<h4>FAQ</h4>
-<p>Frequently Asked Questions.</p>
-</div>
-</a>
-
-<a href="/legal">
-<div>
-<h4>Legal</h4>
-<p>Joinly Legal Information.</p>
-</div>
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="nav-right">
-
-
-<a class="premium-btn"
-href="https://www.patreon.com/cw/Joinly"
-target="_blank">
-
-⭐ Joinly Premium
-
-</a>
-
-
-
-<a class="invite-btn"
-href="https://joinly-dashboard.vercel.app/login"
-target="_blank">
-
-Dashboard
-
-</a>
-
-
-</div>
-
+    </div>
 
 </nav>
 
-<header class="hero">
 
-    <div class="hero-left">
+<main>
 
-        <span class="badge">
+<section class="hero">
 
-            Welcome to Joinly!
+    <div class="hero-glow"></div>
 
-        </span>
+    <div class="hero-content">
 
-        <h1>
+        <div class="hero-left">
 
-            👋 User engagement, made simple.
-
-        </h1>
-
-        <p>
-
-            Joinly is an advanced Discord bot built to simplify server management with powerful, customisable tools for your community.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a class="primary-btn"
-                href="https://discord.com/oauth2/authorize?client_id=1528785988237922304&permissions=412317240384"
-                target="_blank">
-
-                Invite Joinly
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="hero-right">
-
-        <div class="discord-card">
-
-<div class="card-header">
-
-    <img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
-
-    <div>
-        <strong>Joinly <span class="app-badge">APP</span></strong>
-        <span>Online</span>
-    </div>
-
-</div>
-
-
-        <div class="card-body">
-
-            <div class="discord-mention">
-                @User
+            <div class="badge">
+                <span></span>
+                Built for Discord communities
             </div>
 
+            <h1>
+                Discord,<br>
+                <span>made simpler.</span>
+            </h1>
 
-            <div class="embed-preview">
+            <p>
+                Joinly gives your community the tools it needs to stay organised,
+                engaged, and welcoming — all from one simple Discord bot.
+            </p>
 
-                <h4>
-                    Welcome, User!
-                </h4>
+            <div class="hero-buttons">
 
+                <a class="primary-btn"
+                   href="https://discord.com/oauth2/authorize?client_id=1528785988237922304&permissions=412317240384"
+                   target="_blank">
+                    Add Joinly
+                    <span>→</span>
+                </a>
 
-                <p>
-                    Welcome to <b>Joinly!</b>
-                </p>
-
-
-                <strong>
-                    Common Channels
-                </strong>
-
-
-<p class="channels">
-
-    <a href="https://joinlybot.vercel.app/updates" target="_blank">
-        <span># updates</span>
-    </a> - Joinly Development Updates<br>
-
-    <a href="https://joinlybot.vercel.app/features" target="_blank">
-        <span># features</span>
-    </a> - Joinly Features<br>
-
-    <a href="https://joinlybot.vercel.app/legal" target="_blank">
-        <span># legal</span>
-    </a> - Joinly ToS & Privacy Policy<br>
-
-    <a href="https://discord.gg/PTrU8DQacj" target="_blank">
-        <span># staff-support</span>
-    </a> - Contact staff directly for support
-
-</p>
-
-
-                <small>
-                    You are our 1045th member!
-                </small>
-
+                <a class="secondary-btn" href="/features">
+                    Explore features
+                </a>
 
             </div>
 
+            <div class="hero-note">
+                Free to use · Easy to configure · Built for Discord
+            </div>
 
         </div>
 
-    </div>
 
-</div>
+        <div class="hero-right">
 
-</header>
+            <div class="discord-window">
 
-<section class="features">
+                <div class="window-top">
 
-    <h2>
+                    <div class="window-profile">
 
-        Everything your community needs
+                        <img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
 
-    </h2>
+                        <div>
+                            <strong>Joinly <span>APP</span></strong>
+                            <small>Online</small>
+                        </div>
 
-    <div class="feature-grid">
+                    </div>
 
-        <div class="feature-card">
+                    <div class="window-status">
+                        <i></i> Online
+                    </div>
 
-            <h3>Variables</h3>
+                </div>
 
-            <p>Dynamic placeholders that automatically display server information in your messages.</p>
 
-        </div>
+                <div class="window-body">
 
-        <div class="feature-card">
+                    <div class="message">
 
-            <h3>Welcome Messages</h3>
+                        <div class="message-avatar">
+                            <img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+                        </div>
 
-            <p>Automatically greet new members with customisable welcome messages.</p>
+                        <div class="message-content">
 
-        </div>
+                            <div class="message-author">
+                                Joinly
+                                <span>APP</span>
+                                <time>Today at 15:24</time>
+                            </div>
 
-        <div class="feature-card">
+                            <div class="message-text">
+                                Welcome to the server, <b>@User</b>!
+                            </div>
 
-            <h3>Goodbye Messages</h3>
+                            <div class="message-card">
 
-            <p>Automatically send custom goodbye messages when members leave your server.</p>
+                                <div class="message-card-line"></div>
 
-        </div>
+                                <h3>Welcome, User!</h3>
 
-        <div class="feature-card">
+                                <p>
+                                    We're glad you're here. Take a look around
+                                    and make yourself at home.
+                                </p>
 
-            <h3>Advanced Setup</h3>
+                                <div class="channel-list">
 
-            <p>Customise advanced settings for a more personalised experience.</p>
+                                    <div>
+                                        <span>#</span>
+                                        <b>updates</b>
+                                        <small>Latest Joinly news</small>
+                                    </div>
 
-        </div>
+                                    <div>
+                                        <span>#</span>
+                                        <b>features</b>
+                                        <small>Explore Joinly</small>
+                                    </div>
 
-        <div class="feature-card">
+                                    <div>
+                                        <span>#</span>
+                                        <b>support</b>
+                                        <small>Need some help?</small>
+                                    </div>
 
-            <h3>Premium</h3>
+                                </div>
 
-            <p>Unlock exclusive features and advanced customisation with Joinly Premium.</p>
+                                <footer>
+                                    You are our 1045th member!
+                                </footer>
 
-        </div>
+                            </div>
 
-        <div class="feature-card">
+                        </div>
 
-            <h3>Active Development</h3>
+                    </div>
 
-            <p>Constant improvements, new features, and regular updates.</p>
+                </div>
+
+            </div>
 
         </div>
 
@@ -305,43 +253,211 @@ Dashboard
 
 </section>
 
+
+<section class="trust-section">
+
+    <p>ONE BOT. BUILT FOR YOUR COMMUNITY.</p>
+
+    <div class="trust-line"></div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="section-heading">
+
+        <span>FEATURES</span>
+
+        <h2>
+            Everything you need.<br>
+            Nothing you don't.
+        </h2>
+
+        <p>
+            Joinly brings useful community tools together without making
+            server management complicated.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <a href="/features/variables" class="feature-card feature-large">
+
+            <div class="feature-icon">{ }</div>
+
+            <div>
+                <h3>Variables</h3>
+                <p>
+                    Add dynamic server and member information to your messages
+                    with simple, flexible variables.
+                </p>
+            </div>
+
+            <span class="feature-arrow">→</span>
+
+        </a>
+
+
+        <a href="/features" class="feature-card">
+
+            <div class="feature-icon">01</div>
+
+            <h3>Welcome messages</h3>
+
+            <p>
+                Give every new member a personalised introduction.
+            </p>
+
+            <span class="feature-arrow">→</span>
+
+        </a>
+
+
+        <a href="/features" class="feature-card">
+
+            <div class="feature-icon">02</div>
+
+            <h3>Goodbye messages</h3>
+
+            <p>
+                Keep members informed when someone leaves your community.
+            </p>
+
+            <span class="feature-arrow">→</span>
+
+        </a>
+
+
+        <a href="/features/qotd" class="feature-card">
+
+            <div class="feature-icon">?</div>
+
+            <h3>Question of the Day</h3>
+
+            <p>
+                Keep conversations going with scheduled daily questions.
+            </p>
+
+            <span class="feature-arrow">→</span>
+
+        </a>
+
+
+        <a href="/features" class="feature-card">
+
+            <div class="feature-icon">03</div>
+
+            <h3>Member tools</h3>
+
+            <p>
+                Useful tools designed to make managing your community easier.
+            </p>
+
+            <span class="feature-arrow">→</span>
+
+        </a>
+
+
+        <a href="/features" class="feature-card">
+
+            <div class="feature-icon">✦</div>
+
+            <h3>Always improving</h3>
+
+            <p>
+                Joinly is actively developed with new features and improvements.
+            </p>
+
+            <span class="feature-arrow">→</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <div class="cta-glow"></div>
+
+    <div class="cta-content">
+
+        <span>READY WHEN YOU ARE</span>
+
+        <h2>
+            Give your server<br>
+            a little more.
+        </h2>
+
+        <p>
+            Add Joinly to your Discord server and start building a better
+            community experience.
+        </p>
+
+        <a class="primary-btn"
+           href="https://discord.com/oauth2/authorize?client_id=1528785988237922304&permissions=412317240384"
+           target="_blank">
+            Add Joinly
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
 <footer>
 
     <div class="footer-content">
 
-        <div>
+        <div class="footer-brand">
 
-            <h3>Joinly</h3>
+            <a href="/" class="logo">
 
-            <p>Powering Discord communities.</p>
+                <img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+
+                <span>Joinly</span>
+
+            </a>
+
+            <p>
+                Powering better Discord communities.
+            </p>
 
         </div>
 
-<div class="footer-links">
+
+        <div class="footer-links">
+
+            <a href="/features">Features</a>
+            <a href="/updates">Updates</a>
+            <a href="/status">Status</a>
+            <a href="/legal">Legal</a>
+            <a href="https://top.gg/bot/1528785988237922304/vote">Vote</a>
+
+        </div>
 
 
+        <div class="footer-bottom">
 
+            <span>© 2026 Joinly</span>
 
-    <a href="https://top.gg/bot/1528785988237922304/vote">Vote</a>
+            <a href="https://discord.gg/PTrU8DQacj" target="_blank">
+                Support Server
+            </a>
 
-	<a href="/legal">Legal</a>
-
-	<a href="/status">Status</a>
-
-
-
-
-<a href="https://discord.gg/PTrU8DQacj" target="_blank">
-
-Support
-
-</a>
-
-</div>
+        </div>
 
     </div>
 
 </footer>
+
 
 <script src="js/main.js"></script>
 
