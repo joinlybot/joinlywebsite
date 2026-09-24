@@ -1,0 +1,208 @@
+.search-box{
+
+    margin-bottom:40px;
+
+}
+
+
+
+.search-box input{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    font-size:16px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    outline:none;
+
+    color:white;
+
+    font-family:inherit;
+
+    transition:.2s;
+
+}
+
+
+
+.search-box input:focus{
+
+    border-color:var(--primary);
+
+}
+
+
+
+.variable-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.variable-card{
+
+    background:var(--card);
+
+    padding:28px;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    transition:.25s;
+
+}
+
+
+
+.variable-card h3{
+
+    margin-bottom:12px;
+
+    font-size:22px;
+
+}
+
+
+
+.variable-card p{
+
+    margin-bottom:18px;
+
+    color:var(--muted);
+
+}
+
+
+
+.variable-card code{
+
+    display:block;
+
+    padding:14px;
+
+    background:#10151d;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    color:#8ea3ff;
+
+    font-family:Consolas, monospace;
+
+    overflow-x:auto;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+
+
+
+
+.variable-section{
+
+    margin-top:70px;
+
+}
+
+
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+.section-title h2{
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+
+
+.section-title span{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+}
+
+
+
+.premium-section{
+
+    margin-top:100px;
+
+}
+
+
+
+.variable-card.premium{
+
+    border:1px solid rgba(255,215,0,.25);
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,215,0,.06),
+        var(--card)
+    );
+
+}
+
+
+
+.variable-card.premium code{
+
+    color:#FFD54A;
+
+}
+
+
+
+
+
+.section-title a{
+
+    text-decoration:none;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+}
+
+
+.variable-section > .variable-card + .variable-card {
+    margin-top:25px;
+}
