@@ -2962,3 +2962,641 @@ footer{
     }
 
 }
+
+
+/* =========================================================
+   JOINLY — BLACK / GLASS VISUAL OVERHAUL
+   Keeps existing selectors and functionality intact.
+   ========================================================= */
+
+:root {
+    --background: #050608;
+    --background-light: #0a0c10;
+    --card: #0d1015;
+    --card-hover: #12161d;
+
+    --primary: #7c6cff;
+    --primary-hover: #9184ff;
+    --primary-soft: rgba(124,108,255,.12);
+    --primary-glow: rgba(124,108,255,.24);
+
+    --text: #f5f5f7;
+    --muted: #8d929d;
+    --muted-strong: #b4b8c1;
+
+    --border: rgba(255,255,255,.075);
+    --border-strong: rgba(255,255,255,.13);
+
+    --radius: 16px;
+    --transition: .22s cubic-bezier(.2,.7,.2,1);
+
+    --shadow:
+        0 18px 55px rgba(0,0,0,.42),
+        0 2px 10px rgba(0,0,0,.28);
+}
+
+/* ---------- Base ---------- */
+
+html {
+    background: #050608;
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% -15%, rgba(124,108,255,.10), transparent 34%),
+        radial-gradient(circle at 100% 30%, rgba(255,255,255,.025), transparent 28%),
+        #050608;
+    color: var(--text);
+    letter-spacing: -.01em;
+}
+
+::selection {
+    background: rgba(124,108,255,.32);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050608;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #242832;
+    border: 2px solid #050608;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #353a47;
+}
+
+a {
+    transition: color var(--transition), opacity var(--transition);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    height: 76px;
+    padding: 0 clamp(20px, 5vw, 72px);
+    background: rgba(5,6,8,.72);
+    border-bottom: 1px solid rgba(255,255,255,.055);
+    backdrop-filter: blur(22px) saturate(130%);
+    -webkit-backdrop-filter: blur(22px) saturate(130%);
+    box-shadow: 0 10px 35px rgba(0,0,0,.14);
+}
+
+.logo {
+    gap: 11px;
+    font-size: 20px;
+    letter-spacing: -.035em;
+}
+
+.logo img {
+    width: 38px;
+    height: 38px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.nav-left,
+.nav-right {
+    gap: 10px;
+}
+
+.dropdown-btn {
+    padding: 9px 12px;
+    border-radius: 10px;
+    color: #cfd2d9;
+    transition: background var(--transition), color var(--transition);
+}
+
+.dropdown-btn:hover {
+    color: #fff;
+    background: rgba(255,255,255,.055);
+}
+
+.dropdown-menu,
+.updates-filter-menu,
+.features-menu,
+.dropdown-submenu-menu {
+    background: rgba(11,13,17,.96);
+    border: 1px solid var(--border-strong);
+    border-radius: 15px;
+    box-shadow:
+        0 28px 70px rgba(0,0,0,.55),
+        0 0 0 1px rgba(255,255,255,.015);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
+
+.dropdown-menu {
+    padding: 8px;
+}
+
+.dropdown-menu a,
+.features-dropdown > a,
+.dropdown-submenu > a,
+.features-menu a,
+.dropdown-submenu-menu a,
+.updates-filter-menu a {
+    color: #dfe1e7;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.dropdown-menu a:hover,
+.features-dropdown > a:hover,
+.dropdown-submenu > a:hover,
+.features-menu a:hover,
+.dropdown-submenu-menu a:hover,
+.updates-filter-menu a:hover {
+    background: rgba(255,255,255,.055);
+    color: #fff;
+}
+
+/* ---------- Buttons ---------- */
+
+.invite-btn,
+.primary-btn,
+.secondary-btn,
+.premium-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 19px;
+    border-radius: 11px;
+    font-weight: 650;
+    letter-spacing: -.015em;
+    cursor: pointer;
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        color var(--transition);
+}
+
+.invite-btn,
+.primary-btn {
+    color: #fff;
+    background: #7061f5;
+    border: 1px solid rgba(255,255,255,.09);
+    box-shadow:
+        0 7px 20px rgba(112,97,245,.20),
+        inset 0 1px 0 rgba(255,255,255,.13);
+}
+
+.invite-btn:hover,
+.primary-btn:hover {
+    background: #8173ff;
+    transform: translateY(-1px);
+    box-shadow:
+        0 10px 25px rgba(112,97,245,.27),
+        inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+.invite-btn:active,
+.primary-btn:active,
+.secondary-btn:active,
+.premium-btn:active {
+    transform: translateY(0) scale(.98);
+}
+
+.secondary-btn {
+    color: #e2e4e9;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.045);
+}
+
+.secondary-btn:hover {
+    background: rgba(255,255,255,.065);
+    border-color: rgba(255,255,255,.16);
+    color: #fff;
+}
+
+.premium-btn {
+    color: #fff;
+    background: linear-gradient(135deg, #ff4c65, #ff795e);
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow:
+        0 8px 25px rgba(255,76,101,.18),
+        inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.premium-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+    box-shadow:
+        0 11px 30px rgba(255,76,101,.25),
+        inset 0 1px 0 rgba(255,255,255,.20);
+}
+
+.updates-filter-btn {
+    min-height: 42px;
+    padding: 0 14px;
+    border-radius: 10px;
+    background: #0d1015;
+    border: 1px solid var(--border-strong);
+    color: #d9dbe1;
+}
+
+.updates-filter-btn:hover {
+    background: #12161c;
+    border-color: rgba(255,255,255,.15);
+}
+
+/* ---------- Badges ---------- */
+
+.badge {
+    padding: 7px 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(124,108,255,.20);
+    background: rgba(124,108,255,.09);
+    color: #a99fff;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+/* ---------- Headers / Typography ---------- */
+
+.page-header,
+.legal-page-header,
+.privacy-page-header {
+    padding-top: 155px;
+}
+
+.page-header h1,
+.legal-page-header h1,
+.privacy-page-header h1 {
+    letter-spacing: -.055em;
+    font-weight: 750;
+}
+
+.page-header p,
+.legal-page-header p,
+.privacy-page-header p {
+    color: #9297a2;
+}
+
+/* ---------- Cards ---------- */
+
+.discord-card,
+.feature-card,
+.variable-card,
+.status-card,
+.status-history-card,
+.overall-status,
+.faq-card,
+.legal-home-card,
+.tos-card,
+.privacy-card,
+.features-home-card,
+.status-popup {
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,0) 45%),
+        #0c0f14;
+    border: 1px solid rgba(255,255,255,.075);
+    border-radius: 16px;
+    box-shadow: 0 15px 45px rgba(0,0,0,.20);
+}
+
+.discord-card {
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.42),
+        0 0 0 1px rgba(255,255,255,.025);
+}
+
+.feature-card,
+.variable-card,
+.status-card,
+.status-history-card {
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.feature-card:hover,
+.variable-card:hover,
+.status-card:hover,
+.status-history-card:hover {
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0) 50%),
+        #10141a;
+    border-color: rgba(255,255,255,.12);
+    box-shadow: 0 18px 48px rgba(0,0,0,.27);
+    transform: none;
+}
+
+.feature-card h3,
+.variable-card h3,
+.status-title,
+.history-header h3 {
+    letter-spacing: -.025em;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    top: 12%;
+    left: -180px;
+    background: radial-gradient(circle, rgba(124,108,255,.10), transparent 68%);
+    pointer-events: none;
+}
+
+.hero h1 {
+    letter-spacing: -.065em;
+    font-weight: 800;
+}
+
+.hero p {
+    color: #969ba6;
+}
+
+.discord-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.discord-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+}
+
+.card-body p {
+    background: #151922;
+    border: 1px solid rgba(255,255,255,.045);
+}
+
+/* ---------- Inputs / Search ---------- */
+
+.search-box input {
+    background: #0b0e13;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.25);
+}
+
+.search-box input::placeholder {
+    color: #666c77;
+}
+
+.search-box input:focus {
+    border-color: rgba(124,108,255,.65);
+    box-shadow:
+        0 0 0 3px rgba(124,108,255,.10),
+        inset 0 1px 2px rgba(0,0,0,.25);
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-card {
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 21px 24px;
+    color: #eceef2;
+    transition: background var(--transition);
+}
+
+.faq-question:hover {
+    background: rgba(255,255,255,.025);
+}
+
+.faq-answer p {
+    color: #969ba6;
+}
+
+/* ---------- Code / Discord Preview ---------- */
+
+code {
+    background: #090c10;
+    border: 1px solid rgba(255,255,255,.07);
+    color: #c4bcff;
+}
+
+.variable-card code {
+    background: #080a0e;
+    border: 1px solid rgba(255,255,255,.07);
+    color: #aaa0ff;
+}
+
+.slash-command,
+.discord-mention {
+    color: #9d91ff;
+}
+
+.app-badge {
+    background: #7061f5;
+    border-radius: 5px;
+}
+
+.embed-preview {
+    background: #181a20;
+    border-left: 3px solid #7c6cff;
+}
+
+/* ---------- Status ---------- */
+
+.overall-status {
+    box-shadow:
+        0 18px 55px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.status-dot.operational {
+    background: #42d392;
+    box-shadow: 0 0 13px rgba(66,211,146,.65);
+}
+
+.status-dot.maintenance {
+    background: #6ca8ff;
+    box-shadow: 0 0 13px rgba(108,168,255,.55);
+}
+
+.status-dot.degraded {
+    background: #f4b95f;
+    box-shadow: 0 0 13px rgba(244,185,95,.55);
+}
+
+.status-dot.offline {
+    background: #727985;
+    box-shadow: 0 0 13px rgba(114,121,133,.45);
+}
+
+.incident-card:hover {
+    transform: none;
+    background: #10141a;
+    border-color: rgba(255,255,255,.12);
+    box-shadow: 0 18px 48px rgba(0,0,0,.27);
+}
+
+.status-overlay {
+    background: rgba(0,0,0,.74);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.status-popup {
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.62),
+        0 0 0 1px rgba(255,255,255,.025);
+}
+
+/* ---------- Legal / Directory Pages ---------- */
+
+.legal-directory,
+.feature-directory {
+    background: #0b0e12;
+    border: 1px solid rgba(255,255,255,.075);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.25);
+}
+
+.legal-directory-header,
+.feature-directory-header {
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.legal-directory-item,
+.feature-directory-item {
+    border-bottom-color: rgba(255,255,255,.05);
+}
+
+.legal-directory-item:hover,
+.feature-directory-item:hover {
+    background: rgba(255,255,255,.025);
+}
+
+.legal-directory-icon,
+.feature-directory-icon {
+    background: rgba(255,255,255,.035);
+    border-color: rgba(255,255,255,.075);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    margin-top: 100px;
+    padding: 45px clamp(25px, 5vw, 72px);
+    background: rgba(0,0,0,.16);
+    border-top: 1px solid rgba(255,255,255,.055);
+}
+
+.footer-links a {
+    color: #777d88;
+}
+
+.footer-links a:hover {
+    color: #dfe1e7;
+}
+
+/* ---------- Focus accessibility ---------- */
+
+:focus-visible {
+    outline: 2px solid rgba(124,108,255,.75);
+    outline-offset: 3px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 700px) {
+    .navbar {
+        height: 68px;
+        padding: 0 14px;
+    }
+
+    .logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .dropdown-btn {
+        padding: 8px 9px;
+    }
+
+    .premium-btn {
+        min-height: 38px;
+        padding: 0 12px;
+        border-radius: 9px;
+        font-size: 12px;
+    }
+
+    .dropdown-menu,
+    .updates-filter-menu {
+        top: 62px;
+        border-radius: 14px;
+    }
+
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 12vw, 56px);
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .hero-buttons .invite-btn,
+    .hero-buttons .primary-btn,
+    .hero-buttons .secondary-btn {
+        width: 100%;
+    }
+
+    .feature-card,
+    .variable-card,
+    .status-card,
+    .status-history-card,
+    .legal-home-card,
+    .tos-card,
+    .privacy-card,
+    .features-home-card {
+        border-radius: 14px;
+    }
+
+    .page-header h1,
+    .legal-page-header h1,
+    .privacy-page-header h1 {
+        font-size: clamp(36px, 10vw, 48px);
+    }
+}
+
+/* =========================================================
+   End visual overhaul
+   ========================================================= */
