@@ -1,0 +1,205 @@
+.updates-filter-dropdown{
+
+    position:relative;
+
+}
+
+
+
+.updates-filter-btn{
+
+    background:#161d28;
+
+    border:1px solid var(--border);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-family:inherit;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px 16px;
+
+    border-radius:12px;
+
+    transition:.25s;
+
+}
+
+
+
+.updates-filter-btn:hover{
+
+    background:#202a3c;
+
+}
+
+
+
+.updates-filter-btn svg{
+
+    transition:.25s;
+
+}
+
+
+
+.updates-filter-dropdown.active 
+.updates-filter-btn svg{
+
+    transform:rotate(180deg);
+
+}
+
+
+
+.updates-filter-menu{
+
+    position:absolute;
+
+    right:0;
+
+    top:55px;
+
+    width:300px;
+
+    background:#161d28;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:12px;
+
+    display:none;
+
+    box-shadow:var(--shadow);
+
+    animation:dropdown .25s;
+
+    z-index:50;
+
+}
+
+
+
+.updates-filter-dropdown.active 
+.updates-filter-menu{
+
+    display:block;
+
+}
+
+
+
+.updates-filter-menu a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+
+.updates-filter-menu a:hover{
+
+    background:#202a3b;
+
+}
+
+
+
+.updates-filter-menu h4{
+
+    font-size:15px;
+
+    margin:0;
+
+}
+
+
+
+.updates-filter-menu p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:3px;
+
+
+.update-card{
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+
+.update-card:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+
+
+
+.update-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+.update-header h3{
+
+    margin-bottom:6px;
+
+}
+
+
+
+
+
+.update-header span{
+
+    opacity:.7;
+
+    font-size:14px;
+
+}
+
+
+
