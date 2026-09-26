@@ -1,6 +1,16 @@
 {
     "incidents": [
         {
+            "service": "Website",
+            "status": "Maintenance",
+            "date": "26 September 2026",
+            "description": "The dashboard will be undergoind routine maintenance to add button management alongside minor improvements.",
+            "startTime": 1790421180003,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        },
+        {
             "service": "Bot API",
             "status": "Maintenance",
             "date": "23 August 2026",
