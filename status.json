@@ -8,9 +8,9 @@
         },
         {
             "name": "Website",
-            "status": "Maintenance",
-            "state": "maintenance",
-            "description": "The dashboard will be undergoind routine maintenance to add button management alongside minor improvements."
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
         },
         {
             "name": "Database",
