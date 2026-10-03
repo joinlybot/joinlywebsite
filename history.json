@@ -6,9 +6,9 @@
             "date": "26 September 2026",
             "description": "The dashboard will be undergoind routine maintenance to add button management alongside minor improvements.",
             "startTime": 1790421180003,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1791066931822,
+            "duration": "179 hours 22 minutes",
+            "resolved": true
         },
         {
             "service": "Bot API",
