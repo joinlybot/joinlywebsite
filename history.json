@@ -1,24 +1,5 @@
 {
     "incidents": [
-        {
-            "service": "Dashboard",
-            "status": "Offline",
-            "date": "5 October 2026",
-            "description": "Test.",
-            "startTime": 1791172827871,
-            "endTime": 1791172898288,
-            "duration": "1 minutes",
-            "resolved": true
-        },
-        {
-            "service": "Website",
-            "status": "Maintenance",
-            "date": "5 October 2026",
-            "description": "The website is currently undergoing a rework. We expect this to be completed within approximately one hour. Thank you for your patience!",
-            "startTime": 1791170140824,
-            "endTime": 1791172018697,
-            "duration": "31 minutes",
-            "resolved": true
-        }
+        
     ]
 }
