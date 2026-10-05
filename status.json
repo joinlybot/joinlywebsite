@@ -8,9 +8,9 @@
         },
         {
             "name": "Website",
-            "status": "Operational",
-            "state": "operational",
-            "description": ""
+            "status": "Maintenance",
+            "state": "maintenance",
+            "description": "The website is currently undergoing a rework. This should only take about an hour."
         },
         {
             "name": "Database",
