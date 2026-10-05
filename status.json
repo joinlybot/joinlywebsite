@@ -13,6 +13,12 @@
             "description": ""
         },
         {
+            "name": "Dashboard",
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
+        },
+        {
             "name": "Database",
             "status": "Operational",
             "state": "operational",
