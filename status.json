@@ -14,9 +14,9 @@
         },
         {
             "name": "Dashboard",
-            "status": "Operational",
-            "state": "operational",
-            "description": ""
+            "status": "Offline",
+            "state": "offline",
+            "description": "Test."
         },
         {
             "name": "Database",
