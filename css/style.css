@@ -1593,6 +1593,33 @@ code{
 
 
 
+
+.app-badge{
+
+    background:#5865f2;
+
+    color:white;
+
+    font-size:11px;
+
+    padding:2px 5px;
+
+    border-radius:4px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+}
+
+
+
+
+
 .discord-mention{
 
     color:#5865f2;
