@@ -9,46 +9,6 @@
             "endTime": 1791172018697,
             "duration": "31 minutes",
             "resolved": true
-        },
-        {
-            "service": "Website",
-            "status": "Maintenance",
-            "date": "26 September 2026",
-            "description": "The dashboard will be undergoind routine maintenance to add button management alongside minor improvements.",
-            "startTime": 1790421180003,
-            "endTime": 1791066931822,
-            "duration": "179 hours 22 minutes",
-            "resolved": true
-        },
-        {
-            "service": "Bot API",
-            "status": "Maintenance",
-            "date": "23 August 2026",
-            "description": "Joinly will be offline during this maintenance.",
-            "startTime": 1787501782952,
-            "endTime": 1787502652337,
-            "duration": "14 minutes",
-            "resolved": true
-        },
-        {
-            "service": "Website",
-            "status": "Maintenance",
-            "date": "20 August 2026",
-            "description": "Quick maintenance to improve stability.",
-            "startTime": 1787260365755,
-            "endTime": 1787261736147,
-            "duration": "23 minutes",
-            "resolved": true
-        },
-        {
-            "service": "Bot API",
-            "status": "Maintenance",
-            "date": "20 August 2026",
-            "description": "Joinly is undergoing maintenance while we migrate to Components V2.",
-            "startTime": 1787247163239,
-            "endTime": 1787249246054,
-            "duration": "34 minutes",
-            "resolved": true
-        }
+        
     ]
 }
