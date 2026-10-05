@@ -6,9 +6,9 @@
             "date": "5 October 2026",
             "description": "The website is currently undergoing a rework. This should only take about an hour.",
             "startTime": 1791170140824,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1791172018697,
+            "duration": "31 minutes",
+            "resolved": true
         },
         {
             "service": "Website",
