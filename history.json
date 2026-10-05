@@ -6,9 +6,9 @@
             "date": "5 October 2026",
             "description": "Test.",
             "startTime": 1791172827871,
-            "endTime": null,
-            "duration": null,
-            "resolved": false
+            "endTime": 1791172898288,
+            "duration": "1 minutes",
+            "resolved": true
         },
         {
             "service": "Website",
