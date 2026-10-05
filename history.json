@@ -3,6 +3,16 @@
         {
             "service": "Website",
             "status": "Maintenance",
+            "date": "5 October 2026",
+            "description": "The website is currently undergoing a rework. This should only take about an hour.",
+            "startTime": 1791170140824,
+            "endTime": null,
+            "duration": null,
+            "resolved": false
+        },
+        {
+            "service": "Website",
+            "status": "Maintenance",
             "date": "26 September 2026",
             "description": "The dashboard will be undergoind routine maintenance to add button management alongside minor improvements.",
             "startTime": 1790421180003,
