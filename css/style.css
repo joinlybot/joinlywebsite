@@ -3753,3 +3753,222 @@ footer {
 .status-dot {
     display: none !important;
 }
+
+
+/* =========================================================
+   JOINLY — MOBILE MAIN PAGE FIX
+   ========================================================= */
+
+@media (max-width: 1000px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        text-align: center;
+        padding: 140px 30px 80px;
+        gap: 45px;
+    }
+
+    .hero > div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1,
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .discord-card {
+        width: 100%;
+        max-width: 470px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        padding: 80px 25px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .navbar {
+        padding: 0 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        padding: 0 14px;
+        height: 66px;
+    }
+
+    .nav-left {
+        width: auto;
+        justify-content: flex-start;
+        gap: 14px;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .invite-btn {
+        display: none;
+    }
+
+    .premium-btn {
+        display: flex;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .dropdown {
+        margin-left: 0;
+    }
+
+    .dropdown-btn {
+        font-size: 15px;
+    }
+
+    .dropdown-menu {
+        position: fixed;
+        top: 72px;
+        left: 14px;
+        right: 14px;
+        width: auto;
+        max-width: none;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 120px 20px 70px;
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 12vw, 54px);
+        line-height: 1;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .discord-card {
+        max-width: 100%;
+        padding: 19px;
+    }
+
+    .card-header {
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .card-header img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .features {
+        padding: 70px 20px;
+    }
+
+    .features h2 {
+        font-size: clamp(32px, 9vw, 42px);
+        line-height: 1.05;
+        margin-bottom: 35px;
+    }
+
+    .feature-card {
+        padding: 22px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .footer-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .footer-links a {
+        display: block;
+        width: 100%;
+    }
+
+    .features-menu,
+    .dropdown-submenu-menu {
+        display: none !important;
+    }
+
+    .features-dropdown:hover .features-menu,
+    .dropdown-submenu:hover .dropdown-submenu-menu {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .features {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .premium-btn {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+}
