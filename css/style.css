@@ -3972,3 +3972,44 @@ footer {
         font-size: 12px;
     }
 }
+
+
+/* =========================================================
+   STATUS CARD GRID
+   4 cards = 2x2
+   5 cards = 2x2 + centered fifth card
+   ========================================================= */
+
+.status-grid,
+.status-cards,
+.status-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* Center the fifth card underneath the first four */
+.status-grid > :nth-child(5):last-child,
+.status-cards > :nth-child(5):last-child,
+.status-list > :nth-child(5):last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 9px);
+}
+
+/* Mobile: one card per row */
+@media (max-width: 700px) {
+    .status-grid,
+    .status-cards,
+    .status-list {
+        grid-template-columns: 1fr;
+    }
+
+    .status-grid > :nth-child(5):last-child,
+    .status-cards > :nth-child(5):last-child,
+    .status-list > :nth-child(5):last-child {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+    }
+}
