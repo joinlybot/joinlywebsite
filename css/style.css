@@ -1593,48 +1593,6 @@ code{
 
 
 
-
-.app-badge{
-
-    background:#5865f2;
-
-    color:white;
-
-    font-size:11px;
-
-    padding:2px 5px;
-
-    border-radius:4px;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    line-height:1;
-
-    white-space:nowrap;
-
-}
-
-.verified-badge{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:16px;
-    height:16px;
-    flex-shrink:0;
-    color:#fff;
-    background:#5865f2;
-    border-radius:50%;
-    font-size:10px;
-    font-weight:800;
-    line-height:1;
-}
-
-
-
-
-
 .discord-mention{
 
     color:#5865f2;
