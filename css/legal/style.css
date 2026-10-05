@@ -1503,3 +1503,600 @@ footer{
     }
 
 }
+
+
+/* =========================================================
+   JOINLY — GRAPHITE SAAS VISUAL OVERHAUL
+   Visual-only override layer.
+   Existing selectors and interactions are intentionally kept.
+   ========================================================= */
+
+:root {
+    --background: #08090b;
+    --background-light: #0d0f12;
+    --card: #111316;
+    --card-hover: #17191d;
+
+    --primary: #8b8f98;
+    --primary-hover: #b2b6bf;
+
+    --text: #f2f3f5;
+    --muted: #92969f;
+    --border: rgba(255,255,255,.075);
+
+    --radius: 14px;
+    --transition: .22s cubic-bezier(.2,.8,.2,1);
+
+    --shadow:
+        0 24px 70px rgba(0,0,0,.42);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--background);
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% -12%, rgba(255,255,255,.055), transparent 34%),
+        linear-gradient(180deg, #0a0b0d 0%, #08090b 55%, #070809 100%);
+    color: var(--text);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background: rgba(255,255,255,.16);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08090b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #292c31;
+    border: 2px solid #08090b;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b3f46;
+}
+
+/* ---------- Navigation ---------- */
+
+.navbar {
+    height: 72px;
+    padding: 0 56px;
+    background: rgba(8,9,11,.8);
+    border-bottom: 1px solid rgba(255,255,255,.055);
+    backdrop-filter: blur(24px) saturate(120%);
+    -webkit-backdrop-filter: blur(24px) saturate(120%);
+}
+
+.nav-left {
+    gap: 30px;
+}
+
+.nav-right {
+    gap: 10px;
+}
+
+.logo {
+    gap: 11px;
+    color: #f5f5f6;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+.logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.1);
+}
+
+.dropdown-btn {
+    color: #aeb2b9;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.dropdown-btn:hover {
+    color: #fff;
+}
+
+.dropdown-menu,
+.features-menu,
+.dropdown-submenu-menu {
+    background: rgba(17,19,22,.97);
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 13px;
+    padding: 7px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.5);
+    backdrop-filter: blur(22px);
+}
+
+.dropdown-menu a,
+.dropdown-menu > a,
+.features-dropdown > a,
+.dropdown-submenu > a,
+.features-menu a,
+.dropdown-submenu-menu a {
+    color: #dfe1e5;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu > a:hover,
+.features-dropdown > a:hover,
+.dropdown-submenu > a:hover,
+.features-menu a:hover,
+.dropdown-submenu-menu a:hover {
+    background: rgba(255,255,255,.065);
+}
+
+.dropdown-menu h4,
+.features-menu h4,
+.dropdown-submenu-menu h4 {
+    color: #f3f4f6;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.dropdown-menu p,
+.features-menu p,
+.dropdown-submenu-menu p {
+    color: #777b84;
+    font-size: 12px;
+}
+
+/* ---------- Buttons ---------- */
+
+.invite-btn,
+.primary-btn {
+    background: #e7e8ea;
+    color: #0a0b0d;
+    border: 1px solid #f0f0f1;
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 650;
+    box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+}
+
+.invite-btn:hover,
+.primary-btn:hover {
+    background: #fff;
+    color: #050506;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(0,0,0,.3);
+}
+
+.premium-btn {
+    padding: 11px 18px;
+    border-radius: 9px;
+    background: #d7d9dd;
+    color: #090a0c;
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: none;
+}
+
+.premium-btn:hover {
+    transform: translateY(-1px);
+    background: #f0f1f2;
+    box-shadow: 0 10px 28px rgba(0,0,0,.3);
+}
+
+.badge {
+    background: rgba(255,255,255,.045);
+    color: #bfc2c8;
+    border: 1px solid rgba(255,255,255,.09);
+    padding: 6px 11px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+/* ---------- Page headers ---------- */
+
+.page-header,
+.legal-page-header,
+.privacy-page-header {
+    padding-top: 145px;
+}
+
+.page-header h1,
+.legal-page-header h1,
+.privacy-page-header h1 {
+    font-size: clamp(42px, 5vw, 62px);
+    line-height: 1;
+    letter-spacing: -.055em;
+    font-weight: 760;
+}
+
+.page-header p,
+.legal-page-header p,
+.privacy-page-header p {
+    color: #92969e;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ---------- Legal content ---------- */
+
+.legal-home-layout,
+.tos-layout,
+.privacy-layout {
+    max-width: 1060px;
+    padding: 60px 30px 100px;
+}
+
+.legal-home-layout {
+    max-width: 1120px;
+}
+
+.legal-home-content {
+    gap: 14px;
+}
+
+.legal-home-card,
+.tos-card,
+.privacy-card {
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008)),
+        #111316;
+    border: 1px solid rgba(255,255,255,.075);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 14px;
+    box-shadow: 0 16px 45px rgba(0,0,0,.2);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.legal-home-link:hover {
+    transform: translateY(-3px);
+    background: #15171a;
+    border-color: rgba(255,255,255,.14);
+    box-shadow: 0 25px 60px rgba(0,0,0,.38);
+}
+
+.legal-home-header,
+.tos-card-header,
+.privacy-card-header {
+    margin-bottom: 15px;
+}
+
+.legal-home-header span,
+.tos-card-header span,
+.privacy-card-header span {
+    color: #777b83;
+    font-size: 12px;
+}
+
+.legal-home-header h2 {
+    font-size: 23px;
+    letter-spacing: -.025em;
+}
+
+.tos-card h2,
+.privacy-card h2,
+.legal-home-card h2 {
+    margin-bottom: 12px;
+    font-size: 21px;
+    letter-spacing: -.025em;
+}
+
+.tos-card p,
+.privacy-card p,
+.legal-home-card p,
+li {
+    color: #92969e;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 9px;
+}
+
+/* ---------- Data / list boxes ---------- */
+
+.tos-data-box,
+.privacy-box,
+.legal-home-box,
+.tos-list,
+.privacy-list {
+    background: #0c0e10;
+    border: 1px solid rgba(255,255,255,.065);
+    border-radius: 10px;
+}
+
+.tos-data-box,
+.privacy-box {
+    margin-top: 18px;
+    margin-bottom: 22px;
+    padding: 19px;
+}
+
+.legal-home-box {
+    margin-top: 20px;
+    padding: 13px 16px;
+}
+
+.legal-home-box p {
+    color: #d8dade;
+    font-weight: 600;
+}
+
+.tos-data-box h3,
+.privacy-box h3 {
+    margin-bottom: 11px;
+    font-size: 16px;
+}
+
+.tos-list,
+.privacy-list {
+    padding: 18px 20px 18px 40px;
+    margin: 18px 0;
+}
+
+.tos-list li,
+.privacy-list li {
+    margin-bottom: 10px;
+}
+
+code {
+    background: rgba(255,255,255,.065);
+    border: 1px solid rgba(255,255,255,.045);
+    padding: 3px 7px;
+    border-radius: 6px;
+    color: #d8dbe0;
+    font-family: Consolas, "SFMono-Regular", monospace;
+}
+
+/* ---------- Legal directory ---------- */
+
+.legal-directory {
+    width: min(900px, calc(100% - 40px));
+    margin: 10px auto 70px;
+    background: #0e1012;
+    border: 1px solid rgba(255,255,255,.075);
+    border-radius: 12px;
+    box-shadow: 0 20px 55px rgba(0,0,0,.22);
+}
+
+.legal-directory-header {
+    padding: 24px 26px;
+    border-bottom-color: rgba(255,255,255,.065);
+}
+
+.legal-directory-label {
+    color: #696d75;
+    font-size: 10px;
+}
+
+.legal-directory-header h2 {
+    font-size: 19px;
+    letter-spacing: -.025em;
+}
+
+.legal-directory-header p {
+    color: #777b83;
+}
+
+.legal-document-count {
+    border-color: rgba(255,255,255,.09);
+    color: #8b8f97;
+}
+
+.legal-directory-item {
+    min-height: 74px;
+    padding: 14px 20px;
+    border-bottom-color: rgba(255,255,255,.05);
+}
+
+.legal-directory-item:hover {
+    background: rgba(255,255,255,.035);
+    padding-left: 25px;
+}
+
+.legal-directory-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,.035);
+    border-color: rgba(255,255,255,.07);
+    border-radius: 9px;
+    filter: grayscale(1);
+}
+
+.legal-directory-info h3 {
+    font-size: 14px;
+}
+
+.legal-directory-info p {
+    color: #777b83;
+}
+
+.legal-directory-arrow {
+    color: #5f636a;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    margin-top: 90px;
+    padding: 42px 56px;
+    background: #08090b;
+    border-top: 1px solid rgba(255,255,255,.055);
+}
+
+.footer-links {
+    gap: 22px;
+}
+
+.footer-links a {
+    color: #747880;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #e1e3e6;
+}
+
+/* ---------- Responsive polish ---------- */
+
+@media (max-width: 1000px) {
+    .navbar {
+        padding: 0 25px;
+    }
+
+    .page-header,
+    .legal-page-header,
+    .privacy-page-header {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .legal-home-layout,
+    .tos-layout,
+    .privacy-layout {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        height: 66px;
+        padding: 0 14px;
+        background: rgba(8,9,11,.9);
+    }
+
+    .nav-left {
+        gap: 14px;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
+
+    .premium-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .dropdown-btn {
+        font-size: 15px;
+    }
+
+    .dropdown-menu {
+        top: 72px;
+        left: 14px;
+        right: 14px;
+        width: auto;
+        max-width: none;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .page-header,
+    .legal-page-header,
+    .privacy-page-header {
+        padding-top: 120px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .page-header h1,
+    .legal-page-header h1,
+    .privacy-page-header h1 {
+        font-size: 42px;
+    }
+
+    .legal-home-layout,
+    .tos-layout,
+    .privacy-layout {
+        padding: 45px 20px 70px;
+    }
+
+    .legal-home-card,
+    .tos-card,
+    .privacy-card {
+        padding: 22px;
+    }
+
+    .legal-home-header,
+    .tos-card-header,
+    .privacy-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .legal-directory {
+        width: calc(100% - 28px);
+    }
+
+    .legal-directory-header {
+        padding: 21px;
+        align-items: flex-start;
+    }
+
+    .legal-document-count {
+        display: none;
+    }
+
+    .legal-directory-item {
+        padding: 14px 17px;
+    }
+
+    .legal-directory-item:hover {
+        padding-left: 20px;
+    }
+
+    .legal-directory-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+    }
+
+    .legal-directory-info p {
+        font-size: 12px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+}
