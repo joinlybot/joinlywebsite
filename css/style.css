@@ -2962,3 +2962,796 @@ footer{
     }
 
 }
+
+
+/* =========================================================
+   JOINLY — GRAPHITE SAAS VISUAL OVERHAUL
+   Visual-only override layer.
+   Existing selectors, interactions and responsive behaviour
+   remain available underneath this layer.
+   ========================================================= */
+
+:root {
+    --background: #08090b;
+    --background-light: #0d0f12;
+    --card: #111316;
+    --card-hover: #17191d;
+
+    --primary: #8b8f98;
+    --primary-hover: #b2b6bf;
+
+    --text: #f2f3f5;
+    --muted: #92969f;
+    --muted-strong: #b7bbc2;
+
+    --border: rgba(255,255,255,.075);
+    --border-strong: rgba(255,255,255,.13);
+
+    --radius: 14px;
+    --transition: .22s cubic-bezier(.2,.8,.2,1);
+
+    --shadow:
+        0 24px 70px rgba(0,0,0,.42);
+
+    --shadow-soft:
+        0 12px 35px rgba(0,0,0,.25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--background);
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% -12%, rgba(255,255,255,.055), transparent 34%),
+        linear-gradient(180deg, #0a0b0d 0%, #08090b 52%, #070809 100%);
+    color: var(--text);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background: rgba(255,255,255,.16);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08090b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #292c31;
+    border: 2px solid #08090b;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b3f46;
+}
+
+/* ---------- Navigation ---------- */
+
+.navbar {
+    height: 72px;
+    padding: 0 56px;
+    background: rgba(8,9,11,.78);
+    border-bottom: 1px solid rgba(255,255,255,.055);
+    backdrop-filter: blur(24px) saturate(120%);
+    -webkit-backdrop-filter: blur(24px) saturate(120%);
+}
+
+.nav-left {
+    gap: 30px;
+}
+
+.logo {
+    gap: 11px;
+    color: #f5f5f6;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+.logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.1);
+}
+
+.dropdown-btn {
+    color: #aeb2b9;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.dropdown-btn:hover {
+    color: #fff;
+}
+
+.dropdown-menu,
+.updates-filter-menu {
+    background: rgba(17,19,22,.97);
+    border: 1px solid var(--border-strong);
+    border-radius: 13px;
+    padding: 7px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.5);
+    backdrop-filter: blur(22px);
+}
+
+.dropdown-menu a,
+.dropdown-menu > a,
+.features-dropdown > a,
+.dropdown-submenu > a,
+.features-menu a,
+.dropdown-submenu-menu a,
+.updates-filter-menu a {
+    color: #dfe1e5;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu > a:hover,
+.features-dropdown > a:hover,
+.dropdown-submenu > a:hover,
+.features-menu a:hover,
+.dropdown-submenu-menu a:hover,
+.updates-filter-menu a:hover {
+    background: rgba(255,255,255,.065);
+}
+
+.dropdown-menu h4,
+.features-menu h4,
+.dropdown-submenu-menu h4,
+.updates-filter-menu h4 {
+    color: #f3f4f6;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+}
+
+.dropdown-menu p,
+.features-menu p,
+.dropdown-submenu-menu p,
+.updates-filter-menu p {
+    color: #777b84;
+    font-size: 12px;
+}
+
+/* ---------- Buttons ---------- */
+
+.invite-btn,
+.primary-btn {
+    background: #e7e8ea;
+    color: #0a0b0d;
+    border: 1px solid #f0f0f1;
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 650;
+    box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+}
+
+.invite-btn:hover,
+.primary-btn:hover {
+    background: #fff;
+    color: #050506;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(0,0,0,.3);
+}
+
+.secondary-btn {
+    color: #dfe1e5;
+    background: rgba(255,255,255,.025);
+    border: 1px solid var(--border-strong);
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.secondary-btn:hover {
+    background: rgba(255,255,255,.07);
+    border-color: rgba(255,255,255,.18);
+}
+
+.premium-btn {
+    padding: 11px 18px;
+    border-radius: 9px;
+    background: #d7d9dd;
+    color: #090a0c;
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: none;
+}
+
+.premium-btn:hover {
+    transform: translateY(-1px);
+    background: #f0f1f2;
+    box-shadow: 0 10px 28px rgba(0,0,0,.3);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    max-width: 1440px;
+    min-height: 92vh;
+    margin: auto;
+    padding: 150px 56px 100px;
+    grid-template-columns: minmax(0,1fr) 470px;
+    gap: 80px;
+}
+
+.badge {
+    background: rgba(255,255,255,.045);
+    color: #bfc2c8;
+    border: 1px solid rgba(255,255,255,.09);
+    padding: 6px 11px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: .01em;
+}
+
+.hero h1 {
+    max-width: 760px;
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: .99;
+    letter-spacing: -.055em;
+    font-weight: 760;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #969aa2;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    margin-top: 32px;
+    gap: 10px;
+}
+
+/* ---------- Cards ---------- */
+
+.discord-card,
+.feature-card,
+.status-card,
+.variable-card,
+.faq-card,
+.overall-status,
+.status-history-card,
+.features-home-card {
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008)),
+        #111316;
+    border: 1px solid rgba(255,255,255,.075);
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+}
+
+.discord-card {
+    padding: 24px;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.42),
+        0 0 0 1px rgba(255,255,255,.025);
+}
+
+.card-header {
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.card-header img {
+    width: 46px;
+    height: 46px;
+    border-radius: 11px;
+}
+
+.card-header span {
+    color: #9fa4ab;
+    font-size: 12px;
+}
+
+.card-body p {
+    background: #191b1f;
+    border: 1px solid rgba(255,255,255,.045);
+    padding: 13px 14px;
+    border-radius: 9px;
+    color: #c5c8ce;
+}
+
+.features {
+    max-width: 1280px;
+    padding: 110px 40px;
+}
+
+.features h2 {
+    font-size: clamp(34px, 4vw, 48px);
+    letter-spacing: -.04em;
+}
+
+.feature-grid {
+    gap: 14px;
+}
+
+.feature-card {
+    padding: 28px;
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.feature-card:hover,
+.status-card:hover,
+.variable-card:hover,
+.status-history-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,.14);
+    background: #15171a;
+}
+
+/* ---------- Page headers / content ---------- */
+
+.page-header {
+    padding: 150px 30px 70px;
+}
+
+.page-header h1 {
+    font-size: clamp(42px, 5vw, 60px);
+    letter-spacing: -.05em;
+    font-weight: 750;
+}
+
+.page-header p {
+    color: #92969e;
+    font-size: 16px;
+}
+
+.docs-container,
+.status-container {
+    max-width: 1120px;
+}
+
+.search-box input {
+    padding: 15px 17px;
+    background: #101215;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    color: #f2f3f5;
+}
+
+.search-box input::placeholder {
+    color: #676b73;
+}
+
+.search-box input:focus {
+    border-color: rgba(255,255,255,.22);
+    box-shadow: 0 0 0 3px rgba(255,255,255,.035);
+}
+
+.section-title {
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.section-title h2 {
+    font-size: 28px;
+    letter-spacing: -.035em;
+}
+
+.section-title span,
+.section-title a {
+    color: #777b84;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-section {
+    max-width: 920px;
+}
+
+.faq-container {
+    gap: 10px;
+}
+
+.faq-card {
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.faq-question {
+    padding: 20px 22px;
+    color: #e4e6e9;
+    font-size: 15px;
+}
+
+.faq-question span {
+    color: #7e828a;
+    font-size: 22px;
+}
+
+.faq-answer p {
+    padding: 0 22px 22px;
+    color: #8f939b;
+    font-size: 14px;
+}
+
+/* ---------- Status ---------- */
+
+.overall-status {
+    padding: 24px;
+    max-width: 900px;
+}
+
+.status-card {
+    padding: 22px;
+}
+
+.status-title {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.status-card p {
+    color: #858991;
+    font-size: 14px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+}
+
+.status-dot.operational {
+    background: #8d9490;
+    box-shadow: 0 0 12px rgba(141,148,144,.45);
+}
+
+.status-dot.maintenance {
+    background: #a1a5ab;
+    box-shadow: 0 0 12px rgba(161,165,171,.4);
+}
+
+.status-dot.degraded {
+    background: #b1a88f;
+    box-shadow: 0 0 12px rgba(177,168,143,.4);
+}
+
+.status-dot.offline {
+    background: #656970;
+    box-shadow: 0 0 12px rgba(101,105,112,.35);
+}
+
+/* ---------- Variables / code ---------- */
+
+.variable-grid {
+    gap: 14px;
+}
+
+.variable-card {
+    padding: 24px;
+}
+
+.variable-card h3 {
+    font-size: 19px;
+}
+
+.variable-card p {
+    color: #858991;
+}
+
+.variable-card code {
+    padding: 12px 13px;
+    background: #0b0d0f;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 8px;
+    color: #c6c9cf;
+}
+
+code {
+    background: rgba(255,255,255,.065);
+    color: #d8dbe0;
+    border: 1px solid rgba(255,255,255,.045);
+}
+
+.slash-command,
+.discord-mention {
+    color: #c8cbd1;
+}
+
+.premium-section .variable-card.premium {
+    border-color: rgba(255,255,255,.12);
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.035), transparent),
+        #111316;
+}
+
+.variable-card.premium code {
+    color: #d5d7db;
+}
+
+/* ---------- Discord-style preview ---------- */
+
+.embed-preview {
+    background: #191b1f;
+    border-left: 3px solid #777c84;
+    border-radius: 7px;
+    padding: 15px;
+}
+
+.embed-preview p {
+    color: #c5c8cd;
+}
+
+.embed-preview .channels span {
+    background: #24272b;
+    color: #c4c7cd;
+}
+
+/* ---------- Updates ---------- */
+
+.updates-filter-btn {
+    background: #111316;
+    border: 1px solid rgba(255,255,255,.08);
+    color: #c9ccd1;
+    padding: 9px 13px;
+    border-radius: 9px;
+}
+
+.updates-filter-btn:hover {
+    background: #181a1e;
+}
+
+.update-header span {
+    color: #777b83;
+}
+
+/* ---------- Feature directory ---------- */
+
+.feature-directory {
+    width: min(900px, calc(100% - 40px));
+    margin: 10px auto 70px;
+    background: #0e1012;
+    border: 1px solid rgba(255,255,255,.075);
+    border-radius: 12px;
+    box-shadow: 0 20px 55px rgba(0,0,0,.22);
+}
+
+.feature-directory-header {
+    padding: 24px 26px;
+    border-bottom-color: rgba(255,255,255,.065);
+}
+
+.feature-directory-label {
+    color: #696d75;
+    font-size: 10px;
+}
+
+.feature-directory-header h2 {
+    font-size: 19px;
+    letter-spacing: -.025em;
+}
+
+.feature-directory-header p {
+    color: #777b83;
+}
+
+.feature-count {
+    border-color: rgba(255,255,255,.09);
+    color: #8b8f97;
+}
+
+.feature-directory-item {
+    min-height: 74px;
+    padding: 14px 20px;
+    border-bottom-color: rgba(255,255,255,.05);
+}
+
+.feature-directory-item:hover {
+    background: rgba(255,255,255,.035);
+    padding-left: 25px;
+}
+
+.feature-directory-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,.035);
+    border-color: rgba(255,255,255,.07);
+    border-radius: 9px;
+    filter: grayscale(1);
+}
+
+.feature-directory-info h3 {
+    font-size: 14px;
+}
+
+.feature-directory-info p {
+    color: #777b83;
+}
+
+.feature-directory-arrow {
+    color: #5f636a;
+}
+
+/* ---------- Incidents / modal ---------- */
+
+.incident-card:hover {
+    background: #15171a;
+    border-color: rgba(255,255,255,.15);
+    box-shadow: 0 25px 60px rgba(0,0,0,.42);
+}
+
+.status-overlay {
+    background: rgba(0,0,0,.74);
+    backdrop-filter: blur(12px);
+}
+
+.status-popup {
+    max-width: 520px;
+    padding: 30px;
+    background: #111316;
+    border-color: rgba(255,255,255,.1);
+    border-radius: 14px;
+}
+
+.status-popup h2 {
+    font-size: 25px;
+    letter-spacing: -.025em;
+}
+
+.popup-status {
+    color: #858991;
+}
+
+.popup-description {
+    color: #c7cacf;
+}
+
+.status-close {
+    color: #aaaeb5;
+}
+
+/* ---------- History ---------- */
+
+.status-history-card {
+    padding: 24px;
+}
+
+.history-status {
+    padding: 6px 11px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.045);
+    color: #b8bbc1;
+}
+
+.history-status.offline,
+.history-status.maintenance,
+.history-status.degraded {
+    background: rgba(255,255,255,.045);
+    color: #b8bbc1;
+}
+
+.history-description {
+    color: #c2c5ca;
+}
+
+.history-footer {
+    color: #72767e;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    margin-top: 90px;
+    padding: 42px 56px;
+    background: #08090b;
+    border-top: 1px solid rgba(255,255,255,.055);
+}
+
+.footer-links {
+    gap: 22px;
+}
+
+.footer-links a {
+    color: #747880;
+    font-size: 13px;
+    transition: color var(--transition);
+}
+
+.footer-links a:hover {
+    color: #e1e3e6;
+}
+
+/* ---------- Mobile polish ---------- */
+
+@media (max-width: 1000px) {
+    .hero {
+        padding: 140px 30px 80px;
+        gap: 45px;
+    }
+
+    .features {
+        padding: 80px 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        height: 66px;
+        padding: 0 14px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 120px 20px 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 12vw, 54px);
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .page-header {
+        padding: 125px 20px 55px;
+    }
+
+    .page-header h1 {
+        font-size: 42px;
+    }
+
+    .docs-container,
+    .status-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .discord-card {
+        padding: 19px;
+    }
+
+    .feature-directory {
+        width: calc(100% - 28px);
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+}
