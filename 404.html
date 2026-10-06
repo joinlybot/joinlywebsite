@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 — Joinly</title>
+
+    <link
+        rel="icon"
+        href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --background: #08090b;
+            --background-light: #0d0f12;
+            --card: #111316;
+            --card-hover: #17191d;
+
+            --primary: #8b8f98;
+            --primary-hover: #b2b6bf;
+
+            --text: #f2f3f5;
+            --muted: #92969f;
+            --muted-strong: #b7bbc2;
+
+            --border: rgba(255, 255, 255, 0.075);
+            --border-strong: rgba(255, 255, 255, 0.13);
+
+            --radius: 14px;
+
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+            --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 24px;
+
+            font-family:
+                "Inter",
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 50% -12%,
+                    rgba(255, 255, 255, 0.055),
+                    transparent 34%
+                ),
+                linear-gradient(
+                    180deg,
+                    #0a0b0d 0%,
+                    #08090b 52%,
+                    #070809 100%
+                );
+
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.012) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.012) 1px,
+                    transparent 1px
+                );
+
+            background-size: 42px 42px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.6),
+                transparent 75%
+            );
+        }
+
+        .error-page {
+            width: 100%;
+            max-width: 760px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .error-container {
+            padding: 56px 48px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.025),
+                    rgba(255, 255, 255, 0.008)
+                ),
+                var(--card);
+
+            box-shadow: var(--shadow);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-container::before {
+            content: "";
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            top: -260px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: rgba(255, 255, 255, 0.035);
+
+            filter: blur(80px);
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .error-code {
+            position: relative;
+
+            font-size: clamp(110px, 20vw, 180px);
+            line-height: 0.85;
+
+            font-weight: 800;
+            letter-spacing: -0.09em;
+
+            color: #f2f3f5;
+
+            text-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45);
+
+            margin-bottom: 30px;
+
+            user-select: none;
+        }
+
+        .error-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 7px 12px;
+
+            border: 1px solid var(--border-strong);
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            color: var(--muted-strong);
+
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+
+            margin-bottom: 20px;
+        }
+
+        .error-container h1 {
+            position: relative;
+
+            font-size: clamp(28px, 5vw, 42px);
+            line-height: 1.1;
+
+            letter-spacing: -0.045em;
+            font-weight: 700;
+
+            margin-bottom: 16px;
+        }
+
+        .error-container p {
+            max-width: 570px;
+            margin: 0 auto;
+
+            color: var(--muted);
+
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .error-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            margin-top: 32px;
+        }
+
+        .error-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 44px;
+
+            padding: 0 18px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.22s cubic-bezier(.2, .8, .2, 1),
+                background 0.22s cubic-bezier(.2, .8, .2, 1),
+                border-color 0.22s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .primary-btn {
+            background: #f2f3f5;
+            color: #090a0c;
+
+            border: 1px solid #f2f3f5;
+        }
+
+        .primary-btn:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.035);
+            color: var(--text);
+
+            border: 1px solid var(--border-strong);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.18);
+
+            transform: translateY(-2px);
+        }
+
+        .error-card {
+            margin-top: 18px;
+
+            padding: 18px 20px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.018);
+
+            color: var(--muted);
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .error-card strong {
+            color: var(--muted-strong);
+            font-weight: 600;
+        }
+
+        .footer-text {
+            margin-top: 22px;
+
+            color: #666a72;
+
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+
+            .error-container {
+                padding: 44px 22px;
+                border-radius: 15px;
+            }
+
+            .error-code {
+                margin-bottom: 24px;
+            }
+
+            .error-container h1 {
+                font-size: 28px;
+            }
+
+            .error-container p {
+                font-size: 14px;
+            }
+
+            .error-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .error-buttons a {
+                width: 100%;
+            }
+
+            .error-card {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="error-page">
+        <section class="error-container">
+
+            <div class="error-code">404</div>
+
+            <div class="error-badge">
+                Page Not Found
+            </div>
+
+            <h1>
+                Looks like you've wandered somewhere you shouldn't be.
+            </h1>
+
+            <p>
+                The page you're looking for doesn't exist, may have been moved,
+                or never existed in the first place.
+            </p>
+
+            <div class="error-buttons">
+                <a href="/" class="primary-btn">
+                    Back to Joinly
+                </a>
+
+                <a href="/features" class="secondary-btn">
+                    Explore Features
+                </a>
+            </div>
+
+            <div class="error-card">
+                <strong>Need somewhere to go?</strong><br>
+                Head back to the Joinly homepage and find your way around.
+            </div>
+
+        </section>
+
+        <div class="footer-text">
+            Joinly · Powering Discord communities.
+        </div>
+    </main>
+
+</body>
+</html>
