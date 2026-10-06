@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>404 — Joinly</title>
+    <title>Page Not Found</title>
 
     <link
         rel="icon"
@@ -21,12 +21,7 @@
     <style>
         :root {
             --background: #08090b;
-            --background-light: #0d0f12;
             --card: #111316;
-            --card-hover: #17191d;
-
-            --primary: #8b8f98;
-            --primary-hover: #b2b6bf;
 
             --text: #f2f3f5;
             --muted: #92969f;
@@ -35,10 +30,11 @@
             --border: rgba(255, 255, 255, 0.075);
             --border-strong: rgba(255, 255, 255, 0.13);
 
-            --radius: 14px;
+            --shadow:
+                0 30px 80px rgba(0, 0, 0, 0.45),
+                0 8px 30px rgba(0, 0, 0, 0.2);
 
-            --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
-            --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.25);
+            --transition: 0.22s cubic-bezier(.2, .8, .2, 1);
         }
 
         * {
@@ -49,11 +45,14 @@
 
         html,
         body {
+            width: 100%;
             min-height: 100%;
         }
 
         body {
             min-height: 100vh;
+            min-height: 100svh;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -71,56 +70,90 @@
 
             background:
                 radial-gradient(
-                    circle at 50% -12%,
-                    rgba(255, 255, 255, 0.055),
-                    transparent 34%
+                    circle at 50% -15%,
+                    rgba(255, 255, 255, 0.07),
+                    transparent 36%
+                ),
+                radial-gradient(
+                    circle at 50% 110%,
+                    rgba(255, 255, 255, 0.025),
+                    transparent 35%
                 ),
                 linear-gradient(
                     180deg,
                     #0a0b0d 0%,
-                    #08090b 52%,
+                    #08090b 55%,
                     #070809 100%
                 );
 
             overflow-x: hidden;
         }
 
+        /* Subtle background grid */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
+
             pointer-events: none;
 
-            background:
+            background-image:
                 linear-gradient(
-                    rgba(255, 255, 255, 0.012) 1px,
+                    rgba(255, 255, 255, 0.018) 1px,
                     transparent 1px
                 ),
                 linear-gradient(
                     90deg,
-                    rgba(255, 255, 255, 0.012) 1px,
+                    rgba(255, 255, 255, 0.018) 1px,
                     transparent 1px
                 );
 
-            background-size: 42px 42px;
+            background-size: 48px 48px;
 
-            mask-image: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0.6),
-                transparent 75%
-            );
+            mask-image:
+                radial-gradient(
+                    ellipse at center,
+                    black 0%,
+                    transparent 72%
+                );
+        }
+
+        /* Soft glow behind card */
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background: rgba(255, 255, 255, 0.025);
+
+            filter: blur(100px);
+            border-radius: 50%;
+
+            pointer-events: none;
         }
 
         .error-page {
             width: 100%;
-            max-width: 760px;
-            text-align: center;
+            max-width: 680px;
+
             position: relative;
             z-index: 1;
+
+            text-align: center;
         }
 
-        .error-container {
-            padding: 56px 48px;
+        .error-card {
+            position: relative;
+
+            padding: 64px 56px;
+
             border: 1px solid var(--border);
             border-radius: 18px;
 
@@ -134,53 +167,70 @@
 
             box-shadow: var(--shadow);
 
-            position: relative;
             overflow: hidden;
         }
 
-        .error-container::before {
+        /* Card highlight */
+        .error-card::before {
             content: "";
+
             position: absolute;
 
-            width: 420px;
-            height: 420px;
+            top: 0;
+            left: 15%;
+            right: 15%;
 
-            top: -260px;
-            left: 50%;
+            height: 1px;
 
-            transform: translateX(-50%);
-
-            background: rgba(255, 255, 255, 0.035);
-
-            filter: blur(80px);
-            border-radius: 50%;
-
-            pointer-events: none;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.12),
+                transparent
+            );
         }
 
         .error-code {
             position: relative;
 
             font-size: clamp(110px, 20vw, 180px);
-            line-height: 0.85;
+            line-height: 0.82;
 
             font-weight: 800;
-            letter-spacing: -0.09em;
+            letter-spacing: -0.095em;
 
             color: #f2f3f5;
 
-            text-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.45);
-
-            margin-bottom: 30px;
-
             user-select: none;
+
+            margin-right: 0.08em;
+
+            text-shadow:
+                0 18px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .error-badge {
+        .error-code::after {
+            content: "404";
+
+            position: absolute;
+            inset: 0;
+
+            color: transparent;
+
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.045);
+
+            transform: translateY(8px);
+
+            z-index: -1;
+        }
+
+        .badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+
+            margin-top: 30px;
+            margin-bottom: 18px;
 
             padding: 7px 12px;
 
@@ -191,154 +241,175 @@
 
             color: var(--muted-strong);
 
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 0.02em;
 
-            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
-        .error-container h1 {
-            position: relative;
-
-            font-size: clamp(28px, 5vw, 42px);
-            line-height: 1.1;
-
-            letter-spacing: -0.045em;
-            font-weight: 700;
-
-            margin-bottom: 16px;
-        }
-
-        .error-container p {
-            max-width: 570px;
+        h1 {
+            max-width: 520px;
             margin: 0 auto;
+
+            font-size: clamp(26px, 5vw, 38px);
+            line-height: 1.12;
+
+            font-weight: 700;
+            letter-spacing: -0.045em;
+        }
+
+        .description {
+            max-width: 500px;
+
+            margin: 17px auto 0;
 
             color: var(--muted);
 
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.75;
         }
 
-        .error-buttons {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-
-            margin-top: 32px;
-        }
-
-        .error-buttons a {
+        .back-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 9px;
 
-            min-height: 44px;
+            min-height: 46px;
 
-            padding: 0 18px;
+            margin-top: 30px;
+            padding: 0 20px;
 
+            border: 1px solid #f2f3f5;
             border-radius: 9px;
 
-            font-size: 14px;
+            background: #f2f3f5;
+            color: #090a0c;
+
+            font-family: inherit;
+            font-size: 13px;
             font-weight: 600;
 
             text-decoration: none;
 
             transition:
-                transform 0.22s cubic-bezier(.2, .8, .2, 1),
-                background 0.22s cubic-bezier(.2, .8, .2, 1),
-                border-color 0.22s cubic-bezier(.2, .8, .2, 1);
+                transform var(--transition),
+                background var(--transition),
+                box-shadow var(--transition);
         }
 
-        .primary-btn {
-            background: #f2f3f5;
-            color: #090a0c;
+        .back-button svg {
+            width: 15px;
+            height: 15px;
 
-            border: 1px solid #f2f3f5;
+            transition: transform var(--transition);
         }
 
-        .primary-btn:hover {
+        .back-button:hover {
             background: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        .secondary-btn {
-            background: rgba(255, 255, 255, 0.035);
-            color: var(--text);
-
-            border: 1px solid var(--border-strong);
-        }
-
-        .secondary-btn:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.18);
 
             transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.25);
         }
 
-        .error-card {
-            margin-top: 18px;
-
-            padding: 18px 20px;
-
-            border: 1px solid var(--border);
-            border-radius: 12px;
-
-            background: rgba(255, 255, 255, 0.018);
-
-            color: var(--muted);
-
-            font-size: 13px;
-            line-height: 1.6;
+        .back-button:hover svg {
+            transform: translateX(-2px);
         }
 
-        .error-card strong {
-            color: var(--muted-strong);
-            font-weight: 600;
+        .back-button:active {
+            transform: translateY(0);
         }
 
-        .footer-text {
-            margin-top: 22px;
+        .footer {
+            margin-top: 20px;
 
-            color: #666a72;
+            color: #5f636b;
 
-            font-size: 12px;
+            font-size: 11px;
+            line-height: 1.5;
         }
 
-        @media (max-width: 600px) {
+        /* Tablet */
+        @media (max-width: 700px) {
             body {
-                padding: 16px;
+                padding: 18px;
             }
 
-            .error-container {
-                padding: 44px 22px;
+            .error-card {
+                padding: 52px 30px;
+                border-radius: 16px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            body {
+                padding: 14px;
+            }
+
+            .error-card {
+                padding: 48px 20px 42px;
+
                 border-radius: 15px;
             }
 
             .error-code {
-                margin-bottom: 24px;
+                font-size: clamp(100px, 31vw, 145px);
             }
 
-            .error-container h1 {
-                font-size: 28px;
+            .badge {
+                margin-top: 27px;
+                margin-bottom: 16px;
+
+                font-size: 10px;
             }
 
-            .error-container p {
-                font-size: 14px;
+            h1 {
+                font-size: 27px;
+                line-height: 1.14;
             }
 
-            .error-buttons {
-                flex-direction: column;
+            .description {
+                margin-top: 14px;
+
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .back-button {
                 width: 100%;
+                margin-top: 26px;
             }
 
-            .error-buttons a {
-                width: 100%;
+            .footer {
+                margin-top: 17px;
+                font-size: 10px;
             }
+        }
 
+        /* Very small phones */
+        @media (max-width: 350px) {
             .error-card {
-                font-size: 12px;
+                padding: 42px 17px 36px;
+            }
+
+            .error-code {
+                font-size: 100px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .back-button,
+            .back-button svg {
+                transition: none;
             }
         }
     </style>
@@ -347,41 +418,43 @@
 <body>
 
     <main class="error-page">
-        <section class="error-container">
+        <section class="error-card">
 
             <div class="error-code">404</div>
 
-            <div class="error-badge">
+            <div class="badge">
                 Page Not Found
             </div>
 
             <h1>
-                Looks like you've wandered somewhere you shouldn't be.
+                This page doesn't exist.
             </h1>
 
-            <p>
-                The page you're looking for doesn't exist, may have been moved,
+            <p class="description">
+                The page you're looking for may have been moved, deleted,
                 or never existed in the first place.
             </p>
 
-            <div class="error-buttons">
-                <a href="/" class="primary-btn">
-                    Back to Joinly
-                </a>
+            <a href="/" class="back-button">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
 
-                <a href="/features" class="secondary-btn">
-                    Explore Features
-                </a>
-            </div>
-
-            <div class="error-card">
-                <strong>Need somewhere to go?</strong><br>
-                Head back to the Joinly homepage and find your way around.
-            </div>
+                Back to Joinly
+            </a>
 
         </section>
 
-        <div class="footer-text">
+        <div class="footer">
             Joinly · Powering Discord communities.
         </div>
     </main>
