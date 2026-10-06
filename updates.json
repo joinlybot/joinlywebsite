@@ -1,5 +1,21 @@
 [
     {
+        "title": "New Feature: Giveaways",
+        "date": "October 6, 2026",
+        "type": "Feature",
+        "content": [
+            "We’re excited to announce that <strong>Joinly can now create giveaways</strong>!",
+            "",
+            "Creating a giveaway is easy — simply use the </giveaway:1556880892826488923> command.",
+            "",
+            "You’ll be prompted to enter your giveaway details through a modal and select the channel where you’d like the giveaway to be hosted.",
+            "<blockquote>",
+            "<strong>⏱️ Maximum giveaway duration:</strong> 30 days",
+            "</blockquote>",
+            "If you encounter any issues or have any questions, please let us know in our <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://discord.gg/PTrU8DQacj\">Support Server</a>!"
+        ]
+    },
+    {
         "title": "New Feature: QOTD",
         "date": "September 19, 2026",
         "type": "Feature",
