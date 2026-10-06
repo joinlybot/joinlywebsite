@@ -1,5 +1,28 @@
 [
     {
+        "title": "New Feature: Jokes",
+        "date": "October 6, 2026",
+        "type": "Feature",
+        "content": [
+            "<strong>Joke of the Day is now available on Joinly! 🎉</strong>",
+            "",
+            "Give your members something new to discuss every day with daily jokes, discussion threads and optional role pings.",
+            "",
+            "<strong>What&#39;s included?</strong>",
+            "<ul>",
+            "<li><strong>Daily jokes:</strong> A new joke every day sent at a time set by you.</li>",
+            "<li><strong>Role pings:</strong> Mention a role when a question is posted.</li>",
+            "<li><strong>Discussion threads:</strong> Each question creates a Joke Discussion thread.</li>",
+            "<li><strong>Easy setup:</strong> Use <strong>/joke</strong> to choose your channel, role and enable Joke of the Day.</li>",
+            "</ul>",
+            "When first enabled, a joke is sent immediately. Jokes will then be posted daily at a time set by you.",
+            "",
+            "Need help? Join our <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://discord.gg/PTrU8DQacj\"><strong>Support Server</strong></a>",
+            "",
+            "<strong>Thanks for using Joinly! 💙</strong>"
+        ]
+    },
+    {
         "title": "New Feature: Giveaways",
         "date": "October 6, 2026",
         "type": "Feature",
