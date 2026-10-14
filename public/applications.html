@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5865f2">
+<meta name="robots" content="noindex,nofollow">
+<title>Staff Applications • Joinly</title>
+<link rel="icon" href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=128">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#090a0e;--panel:#11131a;--text:#f4f5f8;--muted:#a2a6b3;--line:#292c38;--accent:#5865f2}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,rgba(88,101,242,.15),transparent 48%),var(--bg);color:var(--text);font:14px/1.6 Inter,system-ui,sans-serif}.nav{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 max(22px,calc((100% - 850px)/2));gap:12px}.nav img{width:36px;height:36px;border-radius:11px}.nav strong{font-size:17px;letter-spacing:-.04em}main{width:min(790px,calc(100% - 32px));margin:48px auto 80px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#aeb5ff}.heading{font-size:clamp(30px,5vw,43px);line-height:1.12;letter-spacing:-.06em;margin:12px 0}.intro{color:var(--muted);max-width:650px;margin:0 0 28px}.panel{padding:clamp(18px,4vw,30px);background:rgba(17,19,26,.92);border:1px solid var(--line);border-radius:17px}.section-title{font-size:15px;margin:0 0 5px}.section-copy{margin:0 0 22px;color:var(--muted);font-size:12px}.field{margin:0 0 21px}.field label{display:block;font-weight:650;font-size:13px;margin-bottom:8px}.required{color:#aeb5ff}.field small{display:block;color:var(--muted);font-size:11px;margin-top:6px}.field input,.field textarea{display:block;width:100%;border:1px solid #343744;border-radius:9px;background:#0b0c11;color:var(--text);padding:12px 13px;font:inherit;outline:none}.field textarea{min-height:112px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#818aff;box-shadow:0 0 0 3px #5865f222}.field input::placeholder,.field textarea::placeholder{color:#656a79}.submit{width:100%;border:0;border-radius:10px;background:var(--accent);color:#fff;padding:13px 16px;font:700 13px Inter,sans-serif;cursor:pointer}.submit:disabled{opacity:.6;cursor:wait}.notice{display:none;padding:12px 14px;border-radius:9px;margin:0 0 18px;font-size:12px}.notice.show{display:block}.notice.error{background:#ff646414;border:1px solid #ff646444;color:#ffb4b4}.notice.success{background:#55d98a14;border:1px solid #55d98a44;color:#a8efc0}.privacy{color:#777d8c;font-size:11px;margin:15px 0 0;text-align:center}.honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}@media(max-width:560px){main{margin-top:32px}.nav{height:64px}}
+</style>
+</head>
+<body>
+<nav class="nav"><img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=128" alt=""><strong>Joinly</strong></nav>
+<main>
+<div class="eyebrow">Join the team</div><h1 class="heading">Staff applications</h1>
+<p class="intro">Want to help improve Joinly and support its community? Fill in the application below as thoughtfully and honestly as you can. Applications are reviewed by the Joinly team.</p>
+<form id="application-form" class="panel">
+<h2 class="section-title">About you</h2><p class="section-copy">All questions are required unless marked otherwise.</p>
+<div class="field"><label for="discord">What's your Discord username &amp; ID? <span class="required">*</span></label><input id="discord" name="discord" required maxlength="100" placeholder="username · 123456789012345678"><small>Include your numeric Discord user ID so we can contact you.</small></div>
+<div class="field"><label for="age">How old are you? <span class="required">*</span></label><input id="age" name="age" required type="number" min="15" max="100" step="1" placeholder="Your age"></div>
+<div class="field"><label for="joinly-time">How long have you been using Joinly? <span class="required">*</span></label><textarea id="joinly-time" name="joinly-time" required maxlength="8000" placeholder="Tell us how you found Joinly and how long you've used it."></textarea></div>
+<div class="field"><label for="why-staff">Why do you want to be staff? <span class="required">*</span></label><textarea id="why-staff" name="why-staff" required maxlength="8000" placeholder="What motivates you to help the Joinly team?"></textarea></div>
+<div class="field"><label for="experience">Do you have experience moderating a Discord server? <span class="required">*</span></label><textarea id="experience" name="experience" required maxlength="8000" placeholder="Describe your experience, or tell us if you're new to moderation."></textarea></div>
+<div class="field"><label for="strengths">What skills or qualities would make you a good staff member? <span class="required">*</span></label><textarea id="strengths" name="strengths" required maxlength="8000" placeholder="Tell us about your strengths."></textarea></div>
+<div class="field"><label for="availability">How much time can you dedicate to Joinly each week? <span class="required">*</span></label><textarea id="availability" name="availability" required maxlength="8000" placeholder="Include typical days and times, with your time zone."></textarea></div>
+<div class="field"><label for="additional">Is there anything else you'd like us to know? <span class="required">*</span></label><textarea id="additional" name="additional" required maxlength="8000" placeholder="Anything else you'd like to share."></textarea></div>
+<h2 class="section-title">Scenarios</h2><p class="section-copy">We want to understand how you would approach common staff situations.</p>
+<div class="field"><label for="scenario-one">Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do? <span class="required">*</span></label><textarea id="scenario-one" name="scenario-one" required maxlength="8000" placeholder="How would you respond and handle the situation?"></textarea></div>
+<div class="field"><label for="scenario-two">Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it? <span class="required">*</span></label><textarea id="scenario-two" name="scenario-two" required maxlength="8000" placeholder="How would you stay fair and impartial?"></textarea></div>
+<div class="field"><label for="scenario-three">Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them? <span class="required">*</span></label><textarea id="scenario-three" name="scenario-three" required maxlength="8000" placeholder="Explain what you would prioritise and why."></textarea></div>
+<div class="honeypot" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<div id="notice" class="notice" role="status" aria-live="polite"></div><button class="submit" id="submit-button" type="submit">Submit application</button>
+<p class="privacy">Please don't include passwords or other sensitive personal information.</p>
+</form>
+</main>
+<script>
+const form=document.getElementById('application-form');const button=document.getElementById('submit-button');const notice=document.getElementById('notice');
+form.addEventListener('submit',async event=>{event.preventDefault();notice.className='notice';notice.textContent='';button.disabled=true;button.textContent='Submitting…';
+const keys=['discord','age','joinly-time','why-staff','experience','strengths','availability','additional','scenario-one','scenario-two','scenario-three'];
+const answers=keys.map(key=>({key,answer:String(new FormData(form).get(key)||'').trim()}));
+try{const response=await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({answers,website:String(new FormData(form).get('website')||'')})});const result=await response.json().catch(()=>({}));if(!response.ok)throw new Error(result.error||'Could not submit your application. Please try again.');form.reset();notice.className='notice show success';notice.textContent='Your application has been submitted successfully. Thank you for applying!';form.scrollIntoView({behavior:'smooth',block:'start'});}catch(error){notice.className='notice show error';notice.textContent=error.message||'Something went wrong. Please try again.';}finally{button.disabled=false;button.textContent='Submit application';}});
+</script>
+</body>
+</html>
