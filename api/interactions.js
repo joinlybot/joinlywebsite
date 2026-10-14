@@ -1,16 +1,15 @@
 const crypto = require('node:crypto');
+const { waitUntil } = require('@vercel/functions');
 
 const DISCORD_API = 'https://discord.com/api/v10';
 
 const DEFAULT_GUILD_ID = '1528786692050518111';
-const DEFAULT_STAFF_ROLE_ID = '1530905170639192125';
+const DEFAULT_STAFF_ROLE_ID = '1528798387686609080';
 const DEFAULT_WELCOME_CHANNEL_ID = '1528800562244489297';
 
 const DEFAULT_REVIEWER_ROLES = [
-  '1528798387686606604',
-  '1535304887946977341',
-  '1528798542578057366',
-  '1530905170639192125'
+  '1528798387686609080',
+  '1528798461468606604'
 ];
 
 module.exports.config = {
@@ -66,7 +65,11 @@ function verifySignature(publicKeyHex, signatureHex, timestamp, body) {
       Buffer.from(signatureHex, 'hex')
     );
   } catch (error) {
-    console.error('[Joinly Interactions] Signature verification failed:', error);
+    console.error(
+      '[Joinly Interactions] Signature verification failed:',
+      error
+    );
+
     return false;
   }
 }
@@ -157,7 +160,8 @@ async function disableReviewButtons(interaction) {
         label: button.label,
         custom_id: button.custom_id,
         disabled: true,
-        ...(button.emoji ? { emoji: button.emoji } : {})
+        ...(button.emoji ? { emoji: button.emoji } : {}),
+        ...(button.disabled ? { disabled: true } : {})
       };
     })
   }));
@@ -211,7 +215,7 @@ async function processDecision(
   welcomeChannelId
 ) {
   try {
-    // Validate that Discord recognises this user ID.
+    // Confirm Discord recognises the applicant ID.
     await botRequest(`/users/${applicantId}`);
 
     if (decision === 'accept') {
@@ -223,25 +227,27 @@ async function processDecision(
         }
       );
 
-      // Send acceptance DM.
+      // Notify the applicant.
       await sendDm(
         applicantId,
         '🎉 Congratulations! Your application to join the Joinly team has been accepted. Welcome aboard!'
       );
 
-      // Welcome the new staff member in the designated channel.
-      await botRequest(`/channels/${welcomeChannelId}/messages`, {
-        method: 'POST',
-        body: JSON.stringify({
-          content: `<@${applicantId}> Welcome!`,
-          allowed_mentions: {
-            parse: [],
-            users: [applicantId]
-          }
-        })
-      });
+      // Post the welcome message.
+      await botRequest(
+        `/channels/${welcomeChannelId}/messages`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            content: `<@${applicantId}> Welcome!`,
+            allowed_mentions: {
+              parse: [],
+              users: [applicantId]
+            }
+          })
+        }
+      );
 
-      // Disable the buttons so this application cannot be reviewed twice.
       await disableReviewButtons(interaction);
 
       await editInteractionReply(
@@ -252,7 +258,7 @@ async function processDecision(
       return;
     }
 
-    // Send denial DM.
+    // Notify the applicant of the decision.
     await sendDm(
       applicantId,
       "Thank you for applying to join the Joinly team. Unfortunately, we've decided not to move forward with your application at this time. We appreciate your interest and encourage you to apply again in the future."
@@ -339,7 +345,7 @@ module.exports = async function handler(req, res) {
     return sendJson(res, 200, { type: 1 });
   }
 
-  // Only handle button interactions.
+  // Handle button interactions only.
   if (interaction.type !== 3) {
     return sendJson(res, 200, {
       type: 4,
@@ -377,6 +383,7 @@ module.exports = async function handler(req, res) {
   );
 
   const reviewerRoles = getReviewerRoles();
+
   const memberRoles = Array.isArray(interaction.member?.roles)
     ? interaction.member.roles.map(String)
     : [];
@@ -397,28 +404,38 @@ module.exports = async function handler(req, res) {
   const decision = match[1];
   const applicantId = match[2];
 
-  /*
-   * IMPORTANT:
-   * Acknowledge Discord immediately, within its 3-second deadline.
-   * Then await the remaining work without adding any external dependency.
-   *
-   * The response is already sent, but the handler remains pending until
-   * processDecision finishes. Make sure the Vercel function timeout is
-   * sufficient for the Discord API requests.
-   */
-  sendJson(res, 200, {
+  // Acknowledge the interaction within Discord's 3-second deadline.
+  // Register the decision work with Vercel so it can continue afterwards.
+  try {
+    waitUntil(
+      processDecision(
+        interaction,
+        decision,
+        applicantId,
+        guildId,
+        staffRoleId,
+        welcomeChannelId
+      )
+    );
+  } catch (error) {
+    console.error(
+      '[Joinly Interactions] Could not schedule decision:',
+      error
+    );
+
+    return sendJson(res, 200, {
+      type: 4,
+      data: {
+        content: 'Could not start the review action. Please try again.',
+        flags: 64
+      }
+    });
+  }
+
+  return sendJson(res, 200, {
     type: 5,
     data: {
       flags: 64
     }
   });
-
-  await processDecision(
-    interaction,
-    decision,
-    applicantId,
-    guildId,
-    staffRoleId,
-    welcomeChannelId
-  );
 };
