@@ -168,7 +168,7 @@ module.exports = async function handler(req, res) {
           : { parse: [] }
       };
       if (i === 0) {
-        payload.content = `<@${NOTIFY_USER_ID}> a new Joinly staff application has been submitted.`;
+        payload.content = `<@${NOTIFY_USER_ID}> a new staff application has been submitted.`;
         payload.components = [{
           type: 1,
           components: [
