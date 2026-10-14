@@ -12,9 +12,9 @@ const QUESTIONS = [
   ['strengths', 'What skills or qualities would make you a good staff member?'],
   ['availability', 'How much time can you dedicate to Joinly each week?'],
   ['additional', "Is there anything else you'd like us to know?"],
-  ['scenario-one', 'Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?'],
-  ['scenario-two', 'Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it?'],
-  ['scenario-three', 'Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?']
+  ['scenario-one', 'A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?'],
+  ['scenario-two', 'A friend asks you to ignore a rule violation because you know them well. How would you handle it?'],
+  ['scenario-three', 'You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?']
 ];
 
 function sendJson(res, status, body) {
