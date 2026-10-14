@@ -6,9 +6,10 @@ const DISCORD_API = 'https://discord.com/api/v10';
 const DEFAULT_GUILD_ID = '1528786692050518111';
 const DEFAULT_STAFF_ROLE_ID = '1530905170639192125';
 const DEFAULT_WELCOME_CHANNEL_ID = '1528800562244489297';
+const SUPPORT_GUIDE_USER_ID = '1468027747866513479';
 
 const DEFAULT_REVIEWER_ROLES = [
-  '1528798387686609080',
+  '1528788397686609080',
   '1528798461468606604'
 ];
 
@@ -106,6 +107,10 @@ async function botRequest(endpoint, options = {}) {
     );
 
     error.status = response.status;
+    error.discordCode = data?.code;
+    error.discordErrors = data?.errors;
+    error.endpoint = endpoint;
+
     throw error;
   }
 
@@ -144,6 +149,9 @@ async function disableReviewButtons(interaction) {
   const message = interaction.message;
 
   if (!message?.id || !interaction.channel_id) {
+    console.warn(
+      '[Joinly Interactions] Cannot disable review buttons: message or channel ID is missing.'
+    );
     return;
   }
 
@@ -155,13 +163,8 @@ async function disableReviewButtons(interaction) {
       }
 
       return {
-        type: 2,
-        style: button.style,
-        label: button.label,
-        custom_id: button.custom_id,
-        disabled: true,
-        ...(button.emoji ? { emoji: button.emoji } : {}),
-        ...(button.disabled ? { disabled: true } : {})
+        ...button,
+        disabled: true
       };
     })
   }));
@@ -185,7 +188,7 @@ async function sendDm(userId, content) {
     })
   });
 
-  await botRequest(`/channels/${channel.id}/messages`, {
+  return botRequest(`/channels/${channel.id}/messages`, {
     method: 'POST',
     body: JSON.stringify({
       content,
@@ -206,6 +209,63 @@ function getReviewerRoles() {
     .filter(Boolean);
 }
 
+async function postStaffWelcome(applicantId, welcomeChannelId) {
+  const content =
+    `<@${applicantId}> Welcome!\n\n` +
+    `Please wait for <@${SUPPORT_GUIDE_USER_ID}> to walk you through the support guide.`;
+
+  console.log('[Joinly Interactions] Sending staff welcome message:', {
+    channelId: welcomeChannelId,
+    applicantId,
+    supportGuideUserId: SUPPORT_GUIDE_USER_ID
+  });
+
+  try {
+    const message = await botRequest(
+      `/channels/${welcomeChannelId}/messages`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          content,
+          allowed_mentions: {
+            parse: [],
+            users: [
+              applicantId,
+              SUPPORT_GUIDE_USER_ID
+            ]
+          }
+        })
+      }
+    );
+
+    console.log(
+      '[Joinly Interactions] Welcome message sent successfully:',
+      {
+        channelId: welcomeChannelId,
+        messageId: message?.id,
+        applicantId
+      }
+    );
+
+    return message;
+  } catch (error) {
+    console.error(
+      '[Joinly Interactions] Welcome message failed:',
+      {
+        channelId: welcomeChannelId,
+        applicantId,
+        status: error.status,
+        discordCode: error.discordCode,
+        message: error.message,
+        endpoint: error.endpoint,
+        discordErrors: error.discordErrors
+      }
+    );
+
+    throw error;
+  }
+}
+
 async function processDecision(
   interaction,
   decision,
@@ -215,7 +275,6 @@ async function processDecision(
   welcomeChannelId
 ) {
   try {
-    // Confirm Discord recognises the applicant ID.
     await botRequest(`/users/${applicantId}`);
 
     if (decision === 'accept') {
@@ -227,43 +286,37 @@ async function processDecision(
         }
       );
 
-      // Notify the applicant.
+      console.log(
+        '[Joinly Interactions] Staff role granted:',
+        { applicantId, staffRoleId }
+      );
+
+      // Send acceptance DM.
       await sendDm(
         applicantId,
         '🎉 Congratulations! Your application to join the Joinly team has been accepted. Welcome aboard!'
       );
 
-// Post the welcome message.
-await botRequest(
-  `/channels/${welcomeChannelId}/messages`,
-  {
-    method: 'POST',
-    body: JSON.stringify({
-      content: `<@${applicantId}> Welcome!
+      console.log(
+        '[Joinly Interactions] Acceptance DM sent:',
+        { applicantId }
+      );
 
-Please wait for <@1468027747866513479> to walk you through the support guide.`,
-      allowed_mentions: {
-        parse: [],
-        users: [
-          applicantId,
-          '1468027747866513479'
-        ]
-      }
-    })
-  }
-);
+      // Post the welcome message and log any Discord API failure.
+      await postStaffWelcome(applicantId, welcomeChannelId);
 
+      // Disable buttons after the actions complete.
       await disableReviewButtons(interaction);
 
       await editInteractionReply(
         interaction,
-        `✅ Application accepted for <@${applicantId}>.`
+        `✅ Application accepted for <@${applicantId}>. The staff role was granted, the acceptance DM was sent, and the welcome message was posted.`
       );
 
       return;
     }
 
-    // Notify the applicant of the decision.
+    // Send denial DM.
     await sendDm(
       applicantId,
       "Thank you for applying to join the Joinly team. Unfortunately, we've decided not to move forward with your application at this time. We appreciate your interest and encourage you to apply again in the future."
@@ -273,13 +326,18 @@ Please wait for <@1468027747866513479> to walk you through the support guide.`,
 
     await editInteractionReply(
       interaction,
-      `Application denied for <@${applicantId}>.`
+      `Application denied for <@${applicantId}>. The applicant was sent a DM.`
     );
   } catch (error) {
     console.error(
       `[Joinly Interactions] ${decision} failed for ${applicantId}:`,
-      error?.status || '',
-      error?.message || error
+      {
+        status: error?.status,
+        discordCode: error?.discordCode,
+        message: error?.message || String(error),
+        endpoint: error?.endpoint,
+        discordErrors: error?.discordErrors
+      }
     );
 
     let message =
@@ -287,10 +345,13 @@ Please wait for <@1468027747866513479> to walk you through the support guide.`,
 
     if (error.status === 404) {
       message =
-        'Discord could not find that user or server member. Check the ID and make sure the applicant is in the support server.';
+        'Discord could not find the requested user, server member, channel, or message. Verify the relevant IDs.';
     } else if (error.status === 403) {
       message =
-        "Discord rejected the action. Check the bot's permissions, role hierarchy, and whether the applicant allows DMs.";
+        "Discord rejected the action. Check the bot's permissions, role hierarchy, and channel access.";
+    } else if (error.status === 400) {
+      message =
+        'Discord rejected the request. Check the logged API error for the exact reason.';
     } else if (error.status === 429) {
       message =
         'Discord is rate-limiting the bot. Please wait a moment before trying again.';
@@ -334,6 +395,10 @@ module.exports = async function handler(req, res) {
       rawBody
     )
   ) {
+    console.error(
+      '[Joinly Interactions] Request signature verification failed.'
+    );
+
     return res.status(401).end('Invalid request signature');
   }
 
@@ -409,8 +474,7 @@ module.exports = async function handler(req, res) {
   const decision = match[1];
   const applicantId = match[2];
 
-  // Acknowledge the interaction within Discord's 3-second deadline.
-  // Register the decision work with Vercel so it can continue afterwards.
+  // Schedule the decision work with Vercel.
   try {
     waitUntil(
       processDecision(
@@ -437,6 +501,7 @@ module.exports = async function handler(req, res) {
     });
   }
 
+  // Acknowledge Discord within its three-second deadline.
   return sendJson(res, 200, {
     type: 5,
     data: {
