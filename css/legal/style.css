@@ -249,10 +249,9 @@ body {
         transform: translateY(0);
     }
 }
-
 /* =========================================================
    BUTTONS
-   Matches main.css
+   Matched exactly to main.css
    ========================================================= */
 
 .invite-btn,
@@ -261,15 +260,14 @@ body {
     align-items: center;
     justify-content: center;
 
-    padding: 11px 18px;
-
     background: #e7e8ea;
     color: #0a0b0d;
 
+    text-decoration: none;
+    padding: 11px 18px;
     border: 1px solid #f0f0f1;
     border-radius: 9px;
 
-    text-decoration: none;
     font-size: 14px;
     font-weight: 650;
 
@@ -295,15 +293,14 @@ body {
     align-items: center;
     justify-content: center;
 
-    padding: 11px 18px;
-
     color: #dfe1e5;
     background: rgba(255,255,255,.025);
 
+    text-decoration: none;
+    padding: 11px 18px;
     border: 1px solid var(--border-strong);
     border-radius: 9px;
 
-    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
 
@@ -325,16 +322,15 @@ body {
     justify-content: center;
 
     padding: 11px 18px;
-
-    background: #d7d9dd;
-    color: #090a0c;
-
-    border: 1px solid rgba(255,255,255,.3);
     border-radius: 9px;
 
     text-decoration: none;
     font-size: 14px;
     font-weight: 650;
+
+    background: #d7d9dd;
+    color: #090a0c;
+    border: 1px solid rgba(255,255,255,.3);
 
     box-shadow: none;
 
@@ -348,23 +344,6 @@ body {
     background: #f0f1f2;
     transform: translateY(-1px);
     box-shadow: 0 10px 28px rgba(0,0,0,.3);
-}
-
-.badge {
-    display: inline-block;
-
-    margin-bottom: 20px;
-    padding: 6px 11px;
-
-    background: rgba(255,255,255,.045);
-    color: #bfc2c8;
-
-    border: 1px solid rgba(255,255,255,.09);
-    border-radius: 7px;
-
-    font-size: 12px;
-    font-weight: 650;
-    letter-spacing: .01em;
 }
 
 /* =========================================================
