@@ -62,161 +62,338 @@
        NAVIGATION — ORIGINAL JOINLY STYLING
     ========================================= */
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 82px;
-      padding: 0 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      backdrop-filter: blur(20px);
-      background: rgba(11,15,22,.65);
-      border-bottom: 1px solid rgba(255,255,255,.05);
-      z-index: 999;
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:82px;
+
+    padding:0 80px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(11,15,22,.65);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    z-index:999;
+
+}
+
+
+
+.nav-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:21px;
+
+}
+
+
+
+.logo img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    transition:.25s ease;
+
+}
+
+
+
+.dropdown{
+
+    position:relative;
+
+}
+
+
+
+.dropdown-btn{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-family:inherit;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:10px 0;
+
+}
+
+
+
+.dropdown-btn svg{
+
+    transition:.25s;
+
+}
+
+
+
+.dropdown.active svg{
+
+    transform:rotate(180deg);
+
+}
+
+
+
+.dropdown-menu{
+
+    position:absolute;
+
+    top:55px;
+
+    left:0;
+
+    width:340px;
+
+    background:#161d28;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:12px;
+
+    display:none;
+
+    box-shadow:var(--shadow);
+
+    animation:dropdown .25s ease;
+
+}
+
+
+
+.dropdown.active .dropdown-menu{
+
+    display:block;
+
+}
+
+
+
+.dropdown-menu a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    transition:.2s;
+
+}
+
+
+
+.dropdown-menu a:hover{
+
+    background:#202a3b;
+
+}
+
+
+
+.dropdown-menu h4{
+
+    font-size:15px;
+
+}
+
+
+
+.dropdown-menu p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:3px;
+
+}
+
+
+
+@keyframes dropdown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-8px);
+
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 28px;
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
     }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      font-size: 21px;
-      white-space: nowrap;
-    }
 
-    .logo img {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
 
-    .dropdown {
-      position: relative;
-    }
+.invite-btn,
+.primary-btn{
 
-    .dropdown-btn {
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-      font-family: inherit;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 0;
-    }
+    background:var(--primary);
 
-    .dropdown-btn svg {
-      transition: .25s;
-    }
+    color:white;
 
-    .dropdown:hover .dropdown-btn svg,
-    .dropdown:focus-within .dropdown-btn svg {
-      transform: rotate(180deg);
-    }
+    text-decoration:none;
 
-    .dropdown-menu {
-      position: absolute;
-      top: 55px;
-      left: 0;
-      width: 340px;
-      background: #161d28;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 12px;
-      box-shadow: 0 20px 45px rgba(0,0,0,.35);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-8px);
-      transition:
-        opacity .25s ease,
-        transform .25s ease,
-        visibility .25s ease;
-    }
+    padding:14px 26px;
 
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
+    border-radius:14px;
 
-    .dropdown-menu a {
-      display: block;
-      text-decoration: none;
-      color: white;
-      padding: 14px;
-      border-radius: 14px;
-      transition: .2s;
-    }
+    font-weight:600;
 
-    .dropdown-menu a:hover {
-      background: #202a3b;
-    }
+    transition:var(--transition);
 
-    .dropdown-menu h4 {
-      font-size: 15px;
-      margin: 0;
-    }
+}
 
-    .dropdown-menu p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 3px;
-    }
 
-    .premium-btn,
-    .invite-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 26px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      white-space: nowrap;
-      transition: .25s;
-    }
 
-    .premium-btn {
-      color: white;
-      background: linear-gradient(135deg, #ff424d, #ff7b54);
-    }
+.invite-btn:hover,
+.primary-btn:hover{
 
-    .premium-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(255,66,77,.35);
-    }
+    background:var(--primary-hover);
 
-    .invite-btn {
-      background: var(--primary);
-      color: white;
-    }
+    transform:translateY(-2px);
 
-    .invite-btn:hover {
-      background: #6a75ff;
-      transform: translateY(-2px);
-    }
+    box-shadow:0 12px 28px rgba(88,101,242,.35);
+
+}
+
+
+
+.premium-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 26px;
+
+    border-radius:14px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    background:linear-gradient(
+        135deg,
+        #ff424d,
+        #ff7b54
+    );
+
+    transition:.25s ease;
+
+}
+
+
+
+.premium-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(255,66,77,.35);
+
+}
+.badge{
+
+    display:inline-block;
+
+    background:rgba(88,101,242,.15);
+
+    color:#8ea3ff;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    margin-bottom:24px;
+
+    font-weight:600;
+
+}
 
     /* =========================================
        APPLICATION PAGE
