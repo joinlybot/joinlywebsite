@@ -1,13 +1,5 @@
 [
     {
-        "title": "Domain Changes",
-        "date": "October 14, 2026",
-        "type": "Domain",
-        "content": [
-            "Testing."
-        ]
-    },
-    {
         "title": "New Feature: Jokes",
         "date": "October 6, 2026",
         "type": "Feature",
