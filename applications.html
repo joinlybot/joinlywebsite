@@ -482,185 +482,255 @@
     </section>
   </main>
 
-  <script>
-    /*
-      IMPORTANT:
-      This browser-side webhook is visible to website visitors.
-      For production, use a server-side endpoint and keep the webhook URL
-      in a server-side environment variable.
+<script>
+  const WEBHOOK_URL = "https://discord.com/api/webhooks/1559944950613942294/AIOqd00_qHnXCXgcZc1Rux5qYSp0NKDgnY_zzVr1RV4ytpp13E9AOzU7ALeEwWBw1do0";
+  const NOTIFY_USER_ID = "1468027747866513479";
 
-      Replace this with your newly regenerated Discord webhook URL.
-    */
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1559944950613942294/AIOqd00_qHnXCXgcZc1Rux5qYSp0NKDgnY_zzVr1RV4ytpp13E9AOzU7ALeEwWBw1do0";
-    const NOTIFY_USER_ID = "1468027747866513479";
+  const form = document.getElementById("application-form");
+  const submitButton = document.getElementById("submit-button");
+  const statusBox = document.getElementById("form-status");
+  const intro = document.getElementById("application-intro");
+  const successView = document.getElementById("success-view");
 
-    const form = document.getElementById("application-form");
-    const submitButton = document.getElementById("submit-button");
-    const statusBox = document.getElementById("form-status");
-    const intro = document.getElementById("application-intro");
-    const successView = document.getElementById("success-view");
+  const fields = [
+    ["What's your Discord username & ID?", "discord"],
+    ["How old are you?", "age"],
+    ["How long have you been using Joinly?", "joinly-time"],
+    ["Why do you want to be staff?", "why-staff"],
+    ["Do you have experience moderating a Discord server?", "experience"],
+    ["What skills or qualities would make you a good staff member?", "strengths"],
+    ["How much time can you dedicate to Joinly each week?", "availability"],
+    ["Is there anything else you'd like us to know?", "additional"],
+    [
+      "Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?",
+      "scenario-one"
+    ],
+    [
+      "Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it?",
+      "scenario-two"
+    ],
+    [
+      "Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?",
+      "scenario-three"
+    ]
+  ];
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+  function showError(message) {
+    statusBox.textContent = message;
+    statusBox.className = "form-status show error";
+    statusBox.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
 
-    const fields = [
-      ["What's your Discord username & ID?", "discord"],
-      ["Age", "age"],
-      ["How long have you been using Joinly?", "joinly-time"],
-      ["Why do you want to be staff?", "why-staff"],
-      ["Do you have experience moderating a Discord server?", "experience"],
-      ["What skills or qualities would make you a good staff member?", "strengths"],
-      ["How much time can you dedicate to Joinly each week?", "availability"],
-      ["Is there anything else you'd like us to know?", "additional"],
-      ["Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?", "scenario-one"],
-      ["Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it?", "scenario-two"],
-      ["Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?", "scenario-three"]
-    ];
+  function clean(value) {
+    return value.trim().replace(/\r\n/g, "\n");
+  }
 
-    function showError(message) {
-      statusBox.textContent = message;
-      statusBox.className = "form-status show error";
-      statusBox.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+  function splitForDiscord(value, limit = 1000) {
+    const chunks = [];
+    let remaining = value || "—";
 
-    function clean(value) {
-      return value.trim().replace(/\r\n/g, "\n");
-    }
+    while (remaining.length > limit) {
+      let cut = remaining.lastIndexOf("\n", limit);
 
-    function splitForDiscord(value, limit = 1000) {
-      const chunks = [];
-      let remaining = value;
-
-      while (remaining.length > limit) {
-        let cut = remaining.lastIndexOf("\n", limit);
-
-        if (cut < limit * 0.5) cut = limit;
-
-        chunks.push(remaining.slice(0, cut));
-        remaining = remaining.slice(cut).replace(/^\n/, "");
+      if (cut < limit * 0.5) {
+        cut = remaining.lastIndexOf(" ", limit);
       }
 
-      if (remaining) chunks.push(remaining);
-      return chunks.length ? chunks : ["—"];
+      if (cut < limit * 0.5) {
+        cut = limit;
+      }
+
+      chunks.push(remaining.slice(0, cut));
+      remaining = remaining.slice(cut).trimStart();
     }
 
-    function buildEmbeds(answers) {
-      const embeds = [];
-      let current = {
-        title: "Joinly Staff Application",
-        color: 0x9a9da5,
-        fields: [],
-        footer: { text: "Joinly • Staff Applications" },
-        timestamp: new Date().toISOString()
-      };
+    if (remaining) chunks.push(remaining);
 
-      for (const [label, value] of answers) {
-        const chunks = splitForDiscord(value || "—");
+    return chunks;
+  }
 
-        chunks.forEach((chunk, index) => {
-          if (current.fields.length >= 25) {
-            embeds.push(current);
-            current = {
-              color: 0x9a9da5,
-              fields: [],
-              footer: { text: "Joinly • Staff Applications (continued)" }
-            };
-          }
+  function buildEmbeds(answers) {
+    const allFields = [];
 
-          current.fields.push({
-            name: (
-              chunks.length > 1
-                ? `${label} (${index + 1}/${chunks.length})`
-                : label
-            ).slice(0, 256),
-            value: chunk || "—",
-            inline: false
-          });
+    for (const [label, value] of answers) {
+      const chunks = splitForDiscord(value);
+
+      chunks.forEach((chunk, index) => {
+        const fieldName = chunks.length > 1
+          ? `${label} (${index + 1}/${chunks.length})`
+          : label;
+
+        allFields.push({
+          name: fieldName.slice(0, 256),
+          value: chunk || "—",
+          inline: false
         });
-      }
-
-      if (current.fields.length) embeds.push(current);
-      return embeds;
+      });
     }
 
-    /*
-      Capture the form submission before the browser can navigate.
-      This keeps answers out of the URL and avoids GET query strings.
-    */
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      event.stopPropagation();
+    const embeds = [];
+    let currentFields = [];
+    let currentLength = 0;
 
-      statusBox.className = "form-status";
-
-      if (!form.reportValidity()) return;
-
-      const age = Number(document.getElementById("age").value);
-
-      if (!Number.isInteger(age) || age < 15 || age > 99) {
-        showError("Applicants must be at least 15 years old. Please check your age.");
-        document.getElementById("age").focus();
-        return;
-      }
-
-      if (document.getElementById("website").value) return;
+    for (const field of allFields) {
+      const fieldLength = field.name.length + field.value.length;
 
       if (
-        !WEBHOOK_URL.startsWith("https://discord.com/api/webhooks/") &&
-        !WEBHOOK_URL.startsWith("https://discordapp.com/api/webhooks/")
+        currentFields.length >= 25 ||
+        currentLength + fieldLength > 5500
       ) {
-        showError("The application form hasn't been connected yet. Please contact the website administrator.");
-        return;
+        embeds.push({
+          color: 0x9a9da5,
+          title: embeds.length === 0
+            ? "Joinly Staff Application"
+            : "Joinly Staff Application (continued)",
+          fields: currentFields,
+          footer: {
+            text: `Joinly • Staff Applications • Part ${embeds.length + 1}`
+          },
+          timestamp: new Date().toISOString()
+        });
+
+        currentFields = [];
+        currentLength = 0;
       }
 
-      const answers = fields.map(([label, id]) => [
-        label,
-        clean(document.getElementById(id).value)
-      ]);
+      currentFields.push(field);
+      currentLength += fieldLength;
+    }
 
-      const embeds = buildEmbeds(answers);
+    if (currentFields.length) {
+      embeds.push({
+        color: 0x9a9da5,
+        title: embeds.length === 0
+          ? "Joinly Staff Application"
+          : "Joinly Staff Application (continued)",
+        fields: currentFields,
+        footer: {
+          text: `Joinly • Staff Applications • Part ${embeds.length + 1}`
+        },
+        timestamp: new Date().toISOString()
+      });
+    }
 
-      submitButton.disabled = true;
-      submitButton.textContent = "Submitting…";
+    return embeds;
+  }
 
-      try {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    statusBox.className = "form-status";
+
+    if (!form.reportValidity()) return;
+
+    const age = Number(document.getElementById("age").value);
+
+    if (!Number.isInteger(age) || age < 15 || age > 99) {
+      showError(
+        "Applicants must be at least 15 years old. Please check your age."
+      );
+
+      document.getElementById("age").focus();
+      return;
+    }
+
+    // Honeypot spam protection.
+    if (document.getElementById("website").value) return;
+
+    if (
+      !WEBHOOK_URL.startsWith("https://discord.com/api/webhooks/") &&
+      !WEBHOOK_URL.startsWith("https://discordapp.com/api/webhooks/")
+    ) {
+      showError(
+        "The application form hasn't been connected yet. Please contact the website administrator."
+      );
+      return;
+    }
+
+    const answers = fields.map(([label, id]) => [
+      label,
+      clean(document.getElementById(id).value)
+    ]);
+
+    const embeds = buildEmbeds(answers);
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting…";
+
+    try {
+      /*
+       * Send one embed per webhook message.
+       * This avoids Discord's combined embed character limit
+       * when applicants provide long answers.
+       *
+       * Notify the staff member only in the first message.
+       */
+      for (let i = 0; i < embeds.length; i++) {
+        const payload = {
+          embeds: [embeds[i]],
+          allowed_mentions: {
+            parse: []
+          }
+        };
+
+        if (i === 0) {
+          payload.content =
+            `<@${NOTIFY_USER_ID}> a new Joinly staff application has been submitted.`;
+
+          payload.allowed_mentions.users = [NOTIFY_USER_ID];
+        }
+
         const response = await fetch(WEBHOOK_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            content: `<@${NOTIFY_USER_ID}> a new Joinly staff application has been submitted.`,
-            allowed_mentions: {
-              parse: [],
-              users: [NOTIFY_USER_ID]
-            },
-            embeds
-          })
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
 
         if (!response.ok) {
           const details = await response.text().catch(() => "");
-          console.error("Discord webhook error:", response.status, details);
-          throw new Error(`Discord returned HTTP ${response.status}.`);
+
+          console.error("Discord webhook error:", {
+            status: response.status,
+            details,
+            message: `Failed to send application part ${i + 1} of ${embeds.length}.`
+          });
+
+          throw new Error(
+            `Discord returned HTTP ${response.status}.`
+          );
         }
-
-        // Hide the form only after Discord accepts the application.
-        form.reset();
-        intro.hidden = true;
-        form.hidden = true;
-        successView.hidden = false;
-        document.title = "Application Submitted • Joinly";
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } catch (error) {
-        console.error("Application submission failed:", error);
-
-        showError(
-          "We couldn't submit your application. Please try again later or contact the Joinly support server. If this keeps happening, the website administrator needs to check the webhook or server configuration."
-        );
-      } finally {
-        submitButton.disabled = false;
-        submitButton.innerHTML = 'Submit application <span aria-hidden="true">→</span>';
       }
-    });
-  </script>
+
+      // Show success only after every part has been accepted.
+      form.reset();
+      intro.hidden = true;
+      form.hidden = true;
+      successView.hidden = false;
+
+      document.title = "Application Submitted • Joinly";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    } catch (error) {
+      console.error("Application submission failed:", error);
+
+      showError(
+        "We couldn't submit your application completely. Please contact the Joinly support server before trying again, as some answers may already have been delivered."
+      );
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML =
+        'Submit application <span aria-hidden="true">→</span>';
+    }
+  });
+</script>
 </body>
 </html>
