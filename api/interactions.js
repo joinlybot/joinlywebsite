@@ -239,7 +239,9 @@ async function processDecision(
         {
           method: 'POST',
           body: JSON.stringify({
-            content: `<@${applicantId}> Welcome!`,
+            content: `<@${applicantId}> Welcome!
+
+Please wait for <@1468027747866513479> to walk you through the support guide.`,
             allowed_mentions: {
               parse: [],
               users: [applicantId]
