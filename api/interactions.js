@@ -4,7 +4,7 @@ const { waitUntil } = require('@vercel/functions');
 const DISCORD_API = 'https://discord.com/api/v10';
 
 const DEFAULT_GUILD_ID = '1528786692050518111';
-const DEFAULT_STAFF_ROLE_ID = '1528798387686609080';
+const DEFAULT_STAFF_ROLE_ID = '1530905170639192125';
 const DEFAULT_WELCOME_CHANNEL_ID = '1528800562244489297';
 
 const DEFAULT_REVIEWER_ROLES = [
