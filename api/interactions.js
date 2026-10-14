@@ -233,22 +233,25 @@ async function processDecision(
         '🎉 Congratulations! Your application to join the Joinly team has been accepted. Welcome aboard!'
       );
 
-      // Post the welcome message.
-      await botRequest(
-        `/channels/${welcomeChannelId}/messages`,
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            content: `<@${applicantId}> Welcome!
+// Post the welcome message.
+await botRequest(
+  `/channels/${welcomeChannelId}/messages`,
+  {
+    method: 'POST',
+    body: JSON.stringify({
+      content: `<@${applicantId}> Welcome!
 
 Please wait for <@1468027747866513479> to walk you through the support guide.`,
-            allowed_mentions: {
-              parse: [],
-              users: [applicantId]
-            }
-          })
-        }
-      );
+      allowed_mentions: {
+        parse: [],
+        users: [
+          applicantId,
+          '1468027747866513479'
+        ]
+      }
+    })
+  }
+);
 
       await disableReviewButtons(interaction);
 
