@@ -254,7 +254,7 @@ Please wait for <@1468027747866513479> to walk you through the support guide.`,
 
       await editInteractionReply(
         interaction,
-        `✅ Application accepted for <@${applicantId}>. The staff role was granted, the acceptance DM was sent, and the welcome message was posted.`
+        `✅ Application accepted for <@${applicantId}>.`
       );
 
       return;
@@ -270,7 +270,7 @@ Please wait for <@1468027747866513479> to walk you through the support guide.`,
 
     await editInteractionReply(
       interaction,
-      `Application denied for <@${applicantId}>. The applicant was sent a DM.`
+      `Application denied for <@${applicantId}>.`
     );
   } catch (error) {
     console.error(
