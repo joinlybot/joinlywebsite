@@ -303,7 +303,7 @@ async function processDecision(
 
       await editInteractionReply(
         interaction,
-        `✅ Application accepted for <@${applicantId}>. The staff role was granted, the acceptance DM was sent, and the welcome message was posted.`
+        `✅ Application accepted for <@${applicantId}>.`
       );
 
       return;
@@ -319,7 +319,7 @@ async function processDecision(
 
     await editInteractionReply(
       interaction,
-      `Application denied for <@${applicantId}>. The applicant was sent a DM.`
+      `Application denied for <@${applicantId}>.`
     );
   } catch (error) {
     console.error(
