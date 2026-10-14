@@ -1,5 +1,26 @@
 [
     {
+        "title": "Domain Changes",
+        "date": "October 14, 2026",
+        "type": "Domain",
+        "content": [
+            "<strong>Introducing Joinly&#39;s Own Domain!</strong>",
+            "",
+            "We&#39;re excited to announce that Joinly has officially moved to its own custom domain, leaving behind the default Vercel domains!",
+            "",
+            "<strong>🔗 Our New Domains</strong>",
+            "",
+            "<strong>Website:</strong> <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://joinly-bot.xyz\">https://joinly-bot.xyz</a>",
+            "<strong>Dashboard:</strong> <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://dashboard.joinly-bot.xyz/\">https://dashboard.joinly-bot.xyz/</a>",
+            "",
+            "The migration is now complete, and you can access Joinly through our new domains!",
+            "",
+            "Thank you for your continued patience and support as we continue to improve Joinly. 💙",
+            "",
+            "<strong>Stay tuned for more updates!</strong>"
+        ]
+    },
+    {
         "title": "New Feature: Jokes",
         "date": "October 6, 2026",
         "type": "Feature",
