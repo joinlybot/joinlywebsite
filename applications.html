@@ -4,13 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#08090b">
-
   <title>Joinly • Staff Applications</title>
 
-  <script id="discord:component-embed" type="application/json">{"component":{"type":17,"accent_color":5793266,"components":[{"type":9,"components":[{"type":10,"content":"## [Joinly](https://joinly-bot.xyz/)\nWelcome & goodbye messages made simple and so much more.\n \n-# <:joinlyPremium:1556107008694812742> **Premium Features**    <:joinlyWelcome:1556106986888757258> **Welcome Messages**    <:joinlySetup:1556106999610089582> **Advanced Setup**"}],"accessory":{"type":11,"media":{"url":"https://i.ibb.co/Xk5kHMWY/joinly.png"}}},{"type":14,"spacing":2,"divider":true},{"type":1,"components":[{"type":2,"label":"Dashboard","style":5,"url":"https://dashboard.joinly-bot.xyz/login","disabled":false},{"type":2,"label":"Features","style":5,"url":"https://joinly-bot.xyz/features","disabled":false},{"type":2,"label":"Support Server","style":5,"url":"https://discord.gg/PTrU8DQacj","disabled":false}]}]}}</script>
-
-  <link rel="icon" href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
-
+  <link rel="icon" href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=128">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,17 +20,11 @@
       --muted: #92969e;
       --line: rgba(255,255,255,.08);
       --danger: #ff8585;
-      --primary: #5865f2;
-      --gold: #f5c451;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    [hidden] {
-      display: none !important;
-    }
+    [hidden] { display: none !important; }
 
     html {
       scroll-behavior: smooth;
@@ -58,346 +48,36 @@
       text-underline-offset: 3px;
     }
 
-    /* =========================================
-       NAVIGATION — ORIGINAL JOINLY STYLING
-    ========================================= */
-
-.navbar{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    height:82px;
-
-    padding:0 80px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    backdrop-filter:blur(20px);
-
-    background:rgba(11,15,22,.65);
-
-    border-bottom:1px solid rgba(255,255,255,.05);
-
-    z-index:999;
-
-}
-
-
-
-.nav-left{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:28px;
-
-}
-
-
-
-.nav-right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-}
-
-
-
-.logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    text-decoration:none;
-
-    color:white;
-
-    font-weight:700;
-
-    font-size:21px;
-
-}
-
-
-
-.logo img{
-
-    width:42px;
-
-    height:42px;
-
-    border-radius:50%;
-
-    transition:.25s ease;
-
-}
-
-
-
-.dropdown{
-
-    position:relative;
-
-}
-
-
-
-.dropdown-btn{
-
-    background:none;
-
-    border:none;
-
-    color:white;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    font-family:inherit;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:6px;
-
-    padding:10px 0;
-
-}
-
-
-
-.dropdown-btn svg{
-
-    transition:.25s;
-
-}
-
-
-
-.dropdown.active svg{
-
-    transform:rotate(180deg);
-
-}
-
-
-
-.dropdown-menu{
-
-    position:absolute;
-
-    top:55px;
-
-    left:0;
-
-    width:340px;
-
-    background:#161d28;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:12px;
-
-    display:none;
-
-    box-shadow:var(--shadow);
-
-    animation:dropdown .25s ease;
-
-}
-
-
-
-.dropdown.active .dropdown-menu{
-
-    display:block;
-
-}
-
-
-
-.dropdown-menu a{
-
-    display:block;
-
-    text-decoration:none;
-
-    color:white;
-
-    padding:14px;
-
-    border-radius:14px;
-
-    transition:.2s;
-
-}
-
-
-
-.dropdown-menu a:hover{
-
-    background:#202a3b;
-
-}
-
-
-
-.dropdown-menu h4{
-
-    font-size:15px;
-
-}
-
-
-
-.dropdown-menu p{
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    margin-top:3px;
-
-}
-
-
-
-@keyframes dropdown{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(-8px);
-
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 72px;
+      padding: 0 clamp(18px, 5vw, 56px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8,9,11,.86);
+      border-bottom: 1px solid rgba(255,255,255,.055);
+      backdrop-filter: blur(24px);
     }
 
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: #f5f5f6;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -.025em;
     }
 
-}
-
-
-
-.invite-btn,
-.primary-btn{
-
-    background:var(--primary);
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:14px 26px;
-
-    border-radius:14px;
-
-    font-weight:600;
-
-    transition:var(--transition);
-
-}
-
-
-
-.invite-btn:hover,
-.primary-btn:hover{
-
-    background:var(--primary-hover);
-
-    transform:translateY(-2px);
-
-    box-shadow:0 12px 28px rgba(88,101,242,.35);
-
-}
-
-
-
-.premium-btn{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:14px 26px;
-
-    border-radius:14px;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    background:linear-gradient(
-        135deg,
-        #ff424d,
-        #ff7b54
-    );
-
-    transition:.25s ease;
-
-}
-
-
-
-.premium-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 12px 28px rgba(255,66,77,.35);
-
-}
-.badge{
-
-    display:inline-block;
-
-    background:rgba(88,101,242,.15);
-
-    color:#8ea3ff;
-
-    padding:8px 18px;
-
-    border-radius:999px;
-
-    margin-bottom:24px;
-
-    font-weight:600;
-
-}
-
-    /* =========================================
-       APPLICATION PAGE
-    ========================================= */
+    .logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+    }
 
     main {
       width: min(820px, calc(100% - 32px));
@@ -405,9 +85,7 @@
       padding: 64px 0 40px;
     }
 
-    .intro {
-      margin-bottom: 25px;
-    }
+    .intro { margin-bottom: 25px; }
 
     .eyebrow {
       display: inline-block;
@@ -477,13 +155,8 @@
       font-size: 13px;
     }
 
-    .question {
-      margin-top: 24px;
-    }
-
-    .question:first-of-type {
-      margin-top: 0;
-    }
+    .question { margin-top: 24px; }
+    .question:first-of-type { margin-top: 0; }
 
     label {
       display: block;
@@ -587,9 +260,7 @@
       font-size: 13px;
     }
 
-    .form-status.show {
-      display: block;
-    }
+    .form-status.show { display: block; }
 
     .form-status.error {
       color: #ffd2d2;
@@ -646,21 +317,15 @@
       font-weight: 700;
     }
 
-    .success-home:hover {
-      background: #fff;
-    }
-
-    /* =========================================
-       FOOTER — ORIGINAL JOINLY STYLING
-    ========================================= */
+    .success-home:hover { background: #fff; }
 
     footer {
-      margin-top: 120px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      padding: 50px 80px;
+      border-top: 1px solid rgba(255,255,255,.055);
+      margin-top: 35px;
+      padding: 26px 20px 35px;
       text-align: center;
-      color: var(--muted);
-      font-size: 13px;
+      color: #696e76;
+      font-size: 12px;
     }
 
     .hp-field {
@@ -671,120 +336,23 @@
       overflow: hidden !important;
     }
 
-    /* =========================================
-       RESPONSIVE LAYOUT
-    ========================================= */
-
-    @media (max-width: 1000px) {
-      .navbar {
-        padding: 0 25px;
-      }
-    }
-
     @media (max-width: 600px) {
-      .navbar {
-        height: 66px;
-        padding: 10px 14px;
-        gap: 8px;
-      }
-
-      .nav-left {
-        gap: 14px;
-      }
-
-      .nav-right {
-        gap: 8px;
-      }
-
-      .logo {
-        gap: 8px;
-        font-size: 18px;
-      }
-
-      .logo img {
-        width: 36px;
-        height: 36px;
-      }
-
-      .dropdown-btn {
-        font-size: 15px;
-      }
-
-      .dropdown-menu {
-        position: fixed;
-        top: 72px;
-        left: 14px;
-        right: 14px;
-        width: auto;
-        max-width: none;
-        max-height: 70vh;
-        overflow-y: auto;
-      }
-
-      .premium-btn {
-        padding: 8px 12px;
-        font-size: 13px;
-      }
-
-      .invite-btn {
-        padding: 8px 12px;
-        font-size: 12px;
-      }
-
-      main {
-        padding-top: 42px;
-      }
-
+      .navbar { min-height: 64px; }
+      main { padding-top: 42px; }
       .form-section {
         padding-top: 22px;
         padding-bottom: 22px;
       }
-
       .submit-row {
         align-items: stretch;
         flex-direction: column-reverse;
       }
-
-      .submit-button {
-        width: 100%;
-      }
-
-      .form-footnote {
-        text-align: center;
-      }
-
-      footer {
-        padding: 45px 25px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .nav-left,
-      .nav-right {
-        gap: 8px;
-      }
-
-      .logo {
-        gap: 6px;
-        font-size: 16px;
-      }
-
-      .logo img {
-        width: 30px;
-        height: 30px;
-      }
-
-      .premium-btn,
-      .invite-btn {
-        padding: 7px 9px;
-        font-size: 10px;
-      }
+      .submit-button { width: 100%; }
+      .form-footnote { text-align: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         scroll-behavior: auto !important;
         transition: none !important;
       }
@@ -794,88 +362,10 @@
 
 <body>
   <nav class="navbar" aria-label="Main navigation">
-    <div class="nav-left">
-      <a href="/" class="logo">
-        <img
-          src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048"
-          alt="Joinly"
-        >
-        <span>Joinly</span>
-      </a>
-
-      <div class="dropdown">
-        <button class="dropdown-btn" type="button" aria-haspopup="true">
-          Help
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="currentColor" d="M7 10l5 5 5-5z"/>
-          </svg>
-        </button>
-
-        <div class="dropdown-menu">
-          <a href="https://discord.gg/PTrU8DQacj" target="_blank" rel="noopener noreferrer">
-            <div>
-              <h4>Support Server</h4>
-              <p>Need help? Join our Discord.</p>
-            </div>
-          </a>
-
-          <a href="/status">
-            <div>
-              <h4>Status</h4>
-              <p>Joinly service status.</p>
-            </div>
-          </a>
-
-          <a href="/updates">
-            <div>
-              <h4>Updates</h4>
-              <p>Latest Joinly changes.</p>
-            </div>
-          </a>
-
-          <a href="/features">
-            <div>
-              <h4>Features</h4>
-              <p>Joinly features and commands.</p>
-            </div>
-          </a>
-
-          <a href="/faq">
-            <div>
-              <h4>FAQ</h4>
-              <p>Frequently asked questions.</p>
-            </div>
-          </a>
-
-          <a href="/legal">
-            <div>
-              <h4>Legal</h4>
-              <p>Joinly legal information.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-right">
-      <a
-        class="premium-btn"
-        href="https://www.patreon.com/cw/Joinly"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        ⭐ Joinly Premium
-      </a>
-
-      <a
-        class="invite-btn"
-        href="https://dashboard.joinly-bot.xyz/login"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Dashboard
-      </a>
-    </div>
+    <a class="logo" href="/">
+      <img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=128" alt="">
+      <span>Joinly</span>
+    </a>
   </nav>
 
   <main>
@@ -889,6 +379,7 @@
       </div>
     </header>
 
+    <!-- POST prevents answers from being placed in the URL if JavaScript fails. -->
     <form id="application-form" method="POST" action="/applications">
       <div class="form-top"></div>
 
@@ -981,6 +472,7 @@
       </div>
     </form>
 
+    <!-- Only shown after the webhook confirms that submission succeeded. -->
     <section id="success-view" class="success-view" aria-live="polite" hidden>
       <div class="success-icon" aria-hidden="true">✓</div>
       <span class="eyebrow">Application received</span>
@@ -990,137 +482,106 @@
     </section>
   </main>
 
-  <footer>
-    © <span id="current-year">2026</span> Joinly. All rights reserved.
-  </footer>
+<script>
+  const WEBHOOK_URL = "https://discord.com/api/webhooks/1559944950613942294/AIOqd00_qHnXCXgcZc1Rux5qYSp0NKDgnY_zzVr1RV4ytpp13E9AOzU7ALeEwWBw1do0";
+  const NOTIFY_USER_ID = "1468027747866513479";
 
-  <script>
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1559944950613942294/AIOqd00_qHnXCXgcZc1Rux5qYSp0NKDgnY_zzVr1RV4ytpp13E9AOzU7ALeEwWBw1do0";
-    const NOTIFY_USER_ID = "1468027747866513479";
+  const form = document.getElementById("application-form");
+  const submitButton = document.getElementById("submit-button");
+  const statusBox = document.getElementById("form-status");
+  const intro = document.getElementById("application-intro");
+  const successView = document.getElementById("success-view");
 
-    const form = document.getElementById("application-form");
-    const submitButton = document.getElementById("submit-button");
-    const statusBox = document.getElementById("form-status");
-    const intro = document.getElementById("application-intro");
-    const successView = document.getElementById("success-view");
+  const fields = [
+    ["What's your Discord username & ID?", "discord"],
+    ["How old are you?", "age"],
+    ["How long have you been using Joinly?", "joinly-time"],
+    ["Why do you want to be staff?", "why-staff"],
+    ["Do you have experience moderating a Discord server?", "experience"],
+    ["What skills or qualities would make you a good staff member?", "strengths"],
+    ["How much time can you dedicate to Joinly each week?", "availability"],
+    ["Is there anything else you'd like us to know?", "additional"],
+    [
+      "Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?",
+      "scenario-one"
+    ],
+    [
+      "Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it?",
+      "scenario-two"
+    ],
+    [
+      "Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?",
+      "scenario-three"
+    ]
+  ];
 
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
+  function showError(message) {
+    statusBox.textContent = message;
+    statusBox.className = "form-status show error";
+    statusBox.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
 
-    const fields = [
-      ["What's your Discord username & ID?", "discord"],
-      ["How old are you?", "age"],
-      ["How long have you been using Joinly?", "joinly-time"],
-      ["Why do you want to be staff?", "why-staff"],
-      ["Do you have experience moderating a Discord server?", "experience"],
-      ["What skills or qualities would make you a good staff member?", "strengths"],
-      ["How much time can you dedicate to Joinly each week?", "availability"],
-      ["Is there anything else you'd like us to know?", "additional"],
-      [
-        "Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?",
-        "scenario-one"
-      ],
-      [
-        "Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it?",
-        "scenario-two"
-      ],
-      [
-        "Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?",
-        "scenario-three"
-      ]
-    ];
+  function clean(value) {
+    return value.trim().replace(/\r\n/g, "\n");
+  }
 
-    function showError(message) {
-      statusBox.textContent = message;
-      statusBox.className = "form-status show error";
+  function splitForDiscord(value, limit = 1000) {
+    const chunks = [];
+    let remaining = value || "—";
 
-      statusBox.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+    while (remaining.length > limit) {
+      let cut = remaining.lastIndexOf("\n", limit);
+
+      if (cut < limit * 0.5) {
+        cut = remaining.lastIndexOf(" ", limit);
+      }
+
+      if (cut < limit * 0.5) {
+        cut = limit;
+      }
+
+      chunks.push(remaining.slice(0, cut));
+      remaining = remaining.slice(cut).trimStart();
+    }
+
+    if (remaining) chunks.push(remaining);
+
+    return chunks;
+  }
+
+  function buildEmbeds(answers) {
+    const allFields = [];
+
+    for (const [label, value] of answers) {
+      const chunks = splitForDiscord(value);
+
+      chunks.forEach((chunk, index) => {
+        const fieldName = chunks.length > 1
+          ? `${label} (${index + 1}/${chunks.length})`
+          : label;
+
+        allFields.push({
+          name: fieldName.slice(0, 256),
+          value: chunk || "—",
+          inline: false
+        });
       });
     }
 
-    function clean(value) {
-      return value.trim().replace(/\r\n/g, "\n");
-    }
+    const embeds = [];
+    let currentFields = [];
+    let currentLength = 0;
 
-    function splitForDiscord(value, limit = 1000) {
-      const chunks = [];
-      let remaining = value || "—";
+    for (const field of allFields) {
+      const fieldLength = field.name.length + field.value.length;
 
-      while (remaining.length > limit) {
-        let cut = remaining.lastIndexOf("\n", limit);
-
-        if (cut < limit * 0.5) {
-          cut = remaining.lastIndexOf(" ", limit);
-        }
-
-        if (cut < limit * 0.5) {
-          cut = limit;
-        }
-
-        chunks.push(remaining.slice(0, cut));
-        remaining = remaining.slice(cut).trimStart();
-      }
-
-      if (remaining) {
-        chunks.push(remaining);
-      }
-
-      return chunks;
-    }
-
-    function buildEmbeds(answers) {
-      const allFields = [];
-
-      for (const [label, value] of answers) {
-        const chunks = splitForDiscord(value);
-
-        chunks.forEach((chunk, index) => {
-          const fieldName = chunks.length > 1
-            ? `${label} (${index + 1}/${chunks.length})`
-            : label;
-
-          allFields.push({
-            name: fieldName.slice(0, 256),
-            value: chunk || "—",
-            inline: false
-          });
-        });
-      }
-
-      const embeds = [];
-      let currentFields = [];
-      let currentLength = 0;
-
-      for (const field of allFields) {
-        const fieldLength = field.name.length + field.value.length;
-
-        if (
-          currentFields.length >= 25 ||
-          currentLength + fieldLength > 5500
-        ) {
-          embeds.push({
-            color: 0x9a9da5,
-            title: embeds.length === 0
-              ? "Joinly Staff Application"
-              : "Joinly Staff Application (continued)",
-            fields: currentFields,
-            footer: {
-              text: "Joinly • Staff Applications"
-            },
-            timestamp: new Date().toISOString()
-          });
-
-          currentFields = [];
-          currentLength = 0;
-        }
-
-        currentFields.push(field);
-        currentLength += fieldLength;
-      }
-
-      if (currentFields.length) {
+      if (
+        currentFields.length >= 25 ||
+        currentLength + fieldLength > 5500
+      ) {
         embeds.push({
           color: 0x9a9da5,
           title: embeds.length === 0
@@ -1128,122 +589,148 @@
             : "Joinly Staff Application (continued)",
           fields: currentFields,
           footer: {
-            text: `Joinly • Staff Applications • Part ${embeds.length + 1}`
+            text: `Joinly • Staff Applications`
           },
           timestamp: new Date().toISOString()
         });
+
+        currentFields = [];
+        currentLength = 0;
       }
 
-      return embeds;
+      currentFields.push(field);
+      currentLength += fieldLength;
     }
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      event.stopPropagation();
+    if (currentFields.length) {
+      embeds.push({
+        color: 0x9a9da5,
+        title: embeds.length === 0
+          ? "Joinly Staff Application"
+          : "Joinly Staff Application (continued)",
+        fields: currentFields,
+        footer: {
+          text: `Joinly • Staff Applications • Part ${embeds.length + 1}`
+        },
+        timestamp: new Date().toISOString()
+      });
+    }
 
-      statusBox.className = "form-status";
+    return embeds;
+  }
 
-      if (!form.reportValidity()) {
-        return;
-      }
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-      const age = Number(document.getElementById("age").value);
+    statusBox.className = "form-status";
 
-      if (!Number.isInteger(age) || age < 15 || age > 99) {
-        showError(
-          "Applicants must be at least 15 years old. Please check your age."
-        );
+    if (!form.reportValidity()) return;
 
-        document.getElementById("age").focus();
-        return;
-      }
+    const age = Number(document.getElementById("age").value);
 
-      if (document.getElementById("website").value) {
-        return;
-      }
+    if (!Number.isInteger(age) || age < 15 || age > 99) {
+      showError(
+        "Applicants must be at least 15 years old. Please check your age."
+      );
 
-      if (
-        !WEBHOOK_URL.startsWith("https://discord.com/api/webhooks/") &&
-        !WEBHOOK_URL.startsWith("https://discordapp.com/api/webhooks/")
-      ) {
-        showError(
-          "The application form hasn't been connected yet. Please contact the website administrator."
-        );
-        return;
-      }
+      document.getElementById("age").focus();
+      return;
+    }
 
-      const answers = fields.map(([label, id]) => [
-        label,
-        clean(document.getElementById(id).value)
-      ]);
+    // Honeypot spam protection.
+    if (document.getElementById("website").value) return;
 
-      const embeds = buildEmbeds(answers);
+    if (
+      !WEBHOOK_URL.startsWith("https://discord.com/api/webhooks/") &&
+      !WEBHOOK_URL.startsWith("https://discordapp.com/api/webhooks/")
+    ) {
+      showError(
+        "The application form hasn't been connected yet. Please contact the website administrator."
+      );
+      return;
+    }
 
-      submitButton.disabled = true;
-      submitButton.textContent = "Submitting…";
+    const answers = fields.map(([label, id]) => [
+      label,
+      clean(document.getElementById(id).value)
+    ]);
 
-      try {
-        for (let i = 0; i < embeds.length; i++) {
-          const payload = {
-            embeds: [embeds[i]],
-            allowed_mentions: {
-              parse: []
-            }
-          };
+    const embeds = buildEmbeds(answers);
 
-          if (i === 0) {
-            payload.content =
-              `<@${NOTIFY_USER_ID}> a new Joinly staff application has been submitted.`;
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting…";
 
-            payload.allowed_mentions.users = [NOTIFY_USER_ID];
+    try {
+      /*
+       * Send one embed per webhook message.
+       * This avoids Discord's combined embed character limit
+       * when applicants provide long answers.
+       *
+       * Notify the staff member only in the first message.
+       */
+      for (let i = 0; i < embeds.length; i++) {
+        const payload = {
+          embeds: [embeds[i]],
+          allowed_mentions: {
+            parse: []
           }
+        };
 
-          const response = await fetch(WEBHOOK_URL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-          });
+        if (i === 0) {
+          payload.content =
+            `<@${NOTIFY_USER_ID}> a new Joinly staff application has been submitted.`;
 
-          if (!response.ok) {
-            const details = await response.text().catch(() => "");
-
-            console.error("Discord webhook error:", {
-              status: response.status,
-              details,
-              message: `Failed to send application part ${i + 1} of ${embeds.length}.`
-            });
-
-            throw new Error(
-              `Discord returned HTTP ${response.status}.`
-            );
-          }
+          payload.allowed_mentions.users = [NOTIFY_USER_ID];
         }
 
-        form.reset();
-        intro.hidden = true;
-        form.hidden = true;
-        successView.hidden = false;
-
-        document.title = "Joinly • Application Submitted";
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+        const response = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
-      } catch (error) {
-        console.error("Application submission failed:", error);
 
-        showError(
-          "We couldn't submit your application completely. Please contact the Joinly support server before trying again, as some answers may already have been delivered."
-        );
-      } finally {
-        submitButton.disabled = false;
-        submitButton.innerHTML =
-          'Submit application <span aria-hidden="true">→</span>';
+        if (!response.ok) {
+          const details = await response.text().catch(() => "");
+
+          console.error("Discord webhook error:", {
+            status: response.status,
+            details,
+            message: `Failed to send application part ${i + 1} of ${embeds.length}.`
+          });
+
+          throw new Error(
+            `Discord returned HTTP ${response.status}.`
+          );
+        }
       }
-    });
-  </script>
+
+      // Show success only after every part has been accepted.
+      form.reset();
+      intro.hidden = true;
+      form.hidden = true;
+      successView.hidden = false;
+
+      document.title = "Joinly • Application Submitted";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    } catch (error) {
+      console.error("Application submission failed:", error);
+
+      showError(
+        "We couldn't submit your application completely. Please contact the Joinly support server before trying again, as some answers may already have been delivered."
+      );
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML =
+        'Submit application <span aria-hidden="true">→</span>';
+    }
+  });
+</script>
 </body>
 </html>
