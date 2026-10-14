@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090b">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Application Submissions • Joinly</title>
+  <link rel="icon" href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=128">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#08090b;--panel:#111316;--panel2:#0c0e11;--text:#f2f3f5;--muted:#92969e;--line:rgba(255,255,255,.085);--accent:#dfe1e6;--green:#8fdbab;--red:#ff9999;--amber:#e6c67d}
+    *{box-sizing:border-box} [hidden]{display:none!important} html{min-height:100%;background:var(--bg)} body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 50% -12%,rgba(255,255,255,.055),transparent 34%),linear-gradient(180deg,#0a0b0d,#08090b 60%,#070809);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased} button,input,textarea{font:inherit} button{cursor:pointer} button:disabled{opacity:.55;cursor:wait}
+    .navbar{position:sticky;top:0;z-index:5;min-height:70px;padding:0 clamp(18px,5vw,56px);display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,11,.88);border-bottom:1px solid var(--line);backdrop-filter:blur(24px)}.brand{display:flex;align-items:center;gap:11px;color:var(--text);text-decoration:none;font-weight:750;font-size:17px;letter-spacing:-.035em}.brand img{width:35px;height:35px;border-radius:10px}.private-label{font-size:11px;color:#b7bbc2;border:1px solid var(--line);border-radius:7px;padding:5px 9px;letter-spacing:.07em;text-transform:uppercase;font-weight:700}
+    main{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:52px 0 70px}.eyebrow{display:inline-flex;align-items:center;gap:7px;color:#bfc2c8;font-size:11px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:#bfc2c8}.page-heading{margin:12px 0 8px;font-size:clamp(30px,5vw,43px);line-height:1.15;letter-spacing:-.055em}.subheading{margin:0;color:var(--muted);font-size:14px;max-width:650px}
+    .lock-wrap{min-height:65vh;display:grid;place-items:center}.lock-card{width:min(440px,100%);padding:clamp(24px,5vw,38px);border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.012));box-shadow:0 24px 70px rgba(0,0,0,.25)}.lock-icon{width:48px;height:48px;display:grid;place-items:center;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.035);margin-bottom:22px}.lock-icon svg{width:22px;height:22px}.lock-card h1{margin:0 0 8px;font-size:26px;letter-spacing:-.045em}.lock-card p{margin:0 0 23px;color:var(--muted);font-size:13px}.field-label{display:block;margin:0 0 8px;font-size:12px;font-weight:650;color:#e5e6e9}.text-input{width:100%;padding:12px 13px;color:var(--text);background:#090b0d;border:1px solid rgba(255,255,255,.13);border-radius:9px;outline:none}.text-input:focus{border-color:rgba(255,255,255,.42);box-shadow:0 0 0 3px rgba(255,255,255,.04)}.primary-btn,.secondary-btn,.danger-btn,.approve-btn{border-radius:9px;padding:10px 14px;border:1px solid var(--line);font-size:12px;font-weight:750;transition:background .15s,border-color .15s}.primary-btn{width:100%;margin-top:13px;background:#e7e8ea;color:#090a0c;border-color:#e7e8ea}.primary-btn:hover{background:#fff}.secondary-btn{background:#17191d;color:#e6e7ea}.secondary-btn:hover{background:#202329}.approve-btn{background:rgba(91,190,123,.09);color:#a7e6ba;border-color:rgba(91,190,123,.23)}.approve-btn:hover{background:rgba(91,190,123,.16)}.danger-btn{background:rgba(225,87,87,.08);color:#ffaaaa;border-color:rgba(225,87,87,.22)}.danger-btn:hover{background:rgba(225,87,87,.15)}.notice{margin-top:14px;color:#7f848d;font-size:11px}.status{display:none;padding:11px 12px;margin-top:14px;border:1px solid var(--line);border-radius:9px;font-size:12px;overflow-wrap:anywhere}.status.show{display:block}.status.error{color:#ffd0d0;background:rgba(220,70,70,.08);border-color:rgba(255,110,110,.22)}.status.success{color:#c8f4d4;background:rgba(91,190,123,.07);border-color:rgba(91,190,123,.2)}
+    .dashboard-top{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px}.top-actions{display:flex;gap:9px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:25px 0 30px}.stat{padding:17px 18px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.018)}.stat-label{color:var(--muted);font-size:11px;font-weight:650}.stat-number{margin-top:5px;font-size:27px;font-weight:750;letter-spacing:-.05em}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:15px}.toolbar h2{margin:0;font-size:17px;letter-spacing:-.025em}.filters{display:flex;gap:8px;align-items:center}.filters select,.filters input{max-width:220px;padding:9px 11px;color:var(--text);background:#0c0e11;border:1px solid var(--line);border-radius:8px;font-size:12px;outline:none}.submission-list{display:grid;gap:12px}.empty-state{padding:42px 20px;text-align:center;border:1px dashed rgba(255,255,255,.14);border-radius:12px;color:var(--muted);font-size:13px}.application-card{border:1px solid var(--line);border-radius:13px;background:rgba(17,19,22,.86);overflow:hidden}.application-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 20px;cursor:pointer}.app-person{min-width:0}.app-person h3{margin:0 0 4px;font-size:15px;letter-spacing:-.025em;overflow-wrap:anywhere}.app-meta{display:flex;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:11px}.status-pill{display:inline-flex;align-items:center;align-self:flex-start;padding:4px 8px;border-radius:6px;border:1px solid var(--line);font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.055em;white-space:nowrap}.status-pill.pending{color:var(--amber);background:rgba(230,198,125,.06);border-color:rgba(230,198,125,.2)}.status-pill.approved{color:var(--green);background:rgba(91,190,123,.06);border-color:rgba(91,190,123,.2)}.status-pill.denied{color:var(--red);background:rgba(225,87,87,.06);border-color:rgba(225,87,87,.2)}.app-body{padding:0 20px 20px;border-top:1px solid var(--line)}.answer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 22px;padding-top:19px}.answer{min-width:0}.answer.full{grid-column:1/-1}.answer-label{font-size:11px;color:#a8adb5;font-weight:700;margin-bottom:6px}.answer-value{font-size:13px;color:#e2e4e8;white-space:pre-wrap;overflow-wrap:anywhere}.answer-value.empty{color:#777c85;font-style:italic}.app-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}.action-hint{font-size:11px;color:var(--muted)}.action-buttons{display:flex;gap:8px;flex-wrap:wrap}.inline-error{color:#ffb6b6;font-size:12px;margin-top:12px}.footer-note{text-align:center;color:#666b73;font-size:11px;margin-top:34px}
+    @media(max-width:680px){main{padding-top:35px}.dashboard-top{align-items:flex-start;flex-direction:column}.stats{gap:8px}.stat{padding:13px}.stat-number{font-size:23px}.toolbar{align-items:flex-start;flex-direction:column}.filters{width:100%;flex-wrap:wrap}.filters select,.filters input{flex:1;max-width:none}.answer-grid{grid-template-columns:1fr}.answer.full{grid-column:auto}.application-head{padding:15px}.app-body{padding:0 15px 16px}.app-actions{align-items:flex-start;flex-direction:column}.action-buttons{width:100%}.action-buttons button{flex:1}.private-label{font-size:9px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <a class="brand" href="/"><img src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=128" alt=""><span>Joinly</span></a>
+    <span class="private-label">Private staff area</span>
+  </nav>
+
+  <main>
+    <section id="lock-view" class="lock-wrap">
+      <div class="lock-card">
+        <div class="lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/><path d="M12 14v3"/></svg></div>
+        <span class="eyebrow">Restricted access</span>
+        <h1>Application submissions</h1>
+        <p>Enter the staff passcode to review applications. Access is private and intended for authorised Joinly staff only.</p>
+        <form id="unlock-form">
+          <label class="field-label" for="passcode">Staff passcode</label>
+          <input class="text-input" id="passcode" name="passcode" type="password" autocomplete="current-password" placeholder="Enter passcode" required>
+          <button class="primary-btn" id="unlock-button" type="submit">Unlock submissions <span aria-hidden="true">→</span></button>
+          <div id="lock-status" class="status" role="alert" aria-live="polite"></div>
+        </form>
+        <div class="notice">Submissions and decisions are handled by the Joinly server. Your passcode should never be stored in this page's source.</div>
+      </div>
+    </section>
+
+    <section id="dashboard-view" hidden>
+      <div class="dashboard-top">
+        <div><span class="eyebrow">Staff workspace</span><h1 class="page-heading">Application submissions</h1><p class="subheading">Review applicants, read their answers, and make a decision. Approving an applicant grants the configured staff role in the Joinly support server.</p></div>
+        <div class="top-actions"><button class="secondary-btn" id="refresh-button" type="button">↻ Refresh</button><button class="secondary-btn" id="logout-button" type="button">Lock page</button></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-label">Pending review</div><div class="stat-number" id="pending-count">—</div></div>
+        <div class="stat"><div class="stat-label">Approved</div><div class="stat-number" id="approved-count">—</div></div>
+        <div class="stat"><div class="stat-label">Denied</div><div class="stat-number" id="denied-count">—</div></div>
+      </div>
+      <div class="toolbar"><h2>All applications</h2><div class="filters"><input id="search-input" type="search" placeholder="Search username or ID…" aria-label="Search applications"><select id="status-filter" aria-label="Filter by status"><option value="all">All statuses</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select></div></div>
+      <div id="dashboard-status" class="status" role="status" aria-live="polite"></div>
+      <div id="submission-list" class="submission-list"><div class="empty-state">Unlock the page to load submissions.</div></div>
+      <p class="footer-note">Joinly • Staff Applications · Applicant information is confidential.</p>
+    </section>
+  </main>
+
+  <script>
+    /*
+      Frontend for /application-submissions.
+      Required server endpoints (must be implemented server-side):
+        POST /api/application-submissions/unlock  { passcode }
+        GET  /api/application-submissions         (authenticated session)
+        POST /api/application-submissions/:id/decision { decision: "approve" | "deny" }
+        POST /api/application-submissions/logout
+
+      The server must verify the passcode, issue an HttpOnly session cookie,
+      enforce rate limits, store applications in MongoDB, and use DISCORD_BOT_TOKEN
+      only on the server. Never put the passcode or bot token in this HTML.
+    */
+    const API = "/api/application-submissions";
+    const lockView = document.getElementById("lock-view");
+    const dashboardView = document.getElementById("dashboard-view");
+    const unlockForm = document.getElementById("unlock-form");
+    const passcodeInput = document.getElementById("passcode");
+    const unlockButton = document.getElementById("unlock-button");
+    const lockStatus = document.getElementById("lock-status");
+    const dashboardStatus = document.getElementById("dashboard-status");
+    const list = document.getElementById("submission-list");
+    const searchInput = document.getElementById("search-input");
+    const statusFilter = document.getElementById("status-filter");
+    let submissions = [];
+    let busy = false;
+
+    const QUESTION_LABELS = {
+      discord: "What's your Discord username & ID?",
+      age: "How old are you?",
+      "joinly-time": "How long have you been using Joinly?",
+      "why-staff": "Why do you want to be staff?",
+      experience: "Do you have experience moderating a Discord server?",
+      strengths: "What skills or qualities would make you a good staff member?",
+      availability: "How much time can you dedicate to Joinly each week?",
+      additional: "Is there anything else you'd like us to know?",
+      "scenario-one": "Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?",
+      "scenario-two": "Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it?",
+      "scenario-three": "Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?"
+    };
+    const QUESTION_ORDER = Object.keys(QUESTION_LABELS);
+
+    function showStatus(element, message, type = "error") {
+      element.textContent = message;
+      element.className = `status show ${type}`;
+    }
+    function clearStatus(element) {
+      element.textContent = "";
+      element.className = "status";
+    }
+    async function apiRequest(path, options = {}) {
+      const response = await fetch(`${API}${path}`, {
+        credentials: "same-origin",
+        ...options,
+        headers: { "Content-Type": "application/json", ...(options.headers || {}) }
+      });
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        if (response.status === 401) lockPage();
+        throw new Error(body.error || body.message || `Request failed (${response.status}).`);
+      }
+      return body;
+    }
+    function showDashboard() {
+      lockView.hidden = true;
+      dashboardView.hidden = false;
+      clearStatus(lockStatus);
+    }
+    function lockPage() {
+      dashboardView.hidden = true;
+      lockView.hidden = false;
+      passcodeInput.value = "";
+      submissions = [];
+      list.replaceChildren();
+      document.getElementById("pending-count").textContent = "—";
+      document.getElementById("approved-count").textContent = "—";
+      document.getElementById("denied-count").textContent = "—";
+      clearStatus(dashboardStatus);
+    }
+    unlockForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      clearStatus(lockStatus);
+      if (!passcodeInput.value.trim()) return;
+      unlockButton.disabled = true;
+      unlockButton.textContent = "Checking passcode…";
+      try {
+        await apiRequest("/unlock", { method: "POST", body: JSON.stringify({ passcode: passcodeInput.value }) });
+        passcodeInput.value = "";
+        showDashboard();
+        await loadSubmissions();
+      } catch (error) {
+        showStatus(lockStatus, error.message || "Unable to unlock submissions.");
+      } finally {
+        unlockButton.disabled = false;
+        unlockButton.innerHTML = 'Unlock submissions <span aria-hidden="true">→</span>';
+      }
+    });
+
+    async function loadSubmissions() {
+      const refreshButton = document.getElementById("refresh-button");
+      refreshButton.disabled = true;
+      clearStatus(dashboardStatus);
+      list.innerHTML = '<div class="empty-state">Loading submissions…</div>';
+      try {
+        const result = await apiRequest("", { method: "GET", headers: {} });
+        submissions = Array.isArray(result.submissions) ? result.submissions : [];
+        renderSubmissions();
+      } catch (error) {
+        if (!dashboardView.hidden) showStatus(dashboardStatus, error.message || "Could not load submissions.");
+        list.innerHTML = '<div class="empty-state">Unable to load submissions. Please refresh and try again.</div>';
+      } finally {
+        refreshButton.disabled = false;
+      }
+    }
+    document.getElementById("refresh-button").addEventListener("click", loadSubmissions);
+    document.getElementById("logout-button").addEventListener("click", async () => {
+      try { await apiRequest("/logout", { method: "POST", body: "{}" }); }
+      catch (error) { console.warn("Logout request failed:", error); }
+      lockPage();
+    });
+    searchInput.addEventListener("input", renderSubmissions);
+    statusFilter.addEventListener("change", renderSubmissions);
+
+    function getAnswers(app) {
+      if (app.answers && typeof app.answers === "object" && !Array.isArray(app.answers)) return app.answers;
+      if (Array.isArray(app.answers)) return Object.fromEntries(app.answers.map(item => [item.id || item.key || item.question, item.value || item.answer || ""]));
+      return app;
+    }
+    function getAnswerValue(answers, key) {
+      const aliases = {
+        discord: ["discord", "Discord username & ID", "What's your Discord username & ID?"],
+        age: ["age", "Age", "How old are you?"],
+        "joinly-time": ["joinly-time", "Time using Joinly", "How long have you been using Joinly?"],
+        "why-staff": ["why-staff", "Why do you want to be staff?"],
+        experience: ["experience", "Moderation experience", "Do you have experience moderating a Discord server?"],
+        strengths: ["strengths", "Skills and qualities", "What skills or qualities would make you a good staff member?"],
+        availability: ["availability", "Weekly availability", "How much time can you dedicate to Joinly each week?"],
+        additional: ["additional", "Additional information", "Is there anything else you'd like us to know?"],
+        "scenario-one": ["scenario-one", "Scenario 1", QUESTION_LABELS["scenario-one"]],
+        "scenario-two": ["scenario-two", "Scenario 2", QUESTION_LABELS["scenario-two"]],
+        "scenario-three": ["scenario-three", "Scenario 3", QUESTION_LABELS["scenario-three"]]
+      };
+      for (const alias of (aliases[key] || [key])) if (answers[alias] !== undefined) return String(answers[alias] ?? "");
+      return "";
+    }
+    function escapeText(value) { return String(value ?? ""); }
+    function formatDate(value) {
+      if (!value) return "Date not provided";
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+    }
+    function renderSubmissions() {
+      const needle = searchInput.value.trim().toLowerCase();
+      const selectedStatus = statusFilter.value;
+      const count = { pending: 0, approved: 0, denied: 0 };
+      for (const app of submissions) count[String(app.status || "pending").toLowerCase()] = (count[String(app.status || "pending").toLowerCase()] || 0) + 1;
+      document.getElementById("pending-count").textContent = count.pending || 0;
+      document.getElementById("approved-count").textContent = count.approved || 0;
+      document.getElementById("denied-count").textContent = count.denied || 0;
+
+      const visible = submissions.filter(app => {
+        const status = String(app.status || "pending").toLowerCase();
+        const answers = getAnswers(app);
+        const haystack = [app.username, app.discordUsername, app.discordId, app.userId, getAnswerValue(answers, "discord"), app._id, app.id].join(" ").toLowerCase();
+        return (selectedStatus === "all" || status === selectedStatus) && (!needle || haystack.includes(needle));
+      });
+      if (!visible.length) {
+        list.innerHTML = '<div class="empty-state">No applications match this view.</div>';
+        return;
+      }
+      list.replaceChildren(...visible.map(createApplicationCard));
+    }
+    function createApplicationCard(app) {
+      const id = String(app._id || app.id || "");
+      const answers = getAnswers(app);
+      const discordAnswer = getAnswerValue(answers, "discord");
+      const username = app.username || app.discordUsername || discordAnswer || "Unknown applicant";
+      const status = String(app.status || "pending").toLowerCase();
+      const card = document.createElement("article");
+      card.className = "application-card";
+      const head = document.createElement("div");
+      head.className = "application-head";
+      head.tabIndex = 0;
+      head.setAttribute("role", "button");
+      head.setAttribute("aria-expanded", "false");
+      const person = document.createElement("div"); person.className = "app-person";
+      const title = document.createElement("h3"); title.textContent = username;
+      const meta = document.createElement("div"); meta.className = "app-meta";
+      const date = document.createElement("span"); date.textContent = formatDate(app.createdAt || app.submittedAt || app.timestamp);
+      meta.append(date);
+      if (app.discordId || app.userId) { const idSpan = document.createElement("span"); idSpan.textContent = `Discord ID: ${app.discordId || app.userId}`; meta.append(idSpan); }
+      person.append(title, meta);
+      const pill = document.createElement("span"); pill.className = `status-pill ${["pending","approved","denied"].includes(status) ? status : "pending"}`; pill.textContent = status;
+      head.append(person, pill);
+      const body = document.createElement("div"); body.className = "app-body"; body.hidden = true;
+      const grid = document.createElement("div"); grid.className = "answer-grid";
+      for (const key of QUESTION_ORDER) {
+        const answer = document.createElement("div"); answer.className = "answer full";
+        const label = document.createElement("div"); label.className = "answer-label"; label.textContent = QUESTION_LABELS[key];
+        const value = document.createElement("div"); value.className = "answer-value";
+        const text = getAnswerValue(answers, key);
+        value.textContent = text || "No answer provided";
+        if (!text) value.classList.add("empty");
+        answer.append(label, value); grid.append(answer);
+      }
+      body.append(grid);
+      if (status === "pending") {
+        const actions = document.createElement("div"); actions.className = "app-actions";
+        const hint = document.createElement("span"); hint.className = "action-hint"; hint.textContent = "A decision will DM the applicant and remove this submission.";
+        const buttons = document.createElement("div"); buttons.className = "action-buttons";
+        const approve = document.createElement("button"); approve.type = "button"; approve.className = "approve-btn"; approve.textContent = "✓ Approve";
+        const deny = document.createElement("button"); deny.type = "button"; deny.className = "danger-btn"; deny.textContent = "✕ Deny";
+        approve.addEventListener("click", () => decide(app, "approve", approve, deny));
+        deny.addEventListener("click", () => decide(app, "deny", approve, deny));
+        buttons.append(approve, deny); actions.append(hint, buttons); body.append(actions);
+      }
+      head.addEventListener("click", () => { body.hidden = !body.hidden; head.setAttribute("aria-expanded", String(!body.hidden)); });
+      head.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); head.click(); } });
+      card.append(head, body);
+      return card;
+    }
+    async function decide(app, decision, approveButton, denyButton) {
+      if (busy) return;
+      const id = String(app._id || app.id || "");
+      if (!id) { showStatus(dashboardStatus, "This submission has no ID. The server must provide each application's database ID."); return; }
+      const who = app.username || app.discordUsername || getAnswerValue(getAnswers(app), "discord") || "this applicant";
+      const prompt = decision === "approve"
+        ? `Approve ${who}? This will grant the configured Discord staff role, send an acceptance DM, and delete the submission if all steps succeed.`
+        : `Deny ${who}? This will send a denial DM and delete the submission if the decision succeeds.`;
+      if (!window.confirm(prompt)) return;
+      busy = true; approveButton.disabled = true; denyButton.disabled = true;
+      try {
+        const result = await apiRequest(`/${encodeURIComponent(id)}/decision`, { method: "POST", body: JSON.stringify({ decision }) });
+        submissions = submissions.filter(item => String(item._id || item.id || "") !== id);
+        renderSubmissions();
+        showStatus(dashboardStatus, result.message || (decision === "approve" ? "Application approved." : "Application denied."), "success");
+      } catch (error) {
+        showStatus(dashboardStatus, error.message || "The decision could not be completed. The application has not been removed from this page.");
+        approveButton.disabled = false; denyButton.disabled = false;
+      } finally { busy = false; }
+    }
+
+    // Check whether a valid server session already exists; never cache the passcode in the browser.
+    (async function restoreSession() {
+      try {
+        const result = await apiRequest("", { method: "GET", headers: {} });
+        submissions = Array.isArray(result.submissions) ? result.submissions : [];
+        showDashboard();
+        renderSubmissions();
+      } catch (_) {
+        lockPage();
+      }
+    })();
+  </script>
+</body>
+</html>
