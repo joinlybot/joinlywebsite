@@ -1,0 +1,12 @@
+{
+  "name": "joinly-staff-applications",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Joinly staff applications API",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@vercel/functions": "^2.2.0"
+  }
+}
