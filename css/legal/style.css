@@ -350,11 +350,11 @@ body{
 
     border-radius:14px;
 
-    color:white;
-
     text-decoration:none;
 
     font-weight:600;
+
+    color:#fff;
 
     background:linear-gradient(
         135deg,
@@ -362,7 +362,7 @@ body{
         #ff7b54
     );
 
-    transition:.25s ease;
+    transition:.25s;
 
 }
 
