@@ -226,14 +226,7 @@ async function postStaffWelcome(applicantId, welcomeChannelId) {
       {
         method: 'POST',
         body: JSON.stringify({
-          content,
-          allowed_mentions: {
-            parse: [],
-            users: [
-              applicantId,
-              SUPPORT_GUIDE_USER_ID
-            ]
-          }
+          content
         })
       }
     );
@@ -302,7 +295,7 @@ async function processDecision(
         { applicantId }
       );
 
-      // Post the welcome message and log any Discord API failure.
+      // Post the welcome message.
       await postStaffWelcome(applicantId, welcomeChannelId);
 
       // Disable buttons after the actions complete.
