@@ -394,7 +394,7 @@
         </div>
 
         <div class="question">
-          <label for="age">Age<span class="required">*</span></label>
+          <label for="age">How old are you?<span class="required">*</span></label>
           <p class="help">Applicants must be at least 15 years old.</p>
           <input id="age" name="Age" type="number" min="15" max="99" step="1" placeholder="Your age" required>
         </div>
@@ -505,17 +505,17 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const fields = [
-      ["Discord username & ID", "discord"],
+      ["What's your Discord username & ID?", "discord"],
       ["Age", "age"],
       ["How long have you been using Joinly?", "joinly-time"],
       ["Why do you want to be staff?", "why-staff"],
-      ["Moderation experience", "experience"],
-      ["Skills and qualities", "strengths"],
-      ["Weekly availability", "availability"],
-      ["Additional information", "additional"],
-      ["Scenario 1", "scenario-one"],
-      ["Scenario 2", "scenario-two"],
-      ["Scenario 3", "scenario-three"]
+      ["Do you have experience moderating a Discord server?", "experience"],
+      ["What skills or qualities would make you a good staff member?", "strengths"],
+      ["How much time can you dedicate to Joinly each week?", "availability"],
+      ["Is there anything else you'd like us to know?", "additional"],
+      ["Scenario 1: A user publicly claims Joinly is broken, insults staff, and other members join in. What would you do?", "scenario-one"],
+      ["Scenario 2: A friend asks you to ignore a rule violation because you know them well. How would you handle it?", "scenario-two"],
+      ["Scenario 3: You receive several reports at once, including one that may involve a serious safety concern. How would you prioritise them?", "scenario-three"]
     ];
 
     function showError(message) {
@@ -629,7 +629,7 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            content: `<@${NOTIFY_USER_ID}> — a new Joinly staff application has been submitted.`,
+            content: `<@${NOTIFY_USER_ID}> a new Joinly staff application has been submitted.`,
             allowed_mentions: {
               parse: [],
               users: [NOTIFY_USER_ID]
