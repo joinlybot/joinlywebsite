@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initJoinlyMain() {
+
+    if (!document.querySelector(".navbar")) return;
 
     /*
         MAIN NAVBAR DROPDOWN
@@ -309,4 +311,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-});
+}
+
+document.addEventListener("DOMContentLoaded", initJoinlyMain);
+document.addEventListener("joinly-navbar-loaded", initJoinlyMain);
+
