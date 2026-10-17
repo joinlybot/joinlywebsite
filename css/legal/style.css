@@ -921,8 +921,8 @@ footer {
     /* Navbar */
 
     .navbar {
-        height: 66px;
         padding: 0 14px;
+        height: 66px;
         background: rgba(8,9,11,.9);
     }
 
@@ -938,19 +938,6 @@ footer {
         gap: 8px;
     }
 
-    .logo {
-        font-size: 17px;
-    }
-
-    .logo img {
-        width: 34px;
-        height: 34px;
-    }
-
-    .dropdown-btn {
-        font-size: 15px;
-    }
-
     .invite-btn {
         display: none;
     }
@@ -961,18 +948,33 @@ footer {
         font-size: 13px;
     }
 
+    .dropdown {
+        margin-left: 0;
+    }
+
+    .dropdown-btn {
+        font-size: 15px;
+    }
+
     .dropdown-menu {
         position: fixed;
         top: 72px;
         left: 14px;
         right: 14px;
-
         width: auto;
         max-width: none;
         max-height: 70vh;
-
-        margin: 0;
         overflow-y: auto;
+        margin: 0;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo img {
+        width: 36px;
+        height: 36px;
     }
 
     /* Page headings */
