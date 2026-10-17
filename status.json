@@ -8,9 +8,9 @@
         },
         {
             "name": "Website",
-            "status": "Maintenance",
-            "state": "maintenance",
-            "description": "Migrating status page."
+            "status": "Operational",
+            "state": "operational",
+            "description": ""
         },
         {
             "name": "Dashboard",
