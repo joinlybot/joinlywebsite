@@ -212,7 +212,7 @@ function getReviewerRoles() {
 async function postStaffWelcome(applicantId, welcomeChannelId) {
   const content =
     `<@${applicantId}> Welcome!\n\n` +
-    `Please wait for <@${SUPPORT_GUIDE_USER_ID}> to walk you through the support guide.`;
+    `Please read through <#1560026222178599112>. If you have any questions, please ask an online Moderator.`;
 
   console.log('[Joinly Interactions] Sending staff welcome message:', {
     channelId: welcomeChannelId,
