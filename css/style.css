@@ -4867,18 +4867,50 @@ footer {
     }
 }
 
-/* =========================================================
-   ACCESSIBILITY / REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
+/* Navbar icons */
+.navbar i[data-lucide] {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+  flex-shrink: 0;
 }
 
+/* Help dropdown button */
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown-btn .chevron {
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+}
+
+/* Dropdown menu links */
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dropdown-menu a > i[data-lucide] {
+  width: 20px;
+  height: 20px;
+}
+
+/* Premium and Dashboard buttons */
+.premium-btn,
+.invite-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.premium-btn i[data-lucide],
+.invite-btn i[data-lucide] {
+  width: 17px;
+  height: 17px;
+}
