@@ -4013,3 +4013,60 @@ footer {
         width: auto;
     }
 }
+
+
+/* -------------------------------------------------------
+   Smooth same-origin page transitions
+   ------------------------------------------------------- */
+
+/*
+   The View Transitions API animates the old page out and the
+   new page in during ordinary same-origin navigations. Browsers
+   without support simply use the normal navigation behavior.
+*/
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: joinly-page-out 180ms ease both;
+}
+
+::view-transition-new(root) {
+    animation: joinly-page-in 260ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes joinly-page-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes joinly-page-in {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keep the navbar stable and above the transitioning page content. */
+.navbar {
+    view-transition-name: joinly-navbar;
+}
+
+::view-transition-old(joinly-navbar),
+::view-transition-new(joinly-navbar) {
+    animation: none;
+    height: 100%;
+}
+
+/* Respect accessibility preferences. */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+}
