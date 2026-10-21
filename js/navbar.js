@@ -28,14 +28,18 @@
         button.dataset.initialized = "true";
 
         function setOpen(open) {
-            button.setAttribute("aria-expanded", String(open));
-            dropdown.classList.toggle("open", open);
-        }
+    button.setAttribute("aria-expanded", String(open));
+    dropdown.classList.toggle("open", open);
+    dropdown.classList.toggle("active", open);
+}
 
         button.addEventListener("click", event => {
-            event.preventDefault();
-            setOpen(button.getAttribute("aria-expanded") !== "true");
-        });
+    event.preventDefault();
+    event.stopPropagation();
+
+    const isOpen = button.getAttribute("aria-expanded") === "true";
+    setOpen(!isOpen);
+});
 
         document.addEventListener("click", event => {
             if (!dropdown.contains(event.target)) setOpen(false);
