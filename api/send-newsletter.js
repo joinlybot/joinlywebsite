@@ -425,7 +425,7 @@ module.exports = async function handler(req, res) {
           `${SITE_URL}/api/unsubscribe?token=${token}`;
 
         return {
-          from: fromEmail,
+          from: `Joinly Newsletter <${fromEmail}>`,
           to: [subscriber.email],
           subject: cleanSubject,
           html: makeEmailHTML(
