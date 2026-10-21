@@ -1,6 +1,8 @@
 function initJoinlyMain() {
 
-    if (!document.querySelector(".navbar")) return;
+    const navbar = document.querySelector(".navbar");
+    if (!navbar || navbar.dataset.joinlyInitialized === "true") return;
+    navbar.dataset.joinlyInitialized = "true";
 
     /*
         MAIN NAVBAR DROPDOWN

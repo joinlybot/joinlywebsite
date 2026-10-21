@@ -1,3 +1,21 @@
+/* Shared dynamically-loaded navbar: reserve its space and avoid a layout jump. */
+.navbar-container {
+    position: relative;
+    height: 82px;
+    min-height: 82px;
+    z-index: 999;
+}
+.navbar-container > .navbar {
+    opacity: 0;
+    transition: opacity .16s ease;
+}
+.navbar-container.navbar-ready > .navbar {
+    opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+    .navbar-container > .navbar { transition: none; }
+}
+
 :root{
 
     --background:#0b0f16;
