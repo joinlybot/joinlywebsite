@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="Get the latest Joinly updates, feature announcements, and community news in your inbox.">
+
+  <title>Newsletter | Joinly</title>
+
+  <link rel="icon" href="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #08090b;
+      --card: #111316;
+      --text: #f2f3f5;
+      --muted: #92969f;
+      --border: rgba(255, 255, 255, .09);
+      --content-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 10%, rgba(139, 143, 152, .10), transparent 42%),
+        var(--background);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 72px;
+      padding: 0 max(24px, calc((100vw - var(--content-width)) / 2));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: rgba(8, 9, 11, .82);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-left,
+    .nav-right,
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-left {
+      gap: 26px;
+    }
+
+    .logo {
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      font-size: 1.1rem;
+    }
+
+    .logo img {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      object-fit: cover;
+    }
+
+    .nav-right {
+      gap: 10px;
+    }
+
+    .nav-link,
+    .premium-btn,
+    .invite-btn {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: #d9dbe0;
+      font-size: .88rem;
+      font-weight: 600;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .premium-btn {
+      border-color: var(--border);
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .invite-btn {
+      background: #f2f3f5;
+      color: #111316;
+    }
+
+    .premium-btn:hover,
+    .invite-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .page-shell {
+      width: min(var(--content-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(330px, .85fr);
+      align-items: center;
+      gap: clamp(36px, 7vw, 92px);
+      padding: clamp(76px, 10vw, 132px) 0 90px;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .035);
+      color: #d4d6dc;
+      font-size: .78rem;
+      font-weight: 650;
+      letter-spacing: .02em;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #b5bac4;
+      box-shadow: 0 0 0 4px rgba(181, 186, 196, .1);
+    }
+
+    h1 {
+      margin: 24px 0 20px;
+      max-width: 700px;
+      font-size: clamp(2.65rem, 5.5vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: -.075em;
+      font-weight: 800;
+    }
+
+    .headline-accent {
+      color: #aeb2bb;
+    }
+
+    .hero-copy > p {
+      max-width: 550px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.12rem);
+      line-height: 1.85;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 13px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #d7d9de;
+      font-size: .92rem;
+    }
+
+    .benefits li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .check {
+      display: inline-grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      flex: 0 0 21px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 50%;
+      color: #dce0e7;
+      font-size: .72rem;
+    }
+
+    .signup-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(24px, 3vw, 34px);
+      border: 1px solid rgba(255, 255, 255, .11);
+      border-radius: 20px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, .055), transparent 48%),
+        var(--card);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, .32);
+    }
+
+    .signup-card::before {
+      content: "";
+      position: absolute;
+      top: -90px;
+      right: -75px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(155, 160, 171, .09);
+      pointer-events: none;
+    }
+
+    .signup-card-inner {
+      position: relative;
+    }
+
+    .mail-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, .055);
+      color: #e5e7eb;
+    }
+
+    .mail-icon svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .signup-card h2 {
+      margin: 0 0 9px;
+      font-size: 1.45rem;
+      letter-spacing: -.045em;
+    }
+
+    .intro {
+      margin: 0 0 23px;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+
+    .form-host {
+      min-height: 110px;
+      padding: 17px;
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, .16);
+    }
+
+    /* EmailOctopus form styling */
+    .form-host form,
+    .form-host input,
+    .form-host button,
+    .form-host select,
+    .form-host textarea {
+      max-width: 100%;
+      font-family: Inter, system-ui, sans-serif !important;
+    }
+
+    .form-host input:not([type="checkbox"]):not([type="radio"]),
+    .form-host select,
+    .form-host textarea {
+      width: 100% !important;
+      min-height: 46px;
+      padding: 12px 13px !important;
+      border: 1px solid rgba(255, 255, 255, .13) !important;
+      border-radius: 9px !important;
+      background: #0b0d10 !important;
+      color: #f2f3f5 !important;
+      box-shadow: none !important;
+    }
+
+    .form-host input::placeholder {
+      color: #777c86 !important;
+    }
+
+    .form-host button,
+    .form-host input[type="submit"] {
+      min-height: 46px;
+      padding: 12px 17px !important;
+      border: 1px solid #f2f3f5 !important;
+      border-radius: 9px !important;
+      background: #f2f3f5 !important;
+      color: #101114 !important;
+      font-weight: 700 !important;
+      cursor: pointer;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .form-host button:hover,
+    .form-host input[type="submit"]:hover {
+      opacity: .92;
+      transform: translateY(-1px);
+    }
+
+    .form-host label,
+    .form-host p,
+    .form-host small,
+    .form-host div {
+      line-height: 1.6;
+    }
+
+    .privacy-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 16px 0 0;
+      color: #858a94;
+      font-size: .76rem;
+      line-height: 1.6;
+    }
+
+    .privacy-note svg {
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      flex: 0 0 14px;
+    }
+
+    .value-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      margin: 0 0 88px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--border);
+    }
+
+    .value-item {
+      padding: 22px 24px;
+      background: #0d0f12;
+    }
+
+    .value-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: .94rem;
+    }
+
+    .value-item span {
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      background: rgba(0, 0, 0, .12);
+    }
+
+    .footer-content {
+      width: min(var(--content-width), calc(100% - 40px));
+      min-height: 110px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .footer-brand strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: .98rem;
+    }
+
+    .footer-brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: #aeb2bb;
+      font-size: .83rem;
+      transition: color .2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 780px) {
+      .navbar {
+        padding: 0 20px;
+      }
+
+      .nav-left {
+        gap: 16px;
+      }
+
+      .nav-link,
+      .premium-btn {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 66px 0 56px;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+      }
+
+      .signup-card {
+        max-width: 620px;
+        width: 100%;
+      }
+
+      .value-strip {
+        grid-template-columns: 1fr;
+        margin-bottom: 56px;
+      }
+
+      .value-item {
+        padding: 19px 21px;
+      }
+
+      .footer-content {
+        padding: 25px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .footer-links {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page-shell,
+      .footer-content {
+        width: min(calc(100% - 28px), var(--content-width));
+      }
+
+      .navbar {
+        padding: 0 14px;
+      }
+
+      .logo img {
+        width: 31px;
+        height: 31px;
+      }
+
+      .invite-btn {
+        padding: 0 11px;
+        font-size: .8rem;
+      }
+
+      h1 {
+        font-size: 2.55rem;
+      }
+
+      .signup-card {
+        padding: 21px;
+      }
+
+      .form-host {
+        padding: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-left">
+      <a href="/" class="logo" aria-label="Joinly home">
+        <img
+          src="https://cdn.discordapp.com/avatars/1528785988237922304/f57cf1a20aa0da13d47f6e8bcba77ec7.png?size=2048"
+          alt=""
+        >
+        <span>Joinly</span>
+      </a>
+
+      <a class="nav-link" href="/updates">Updates</a>
+      <a class="nav-link" href="https://docs.joinly-bot.xyz/">Documentation</a>
+    </div>
+
+    <div class="nav-right">
+      <a
+        class="premium-btn"
+        href="https://www.patreon.com/cw/Joinly"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ⭐ Joinly Premium
+      </a>
+
+      <a
+        class="invite-btn"
+        href="https://dashboard.joinly-bot.xyz/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Dashboard
+      </a>
+    </div>
+  </nav>
+
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="newsletter-title">
+      <div class="hero-copy">
+        <span class="eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          The Joinly newsletter
+        </span>
+
+        <h1 id="newsletter-title">
+          Good things are <span class="headline-accent">joining</span> your inbox.
+        </h1>
+
+        <p>
+          Stay in the loop with Joinly. Get occasional product updates,
+          new feature announcements, and important news for your Discord
+          community — all in one place.
+        </p>
+
+        <ul class="benefits">
+          <li><span class="check" aria-hidden="true">✓</span> Be the first to hear about new features</li>
+          <li><span class="check" aria-hidden="true">✓</span> Get important updates from the Joinly team</li>
+          <li><span class="check" aria-hidden="true">✓</span> No clutter — just useful Joinly news</li>
+        </ul>
+      </div>
+
+      <aside class="signup-card" aria-labelledby="signup-heading">
+        <div class="signup-card-inner">
+          <div class="mail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect
+                x="3.25"
+                y="5.25"
+                width="17.5"
+                height="13.5"
+                rx="2.5"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <path
+                d="m4.5 7 7.5 5.5L19.5 7"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <h2 id="signup-heading">Join the list</h2>
+
+          <p class="intro">
+            Add your email below and we’ll send Joinly news straight to you.
+          </p>
+
+          <div class="form-host" id="emailoctopus-form">
+            <p style="margin:0;color:#92969f;font-size:.88rem;">
+              Loading the signup form…
+            </p>
+          </div>
+
+          <p class="privacy-note">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect
+                x="5"
+                y="10"
+                width="14"
+                height="11"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+              <path
+                d="M8 10V7a4 4 0 0 1 8 0v3"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+            By subscribing, you agree to receive emails from Joinly.
+            You can unsubscribe at any time.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="value-strip" aria-label="Newsletter details">
+      <div class="value-item">
+        <strong>Product news</strong>
+        <span>Know when new Joinly features and improvements arrive.</span>
+      </div>
+
+      <div class="value-item">
+        <strong>Useful updates</strong>
+        <span>Important announcements without needing to check every channel.</span>
+      </div>
+
+      <div class="value-item">
+        <strong>Your inbox, your choice</strong>
+        <span>Unsubscribe whenever you like using the link in our emails.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <strong>Joinly</strong>
+        <p>Powering Discord communities.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="/updates">Updates</a>
+        <a href="/status">Status</a>
+        <a href="https://legal.joinly-bot.xyz/">Legal</a>
+        <a
+          href="https://discord.gg/PTrU8DQacj"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Support
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- EmailOctopus signup form -->
+  <script
+    async
+    src="https://eomail5.com/form/e926fb68-cd98-11f1-91e0-6fb5e32d995a.js"
+    data-form="e926fb68-cd98-11f1-91e0-6fb5e32d995a"
+  ></script>
+</body>
+</html>
