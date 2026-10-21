@@ -1,88 +1,182 @@
+
 /*
- * Loads the shared navbar without animating its appearance.
- * A session cache avoids refetching the component on every same-session page visit.
+ * Joinly shared navbar loader and lightweight page navigation.
+ * Keeps the navbar mounted when navigating between same-origin pages.
  */
 (() => {
     const container = document.getElementById("navbar-container");
-    if (!container || container.dataset.loading === "true" || container.dataset.loaded === "true") return;
+    if (!container) return;
 
-    container.dataset.loading = "true";
+    const CACHE_KEY = "joinly-navbar-markup-v1";
+    const currentScript = document.currentScript;
+    const scriptUrl = currentScript?.src
+        ? new URL(currentScript.src, location.href)
+        : new URL("/js/navbar.js", location.href);
+    const baseUrl = new URL("/", location.origin);
 
-    const cacheKey = "joinly-navbar-markup-v1";
+    let navigationInProgress = false;
+
+    function initDropdown() {
+        const dropdown = container.querySelector(".dropdown");
+        const button = dropdown?.querySelector(".dropdown-btn");
+        const menu = dropdown?.querySelector(".dropdown-menu");
+
+        if (!dropdown || !button || !menu || button.dataset.initialized === "true") {
+            return;
+        }
+
+        button.dataset.initialized = "true";
+
+        function setOpen(open) {
+            button.setAttribute("aria-expanded", String(open));
+            dropdown.classList.toggle("open", open);
+        }
+
+        button.addEventListener("click", event => {
+            event.preventDefault();
+            setOpen(button.getAttribute("aria-expanded") !== "true");
+        });
+
+        document.addEventListener("click", event => {
+            if (!dropdown.contains(event.target)) setOpen(false);
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                setOpen(false);
+                button.focus();
+            }
+        });
+    }
 
     function mountNavbar(markup) {
         container.innerHTML = markup;
         container.dataset.loaded = "true";
         container.dataset.loading = "false";
         container.setAttribute("aria-busy", "false");
-        container.classList.add("navbar-ready");
+
+        initDropdown();
         document.dispatchEvent(new CustomEvent("joinly-navbar-loaded"));
     }
 
-    let cachedMarkup = null;
-    try {
-        cachedMarkup = sessionStorage.getItem(cacheKey);
-    } catch (_) {
-        // Storage can be unavailable in privacy-restricted contexts.
-    }
-
-    if (cachedMarkup) {
-        mountNavbar(cachedMarkup);
-    } else {
-        fetch("/components/navbar.html", { credentials: "same-origin", cache: "default" })
-            .then(response => {
-                if (!response.ok) throw new Error(`Navbar request failed: ${response.status}`);
-                return response.text();
-            })
-            .then(markup => {
-                try {
-                    sessionStorage.setItem(cacheKey, markup);
-                } catch (_) {
-                    // The navbar still works when storage is unavailable.
-                }
-                mountNavbar(markup);
-            })
-            .catch(error => {
-                container.dataset.loading = "false";
-                container.setAttribute("aria-busy", "false");
-                console.error("Unable to load the shared navbar.", error);
-            });
-    }
-
-    const prefetched = new Set();
-
-    function prefetchLink(link) {
-        if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
-
-        let url;
-        try {
-            url = new URL(link.href, location.href);
-        } catch (_) {
+    async function loadNavbar() {
+        if (
+            container.dataset.loaded === "true" &&
+            container.querySelector(".navbar")
+        ) {
+            initDropdown();
             return;
         }
+
+        if (container.dataset.loading === "true") return;
+        container.dataset.loading = "true";
+
+        try {
+            let markup = null;
+
+            try {
+                markup = sessionStorage.getItem(CACHE_KEY);
+            } catch (_) {}
+
+            if (!markup) {
+                const response = await fetch("/components/navbar.html", {
+                    credentials: "same-origin"
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Navbar request failed: ${response.status}`);
+                }
+
+                markup = await response.text();
+
+                try {
+                    sessionStorage.setItem(CACHE_KEY, markup);
+                } catch (_) {}
+            }
+
+            mountNavbar(markup);
+        } catch (error) {
+            container.dataset.loading = "false";
+            container.setAttribute("aria-busy", "false");
+            console.error("Unable to load Joinly navbar:", error);
+        }
+    }
+
+    async function navigate(url, pushHistory = true) {
+        if (navigationInProgress) return;
+        navigationInProgress = true;
+
+        try {
+            const response = await fetch(url.href, {
+                headers: { "X-Requested-With": "fetch" },
+                credentials: "same-origin"
+            });
+
+            if (!response.ok) throw new Error("Page navigation failed.");
+
+            const html = await response.text();
+            const parsed = new DOMParser().parseFromString(html, "text/html");
+
+            const newMain = parsed.querySelector("main");
+            const oldMain = document.querySelector("main");
+
+            if (!newMain || !oldMain) {
+                location.href = url.href;
+                return;
+            }
+
+            oldMain.replaceWith(document.importNode(newMain, true));
+
+            if (parsed.title) document.title = parsed.title;
+
+            if (pushHistory) {
+                history.pushState({}, "", url.href);
+            }
+
+            document.dispatchEvent(new CustomEvent("joinly-page-loaded", {
+                detail: { url: url.href }
+            }));
+
+            window.scrollTo(0, 0);
+        } catch (error) {
+            console.warn("Using normal page navigation:", error);
+            location.href = url.href;
+        } finally {
+            navigationInProgress = false;
+        }
+    }
+
+    document.addEventListener("click", event => {
+        const link = event.target.closest("a[href]");
+        if (!link) return;
+
+        if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey ||
+            link.target === "_blank" ||
+            link.hasAttribute("download")
+        ) return;
+
+        const url = new URL(link.href, location.href);
 
         if (
             url.origin !== location.origin ||
             !["http:", "https:"].includes(url.protocol) ||
-            (url.pathname === location.pathname && url.search === location.search) ||
-            prefetched.has(url.href)
+            url.pathname === location.pathname && url.hash ||
+            link.matches(".dropdown-menu a[href^='http']")
         ) return;
 
-        prefetched.add(url.href);
-        const hint = document.createElement("link");
-        hint.rel = "prefetch";
-        hint.href = url.href;
-        hint.as = "document";
-        document.head.appendChild(hint);
-    }
-
-    document.addEventListener("pointerover", event => {
-        const link = event.target.closest?.(".dropdown-menu a, .logo");
-        if (link) prefetchLink(link);
-    }, { passive: true });
-
-    document.addEventListener("focusin", event => {
-        const link = event.target.closest?.(".dropdown-menu a, .logo");
-        if (link) prefetchLink(link);
+        event.preventDefault();
+        navigate(url);
     });
+
+    window.addEventListener("popstate", () => {
+        navigate(new URL(location.href), false);
+    });
+
+    loadNavbar();
 })();
