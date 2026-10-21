@@ -332,7 +332,7 @@ I agree to receive newsletter emails from Joinly. I understand I can unsubscribe
                 throw new Error(result.error || "Signup failed. Please try again.");
             }
 
-            message.textContent = "Thanks! Your signup has been received.";
+            message.textContent = result.message || "Thanks! Please check your inbox to confirm your subscription.";
             message.style.color = "#7ee2a8";
             form.reset();
         } catch (error) {
