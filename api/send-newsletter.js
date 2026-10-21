@@ -167,11 +167,11 @@ function makeEmailHTML(subject, message, unsubscribeURL) {
                 <tr>
                   <td align="left">
                     <a href="${SITE_URL}/" style="font-size:28px;font-weight:800;letter-spacing:-1.2px;color:#ffffff;text-decoration:none">
-                      joinly
+                      Joinly
                     </a>
                   </td>
                   <td align="right" style="font-size:11px;letter-spacing:1.5px;color:#9696a5">
-                    THE NEWSLETTER
+                    Joinly Newsletter
                   </td>
                 </tr>
               </table>
@@ -219,7 +219,7 @@ function makeEmailHTML(subject, message, unsubscribeURL) {
             <td style="border-top:1px solid #34343e;padding:26px 8px 12px">
 
               <div style="font-size:21px;font-weight:800;letter-spacing:-0.7px;color:#ffffff;margin-bottom:10px">
-                joinly
+                Joinly
               </div>
 
               <p style="margin:0 0 20px;color:#a5a5b3;font-size:13px;line-height:1.7">
