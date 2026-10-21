@@ -44,8 +44,8 @@ module.exports = async function handler(req, res) {
     ).toISOString();
 
     const baseUrl = supabaseUrl.replace(/\/$/, "");
+    const siteUrl = "https://joinly-bot.xyz";
 
-    // Check whether this address already exists.
     const lookup = await fetch(
       `${baseUrl}/rest/v1/newsletter_subscribers?email=eq.${encodeURIComponent(email)}&select=id,confirmed,unsubscribed_at`,
       {
@@ -65,7 +65,11 @@ module.exports = async function handler(req, res) {
 
     const existing = await lookup.json();
 
-    if (existing.length && existing[0].confirmed && !existing[0].unsubscribed_at) {
+    if (
+      existing.length &&
+      existing[0].confirmed &&
+      !existing[0].unsubscribed_at
+    ) {
       return res.status(200).json({
         message: "You're already subscribed!"
       });
@@ -76,6 +80,13 @@ module.exports = async function handler(req, res) {
         message: "Please contact Joinly to resubscribe."
       });
     }
+
+    // Create a separate token for unsubscribe links.
+    const unsubscribeToken = crypto.randomBytes(32).toString("hex");
+    const unsubscribeTokenHash = crypto
+      .createHash("sha256")
+      .update(unsubscribeToken)
+      .digest("hex");
 
     let saveResponse;
 
@@ -93,6 +104,7 @@ module.exports = async function handler(req, res) {
           body: JSON.stringify({
             confirmation_token_hash: tokenHash,
             confirmation_expires_at: expiresAt,
+            unsubscribe_token_hash: unsubscribeTokenHash,
             confirmed: false
           })
         }
@@ -112,7 +124,8 @@ module.exports = async function handler(req, res) {
             email,
             confirmed: false,
             confirmation_token_hash: tokenHash,
-            confirmation_expires_at: expiresAt
+            confirmation_expires_at: expiresAt,
+            unsubscribe_token_hash: unsubscribeTokenHash
           })
         }
       );
@@ -125,14 +138,11 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const origin = req.headers.origin;
-    const host = req.headers["x-forwarded-host"] || req.headers.host;
-    const protocol = req.headers["x-forwarded-proto"] || "https";
-
-    // Use the deployed Joinly site as the confirmation destination.
-    const siteUrl = "https://joinly-bot.xyz";
     const confirmationUrl =
       `${siteUrl}/api/confirm?token=${token}&email=${encodeURIComponent(email)}`;
+
+    const unsubscribeUrl =
+      `${siteUrl}/api/unsubscribe?token=${unsubscribeToken}`;
 
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -156,6 +166,11 @@ module.exports = async function handler(req, res) {
               </a>
             </p>
             <p>This link expires in 24 hours. If you didn't request this, you can ignore this email.</p>
+            <hr style="border:none;border-top:1px solid #ddd;margin:24px 0">
+            <p style="font-size:12px;color:#666">
+              Unsubscribe link for your records:
+              <a href="${unsubscribeUrl}">Unsubscribe</a>
+            </p>
           </div>
         `
       })
