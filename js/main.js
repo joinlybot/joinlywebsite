@@ -1,157 +1,318 @@
-
 function initJoinlyMain() {
+
+    if (!document.querySelector(".navbar")) return;
+
     /*
-     * The shared navbar dropdown is managed by js/navbar.js.
-     * Do not attach a second click handler to it here.
-     */
+        MAIN NAVBAR DROPDOWN
+    */
+
+    const dropdown = document.querySelector(".dropdown");
+    const button = document.querySelector(".dropdown-btn");
+    const menu = document.querySelector(".dropdown-menu");
+
+    if (dropdown && button && menu) {
+
+        button.addEventListener("click", (e) => {
+
+            e.stopPropagation();
+
+            dropdown.classList.toggle("active");
+
+        });
+
+        document.addEventListener("click", (e) => {
+
+            if (!dropdown.contains(e.target)) {
+
+                dropdown.classList.remove("active");
+
+            }
+
+        });
+
+        menu.addEventListener("click", (e) => {
+
+            e.stopPropagation();
+
+        });
+
+
+        /*
+            FEATURES SUBMENU
+
+            Hovering over "Features" opens the
+            submenu to the right.
+        */
+
+        const featuresItems =
+            document.querySelectorAll(".features-dropdown");
+
+        featuresItems.forEach(featuresItem => {
+
+            const featuresMenu =
+                featuresItem.querySelector(".features-menu");
+
+            if (!featuresMenu) return;
+
+            featuresItem.addEventListener("mouseenter", () => {
+
+                featuresItem.classList.add("active");
+
+            });
+
+            featuresItem.addEventListener("mouseleave", () => {
+
+                featuresItem.classList.remove("active");
+
+            });
+
+        });
+
+    }
+
+
+    /*
+        NAVBAR SCROLL EFFECT
+    */
 
     const navbar = document.querySelector(".navbar");
 
-    if (navbar && navbar.dataset.scrollInitialized !== "true") {
-        navbar.dataset.scrollInitialized = "true";
+    if (navbar) {
 
-        const updateNavbar = () => {
+        window.addEventListener("scroll", () => {
+
             if (window.scrollY > 15) {
+
                 navbar.style.background = "rgba(11,15,22,.90)";
-                navbar.style.boxShadow = "0 10px 35px rgba(0,0,0,.35)";
+                navbar.style.boxShadow =
+                    "0 10px 35px rgba(0,0,0,.35)";
+
             } else {
+
                 navbar.style.background = "rgba(11,15,22,.65)";
                 navbar.style.boxShadow = "none";
+
             }
-        };
 
-        window.addEventListener("scroll", updateNavbar, { passive: true });
-        updateNavbar();
-    }
-
-    /*
-     * FEATURES SUBMENU
-     */
-    document.querySelectorAll(".features-dropdown").forEach(item => {
-        if (item.dataset.joinlyInitialized === "true") return;
-        item.dataset.joinlyInitialized = "true";
-
-        item.addEventListener("mouseenter", () => item.classList.add("active"));
-        item.addEventListener("mouseleave", () => item.classList.remove("active"));
-    });
-
-    /*
-     * FEATURE CARD ANIMATIONS
-     */
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll(".feature-card:not([data-animation-initialized])")
-            .forEach(card => {
-                card.dataset.animationInitialized = "true";
-                card.classList.add("hidden");
-                observer.observe(card);
-            });
-    }
-
-    /*
-     * SMOOTH ANCHOR SCROLLING
-     */
-    document.querySelectorAll('a[href^="#"]:not([data-anchor-initialized])')
-        .forEach(anchor => {
-            anchor.dataset.anchorInitialized = "true";
-
-            anchor.addEventListener("click", event => {
-                const href = anchor.getAttribute("href");
-                if (!href || href === "#") return;
-
-                const target = document.querySelector(href);
-                if (!target) return;
-
-                event.preventDefault();
-                target.scrollIntoView({ behavior: "smooth" });
-            });
         });
 
+    }
+
+
     /*
-     * ACTIVE DROPDOWN LINK
-     */
-    const current = window.location.pathname.replace(/\/$/, "") || "/";
+        FEATURE CARD ANIMATIONS
+    */
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+
+    document.querySelectorAll(".feature-card").forEach(card => {
+
+        card.classList.add("hidden");
+
+        observer.observe(card);
+
+    });
+
+
+    /*
+        SMOOTH ANCHOR SCROLLING
+    */
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            const target = document.querySelector(
+                this.getAttribute("href")
+            );
+
+            if (target) {
+
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        });
+
+    });
+
+
+    /*
+        ESCAPE KEY
+    */
+
+    document.addEventListener("keydown", (e) => {
+
+        if (e.key === "Escape") {
+
+            if (dropdown) {
+
+                dropdown.classList.remove("active");
+
+            }
+
+            document
+                .querySelectorAll(".features-dropdown")
+                .forEach(item => {
+
+                    item.classList.remove("active");
+
+                });
+
+        }
+
+    });
+
+
+    /*
+        ACTIVE DROPDOWN LINK
+    */
+
+    const current =
+        window.location.pathname.replace(/\/$/, "");
+
 
     document.querySelectorAll(".dropdown-menu a").forEach(link => {
-        let url;
 
-        try {
-            url = new URL(link.href, window.location.href);
-        } catch {
-            return;
-        }
+        const href = link.getAttribute("href");
 
-        if (url.origin !== window.location.origin) return;
+        if (!href) return;
 
-        const href = url.pathname.replace(/\/$/, "") || "/";
+        const normalizedHref =
+            href.replace(/\/$/, "");
 
-        if (href === current) {
+        if (normalizedHref === current) {
+
             link.classList.add("active-link");
-        } else {
-            link.classList.remove("active-link");
+
         }
+
     });
 
+
     /*
-     * JOIN LOG MODAL
-     */
-    const joinLogExample = document.querySelector(".join-log-reference");
-    const joinLogModal = document.querySelector("#join-log-modal");
+        PAGE LOAD
+    */
 
-    if (joinLogExample && joinLogModal &&
-        joinLogExample.dataset.modalInitialized !== "true") {
-        joinLogExample.dataset.modalInitialized = "true";
+    window.addEventListener("load", () => {
 
-        const closeButtons = joinLogModal.querySelectorAll("[data-close-join-log]");
+        document.body.classList.add("loaded");
 
-        const openModal = () => {
+    });
+
+
+    /*
+        JOIN LOG MODAL
+    */
+
+    const joinLogExample =
+        document.querySelector(".join-log-reference");
+
+    const joinLogModal =
+        document.querySelector("#join-log-modal");
+
+    const closeJoinLogButtons =
+        document.querySelectorAll("[data-close-join-log]");
+
+
+    if (joinLogExample && joinLogModal) {
+
+        const openJoinLog = () => {
+
             joinLogModal.classList.add("active");
-            joinLogModal.setAttribute("aria-hidden", "false");
+
+            joinLogModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
             document.body.classList.add("modal-open");
+
         };
 
-        const closeModal = () => {
+
+        const closeJoinLog = () => {
+
             joinLogModal.classList.remove("active");
-            joinLogModal.setAttribute("aria-hidden", "true");
+
+            joinLogModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
             document.body.classList.remove("modal-open");
+
         };
 
-        joinLogExample.addEventListener("click", openModal);
 
-        joinLogExample.addEventListener("keydown", event => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                openModal();
+        joinLogExample.addEventListener(
+            "click",
+            openJoinLog
+        );
+
+
+        joinLogExample.addEventListener(
+            "keydown",
+            (e) => {
+
+                if (e.key === "Enter" || e.key === " ") {
+
+                    e.preventDefault();
+
+                    openJoinLog();
+
+                }
+
             }
+        );
+
+
+        closeJoinLogButtons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                closeJoinLog
+            );
+
         });
 
-        closeButtons.forEach(button => {
-            button.addEventListener("click", closeModal);
-        });
 
-        joinLogModal.addEventListener("click", event => {
-            if (event.target === joinLogModal) closeModal();
-        });
+        document.addEventListener(
+            "keydown",
+            (e) => {
 
-        document.addEventListener("keydown", event => {
-            if (event.key === "Escape") closeModal();
-        });
+                if (e.key === "Escape") {
+
+                    closeJoinLog();
+
+                }
+
+            }
+        );
+
     }
 
-    document.body.classList.add("loaded");
 }
 
-/*
- * Run on the first page load and whenever js/navbar.js replaces page content.
- */
 document.addEventListener("DOMContentLoaded", initJoinlyMain);
-document.addEventListener("joinly-page-loaded", initJoinlyMain);
 document.addEventListener("joinly-navbar-loaded", initJoinlyMain);
+
