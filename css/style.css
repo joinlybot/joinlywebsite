@@ -1,19 +1,10 @@
-/* Shared dynamically-loaded navbar: reserve its space and avoid a layout jump. */
+/* Keep a fixed navbar slot so async insertion cannot move page content.
+   Do not fade the navbar: it is inserted after fetch and should appear at full opacity. */
 .navbar-container {
     position: relative;
     height: 82px;
     min-height: 82px;
     z-index: 999;
-}
-.navbar-container > .navbar {
-    opacity: 0;
-    transition: opacity .16s ease;
-}
-.navbar-container.navbar-ready > .navbar {
-    opacity: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-    .navbar-container > .navbar { transition: none; }
 }
 
 :root{
@@ -4070,17 +4061,8 @@ footer {
     }
 }
 
-/* Keep the navbar stable and above the transitioning page content. */
-.navbar {
-    view-transition-name: joinly-navbar;
-}
-
-::view-transition-old(joinly-navbar),
-::view-transition-new(joinly-navbar) {
-    animation: none;
-    height: 100%;
-}
-
+/* The navbar is fetched dynamically after document navigation. Do not give it a
+   separate shared-element snapshot; that can flash when it is inserted late. */
 /* Respect accessibility preferences. */
 @media (prefers-reduced-motion: reduce) {
     ::view-transition-old(root),

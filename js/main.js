@@ -75,9 +75,8 @@ function initJoinlyMain() {
 
     /*
         NAVBAR SCROLL EFFECT
+        Reuse the navbar reference declared at the start of this function.
     */
-
-    const navbar = document.querySelector(".navbar");
 
     if (navbar) {
 
