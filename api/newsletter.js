@@ -184,7 +184,7 @@ module.exports = async function handler(req, res) {
     }
 
     return res.status(200).json({
-      message: "Check your inbox for a confirmation email from Joinly. Our only official email is hello\@joinly-bot.xyz — any other address isn’t us."
+      message: "Check your inbox for a confirmation email from Joinly. Our only official newsletter email is hello\@joinly-bot.xyz — any other address isn’t us."
     });
   } catch (error) {
     console.error("Newsletter signup failed:", error);
