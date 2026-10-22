@@ -28,7 +28,7 @@ function isValidSession(req) {
 
   const [expires, signature] = token.split(".");
   if (!expires || !signature || !/^\d+$/.test(expires)) return false;
-  if (Number(expires) < Date.now()) return false;
+  if (Number(expires) <= Date.now()) return false;
 
   const expected = crypto
     .createHmac("sha256", password)
@@ -56,18 +56,80 @@ function escapeHTML(value) {
 }
 
 function renderText(text) {
-  const escaped = escapeHTML(text);
+  let output = escapeHTML(text);
+  const protectedHTML = [];
 
-  // Turn ordinary HTTPS/HTTP URLs into clickable links.
-  return escaped.replace(
-    /(https?:\/\/[^\s<]+)/g,
-    (url) => {
-      const cleanUrl = url.replace(/&amp;/g, "&");
-      const safeUrl = escapeHTML(cleanUrl);
+  // Generate unpredictable placeholders so user input cannot
+  // deliberately imitate a placeholder and inject HTML.
+  function protect(html) {
+    const placeholder =
+      `JOINLYTOKEN${crypto.randomBytes(16).toString("hex")}END`;
 
-      return `<a href="${safeUrl}" style="color:#b9b9ff;text-decoration:underline;word-break:break-word">${url}</a>`;
+    protectedHTML.push({ placeholder, html });
+    return placeholder;
+  }
+
+  // Markdown hyperlinks: [Joinly](https://joinly-bot.xyz)
+  // Only allow HTTP and HTTPS destinations.
+  output = output.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+    (_, label, url) => {
+      const safeURL = url.replace(/&amp;/g, "&");
+
+      return protect(
+        `<a href="${escapeHTML(safeURL)}" target="_blank" ` +
+        `rel="noopener noreferrer" ` +
+        `style="color:#b9b9ff;text-decoration:underline;word-break:break-word">` +
+        `${label}</a>`
+      );
     }
-  ).replace(/\n/g, "<br>");
+  );
+
+  // Ordinary URLs: https://joinly-bot.xyz
+  // Protect generated links while applying Markdown formatting.
+  output = output.replace(
+    /https?:\/\/[^\s<]+/g,
+    (url) => {
+      // Keep common trailing punctuation outside the link.
+      const match = url.match(/[.,!?;:]+$/);
+      const trailing = match ? match[0] : "";
+      const linkURL = trailing
+        ? url.slice(0, -trailing.length)
+        : url;
+
+      if (!linkURL) return url;
+
+      const cleanURL = linkURL.replace(/&amp;/g, "&");
+
+      const link = protect(
+        `<a href="${escapeHTML(cleanURL)}" target="_blank" ` +
+        `rel="noopener noreferrer" ` +
+        `style="color:#b9b9ff;text-decoration:underline;word-break:break-word">` +
+        `${linkURL}</a>`
+      );
+
+      return link + trailing;
+    }
+  );
+
+  // Bold: **text**
+  output = output.replace(
+    /\*\*(.+?)\*\*/g,
+    "<strong>$1</strong>"
+  );
+
+  // Italic: *text*
+  output = output.replace(
+    /(^|[^*])\*([^*\n]+)\*(?!\*)/g,
+    "$1<em>$2</em>"
+  );
+
+  // Restore generated HTML only after formatting is complete.
+  for (const item of protectedHTML) {
+    output = output.replace(item.placeholder, item.html);
+  }
+
+  return output.replace(/\n/g, "<br>");
 }
 
 function renderContent(message) {
