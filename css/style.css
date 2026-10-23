@@ -4070,3 +4070,18 @@ footer {
         animation: none;
     }
 }
+.live-status-link {
+    margin-top: 14px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.live-status-link a {
+    color: #8b9dff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.live-status-link a:hover {
+    text-decoration: underline;
+}
