@@ -141,8 +141,8 @@ module.exports = async function handler(req, res) {
     }
 
     const age = Number(answerMap.get('age'));
-    if (!Number.isInteger(age) || age < 15 || age > 99) {
-      return sendJson(res, 400, { error: 'Applicants must be at least 15 years old.' });
+    if (!Number.isInteger(age) || age < 14 || age > 99) {
+      return sendJson(res, 400, { error: 'Applicants must be at least 14 years old.' });
     }
 
     const channelId = String(process.env.APPLICATIONS_CHANNEL_ID || '').trim();
