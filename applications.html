@@ -530,8 +530,8 @@
     }
 
     const age = Number(document.getElementById("age").value);
-    if (!Number.isInteger(age) || age < 15 || age > 99) {
-      showError("Applicants must be at least 15 years old. Please check your age.");
+    if (!Number.isInteger(age) || age < 14 || age > 99) {
+      showError("Applicants must be at least 14 years old. Please check your age.");
       document.getElementById("age").focus();
       return;
     }
